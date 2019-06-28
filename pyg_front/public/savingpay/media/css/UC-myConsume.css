@@ -1,0 +1,131 @@
+.UC-myConsume{
+	width: 946px;
+	height: 600px;
+	background-color: #fff;
+	color: #505050;
+}
+.UC-myConsume .header{
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-myConsume .tabContainer{
+	width: 946px;
+	border-bottom: solid 1px #e0e0e0;
+	overflow: hidden;
+	margin-top: 20px;
+}
+.UC-myConsume s{
+	float: left;
+	margin-top: 13px;
+	width: 1px;
+	height: 16px;
+	background-color: #e0e0e0;
+}
+.UC-myConsume .tab{
+	width: 143px;
+	float: left;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	cursor: pointer;
+}
+.UC-myConsume .active{
+	font-weight: bold;
+	color: #C21E29;
+	border-bottom: solid 2px #C21E29;
+	
+}
+.UC-myConsume .table{
+	width: 944px;
+	border: solid 1px #e0e0e0;
+	border-bottom: 0;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 20px;
+}
+.UC-myConsume .tableHead{
+	overflow: hidden;
+	background: #FAFAFA;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-myConsume .tr{
+	overflow: hidden;
+	height: 58px;
+	line-height: 58px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-myConsume .shopTable .td{
+	width: 188.8px;
+	float: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.UC-myConsume .codeTable .td{
+	width: 118px;
+	float: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+a{
+	text-decoration: none;	
+}
+.UC-myConsume .comment{
+	color: #C21E29;
+	cursor: pointer;
+}
+.UC-myConsume .del{
+	color: #005aa0;
+	cursor: pointer;
+}
+.UC-myConsume .rating{
+	overflow: hidden;
+	margin-top: 30px;
+}
+
+.UC-myConsume label{
+	float: left;
+	margin-right: 20px;
+}
+.UC-myConsume .ratingText{
+	margin-top: 35px;
+	position: relative;
+}
+.UC-myConsume .ratingText textarea{
+	margin-left: 30px;
+	width: 705px;
+	height: 104px;
+	border: solid 1px #e0e0e0;
+	resize: none;
+	outline: none;
+}
+.UC-myConsume .leftText{
+	font-size: 12px;
+	color: #AAAAAA;
+	position: absolute;
+	right: 180px;
+	bottom: 10px;
+}
+.UC-myConsume .subBtn{
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	background: #c21e29;
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	margin-left: 650px;
+	margin-top: 20px;
+}
+.UC-myConsume .subBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}

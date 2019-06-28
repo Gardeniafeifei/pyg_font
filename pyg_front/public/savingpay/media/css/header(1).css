@@ -1,0 +1,286 @@
+.shortcut {
+	height: 34px;
+	width: 100%;
+	background-color: #F5F5F5;
+}
+
+.shortcut a {
+	color: #72696a;
+}
+
+.shortcut-con {
+	line-height: 34px;
+	width: 1210px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.st-l {
+	float: left;
+}
+
+.st-r {
+	float: right;
+}
+
+.shortcut .st-r li {
+	position: relative;
+	float: left;
+	height: 30px;
+	padding: 0 5px;
+}
+
+.shortcut .st-r li a:hover {
+	color: #C21E29;
+}
+
+.navitems li a:hover {
+	color: #C21E29;
+}
+
+.shortcut .st-r li s {
+	position: absolute;
+	display: block;
+	width: 1px;
+	background: #e3e3e3;
+	height: 9px;
+	right: 0;
+	top: 12px;
+}
+
+.header-c {
+	height: 78px;
+	background: #fff;
+	box-shadow: 3px 6px 10px #ebebeb;
+}
+
+.header {
+	height: 50px;
+	background: #fff;
+	width: 100%;
+}
+
+.w {
+	width: 1210px;
+	margin: 0 auto;
+}
+
+.nav .w {
+	position: relative;
+}
+
+.header .logo {
+	text-indent: -2000px;
+	float: left;
+	width: 193px;
+	height: 60px;
+	background: url(../img/logo0010.png) no-repeat center;
+	background-size: contain;
+	margin-top: -10px;
+}
+
+.header h1 {
+	float: left;
+	padding:16px 0 10px 0;
+}
+
+.header .en-header-logo .logo-right {
+	float: left;
+	height: 50px;
+	width: 175px;
+}
+
+.header .head-search-wrap {
+	float: left;
+	margin-top:20px;
+}
+
+.header .search-form {
+	display: block;
+	height: 36px;
+	line-height: 24px;
+	color: #c51320;
+	position: relative;
+	font-size: 14px;
+	z-index: 999;
+	border: solid 2px #c51c2a;
+	border-left:0;
+ 	/* border-radius: 20px; */
+	width: 360px;
+	overflow: hidden;
+	border-bottom-right-radius:20px;
+	border-top-right-radius:20px;
+}
+.tools-box {
+	float: right;
+	margin-top: 20px;
+	margin-right: 20px;
+	text-align: center;
+	width: 150px;
+	height: 36px;
+	border: solid 2px #E4E4E4;
+	border-radius: 20px;
+	position: relative;
+	background: url(../img/index/basket.png) no-repeat;
+	background-position-x: 12px;
+	background-position-y: 6px;
+	cursor: pointer;
+}
+
+.tools-box span {
+	font-size: 14px;
+	margin-top: 5px;
+	line-height: 34px;
+}
+
+.tools-box .num {
+	position: absolute;
+	top: 9px;
+	right: 20px;
+	color: #fff;
+	width: 16px;
+	height: 16px;
+	font-size: 12px;
+	text-align: center;
+	background: #c51c2a;
+	border-radius: 50%;
+	line-height: 15px;
+}
+
+.header .search-key-box {
+	float: left;
+	width: 406px;
+}
+
+.header .search-key-box .search-key {
+	width: 337px;
+	padding: 0 20px;
+	border: 0;
+	height: 36px;
+	line-height: 36px;
+}
+
+.header .search-button {
+	background: #fff;
+	width: 59px;
+	height: 36px;
+	display: block;
+	border: solid 2px #c51c2a;
+	border-left: 0;
+ 	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
+	position: absolute;
+	right: -2px;
+	top: -2px;
+	cursor: pointer;
+	float: right;
+}
+
+.header .search-button i {
+	display: block;
+	width: 20px;
+	height: 20px;
+	background-position: -100px -60px;
+	margin-top: 7px;
+	margin-left: 20px;
+	background-image: url(../img/icons.png);
+	cursor: pointer;
+}
+
+.nav {
+	height: 48px;
+	height: 100%;
+	background: #fff;
+	border-bottom: 2px solid #c81623;
+}
+
+.focus {
+	overflow: hidden;
+	height: 444px;
+}
+
+.categorys {
+	width: 234px;
+	position: relative;
+}
+
+.categorys a {
+	color: #2e1f1c;
+}
+
+.categorys-hd a {
+	display: block;
+	background: #c21e29;
+	color: #fff;
+	height: 50px;
+	font-size: 18px;
+	font-family: Verdana, Arial;
+	line-height: 50px;
+	text-indent: 50px;
+	text-align: left;
+	width: 100%;
+}
+
+.categorys-hd .ico {
+	background-image: url(../img/icons.png);
+	background-position: -60px 0;
+	top: 16px;
+}
+
+.categorys .ico {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 20px;
+}
+
+.nav .navitems {
+	position: absolute;
+	left: 260px;
+	top: 0;
+	width: 950px;
+	height: 48px;
+	border-bottom: 0;
+}
+
+.nav .navitems li {
+	position: relative;
+	float: left;
+	padding-left: 35px;
+	line-height: 48px;
+}
+
+.nav .navitems li h2 {
+	font-weight: normal;
+	font-size: 14px;
+}
+
+.nav .navitems a {
+	font-size: 16px;
+	color: #333;
+}
+.selectShop{
+	height:36px;
+	line-height:36px;
+	width:75px;
+	margin-top:20px;
+	border:2px solid #c51c2a;
+	border-right:none;
+	margin-left:30px;
+	border-bottom-left-radius:20px;
+	border-top-left-radius:20px;
+	padding-left:15px;
+	/* background:url(../img/layout_bottom.png)no-repeat 64px 13px; */
+	}
+.selectShop1{
+	background:url(../img/layout_bottom.png)no-repeat -2px 10px;
+	width:20px;
+	height:20px;
+	display:inline-block;
+	}	
+.selectShop li{
+	display:inline-block;
+	text-align:center;
+	width:50px;
+	}	
+	

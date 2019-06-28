@@ -1,0 +1,9 @@
+{{extend './basic.art'}}
+{{block 'body'}}
+<!--页面顶部-->
+{{include '../components/header.art'}}
+<!-- 具体的内容 -->
+{{block 'content'}}{{/block}}
+<!--页面底部-->
+{{include '../components/footer.art'}}
+{{/block}}

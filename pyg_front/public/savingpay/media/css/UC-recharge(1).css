@@ -1,0 +1,97 @@
+.UC-recharge{
+	width: 946px;
+	height: 600px;
+	background-color: #fff;
+	color: #505050;
+}
+.UC-recharge .header{
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-recharge .table{
+	width: 944px;
+	border: solid 1px #e0e0e0;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 20px;
+}
+.UC-recharge .tableHead{
+	overflow: hidden;
+	background: #FAFAFA;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-recharge .tr{
+	overflow: hidden;
+	height: 58px;
+	line-height: 58px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-recharge .td{
+	width: 222px;
+	float: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.UC-recharge .unpay{
+	color:#C21E29;
+	text-decoration: underline;
+	cursor: pointer;
+}
+a{
+	text-decoration: none;	
+}
+.UC-recharge .sort-money,.sort-code{
+	float: right;
+	margin-right: 40px;
+	
+}
+
+.UC-recharge .sort{
+	overflow: hidden;
+	margin-top: 20px;
+}
+.UC-recharge .sort input{
+	float: left;
+	width: 218px;
+	height: 30px;
+	border: solid 1px #cccccc;
+}
+.UC-recharge .sort-code input{
+	width: 144px;
+}
+.UC-recharge .sortTitle{
+	float: left;
+	line-height: 32px;
+}
+.UC-recharge .code{
+	float: left;
+	margin-left: 10px;
+	width: 75px;
+	height: 32px;
+	background: url("../img/newPhone-code.jpg")/*tpa=https://www.savingpay.com.cn/media/img/newPhone-code.jpg*/ no-repeat center;
+	background-size: cover;
+}
+.UC-recharge .refresh{
+	float: left;
+	margin-left: 10px;
+	color: #c21e29;
+	line-height: 32px;
+}
+.UC-recharge .rechargeBtn{
+	width: 86px;
+	height: 32px;
+	background: #c21e29;
+	color: #fff;
+	float: left;
+	margin-left: 110px;
+	border-radius: 3px;
+}
+.UC-recharge .rechargeBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}

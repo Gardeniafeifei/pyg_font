@@ -1,0 +1,66 @@
+body{
+	background: #fff;
+}
+.content{
+	width: 1210px;
+	margin:38px auto 70px auto;
+	overflow: hidden;
+}
+.userList{
+	width: 234px;
+	height: 586px;
+	background: #fafafa;
+	float: left;
+}
+.listHeader{
+	color: #C21E29;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 15px 0;
+	margin: auto 47px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.listContainer{
+	margin-top: 10px;
+	font-size: 14px;
+	color: #505050;
+}
+.list{
+	height: 38px;
+	line-height: 38px;
+	padding-left: 47px;
+	cursor: pointer;
+}
+.listContainer .active{
+	border-left: solid 4px #c21e29;
+	padding-left: 43px;
+	color: #c21e29;
+}
+.userContainers{
+	float: left;
+	margin-left: 30px;
+	background-color: #fff;
+	width: 946px;
+	height: 700px;
+}
+.loading{
+	display: block;
+	width: 32px;
+	height: 32px;
+	margin: 284px auto;
+}
+/*扫码支付*/
+.contentChat{width: 1200px;margin: 0 auto;}
+.payTitle{margin: 20px 0 20px 0;}
+.payLogo{width: 100%;height:60px;}
+.payLogo img{vertical-align: middle;}
+.scanPay{font-size:30px;padding-left: 20px;}
+.payMenu{height:80px;background: #f2f2f2;width: 100%;font-size: 20px;padding-left:100px;line-height: 80px;}
+.payMenuLeft{width: 42%;display: inline-block;}
+.payMenuright{width:41%;display: inline-block;text-align: right;}
+.cont{width: 100%;height: 420px;}
+.conChat{width: 90%;margin: 0 auto;}
+.chatLeft,.chatRight{width: 40%;display: inline-block;vertical-align: text-top;}
+.scan{width: 264px;overflow: hidden;margin-bottom: 10px;}
+.scan img{width: 100%;height: 100%;}
+.scanMoney{color: #ef4747;}

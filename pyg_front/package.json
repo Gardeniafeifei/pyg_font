@@ -1,0 +1,28 @@
+{
+  "name": "pyg_front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development nodemon app.js",
+    "start": "cross-env NODE_ENV=production node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "axios": "^0.18.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-art-template": "^1.0.1",
+    "express-favicon": "^2.0.1",
+    "express-mysql-session": "^2.1.0",
+    "express-session": "^1.16.1",
+    "http-errors": "^1.7.2",
+    "nodemon": "^1.19.1",
+    "svg-captcha": "^1.4.0",
+    "youch": "^2.0.10"
+  }
+}

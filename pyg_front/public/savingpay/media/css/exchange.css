@@ -1,0 +1,100 @@
+body{
+	background: #fff;
+}
+.titleTag{
+	width: 466px;
+	height: 56px;
+	line-height: 56px;
+	text-align: center;
+	font-size: 24px;
+	color: #fff;
+	background: url(../img/titleTag.png) no-repeat center;
+	background-size: cover;
+	margin:40px auto 30px auto;
+}
+.pointsPic{
+	width:370px;
+	height: 173px;
+	float: left;
+	cursor: pointer;
+}
+.makePoints{
+	width: 1210px;
+	margin: auto;
+	overflow: hidden;
+}
+.pointsL{
+	background:  url(../img/pointsL.png) no-repeat center;
+	background-size: cover;
+}
+.pointsM{
+	background:  url(../img/pointsM.png) no-repeat center;
+	background-size: cover;
+	margin-left: 50px;
+}
+.pointsR{
+	background:  url(../img/pointsR.png) no-repeat center;
+	/* background-size: cover; */
+	margin-left: 50px;
+}                   
+.exContainer{
+	width: 1210px;
+	overflow: hidden;
+	margin: auto;
+	margin-bottom: 20px;
+}
+.exPoints{
+	width: 214px;
+	height: 271px;
+	border: solid 1px #e0e0e0;
+	padding: 10px;
+	text-align: center;
+	margin: auto 3px 10px 3px;
+	float: left;
+}
+.exPic{
+	width: 214px;
+	height: 158px;
+	background: url(../img/index-example/exPic.jpg) no-repeat center;
+	background-size: cover;
+	cursor: pointer;
+}
+.exInfo{
+	margin: 10px auto;
+}
+.exData{
+	color: #C21E29;	
+	overflow: hidden;
+	font-size: 14px;
+}
+.DataLeft{
+	/* float: left; */
+}
+.DataRight{
+	float: right;
+}
+.exBtn{
+	width: 214px;
+	height: 35px;
+	line-height: 35px;
+	background: #c21e29;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 14px;
+	cursor: pointer;
+	margin-top: 20px;
+}
+.exBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.focus{
+	position: relative;
+	overflow: hidden;
+	width: 1210px;
+	margin: auto;
+	margin-top: 14px;
+}
+.slider{
+	width: 1210px;
+}

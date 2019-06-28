@@ -1,0 +1,101 @@
+<div id="nav-bottom">
+  <!--顶部-->
+  <div class="nav-top">
+    <div class="top">
+      <div class="py-container">
+        <div class="shortcut">
+          <ul class="fl">
+            <li class="f-item">熊贝儿欢迎您！</li>
+            <li class="f-item">
+              {{if !user.username}}
+              请
+              <a href="/login">登录</a>
+              <a href="../../public/register.html">免费注册</a>
+              {{else}}
+              <a href="/member">{{user.username}}</a>
+              <a href="/logout">退出</a>
+              {{/if}}
+            </li>
+          </ul>
+          <ul class="fr">
+            <li class="f-item">
+              <a href="/order">我的订单</a>
+            </li>
+            <li class="f-item space"></li>
+            <a href="../../public/savingpay/deshangshidai-supplier.html"><li class="f-item">商户登录</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--头部-->
+    <div class="header">
+      <div class="py-container">
+        <div class="yui3-g Logo">
+          <div class="yui3-u Left logoArea">
+            <a class="logo-bd" title="熊贝儿" href="/"></a>
+          </div>
+          <div class="yui3-u Center searchArea">
+            <div class="search">
+              <form action="/list" autocomplete="off" class="sui-form form-inline">
+                <div class="input-append">
+                  <input name="q" value="{{q}}" class="input-error input-xxlarge">
+                  <button class="sui-btn btn-xlarge btn-danger">搜索</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="yui3-u Right shopArea">
+            <div class="fr shopcar">
+              <div class="show-shopcar">
+                <span class="car"></span>
+                <a class="sui-btn btn-default btn-xlarge" href="/cart">
+                  <span>我的购物车</span>
+                  <i class="shopnum">0</i>
+                </a>
+                <div class="clearfix shopcarlist"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="yui3-g NavList">
+          <div class="all-sorts-list">
+            <div class="yui3-u Left all-sort">
+              <h4>全部商品分类</h4>
+            </div>
+            <div class="sort">
+              <div class="all-sort-list2">
+                {{each category item i}}
+                <div class="item">
+                  <h3><a href="/list/{{item.id}}">{{item.name}}</a></h3>
+                  <div class="item-list clearfix">
+                    <div class="subitem">
+                      {{each item.children subItem i}}
+                      <dl>
+                        <dt><a href="/list/{{subItem.id}}">{{subItem.name}}</a></dt>
+                        <dd>
+                          {{each subItem.children lastItem i}}
+                          <em><a href="/list/{{lastItem.id}}">{{lastItem.name}}</a></em>
+                          {{/each}}
+                        </dd>
+                      </dl>
+                      {{/each}}
+                    </div>
+                  </div>
+                </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+          <div class="yui3-u Center navArea">
+            <ul class="nav">
+              <a href="../../public/savingpay/shopList.html" style="color: #000;"><li class="f-item">商户频道</li></a>
+              <a href="../../public/savingpay/merchants.html" style="color: #000;"><li class="f-item">商家入驻</li></a>
+            </ul>
+          </div>
+          <div class="yui3-u Right"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

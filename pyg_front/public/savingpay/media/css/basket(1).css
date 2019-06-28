@@ -1,0 +1,427 @@
+.tab-head {
+	width: 1210px;
+	height: 50px;
+	line-height: 50px;
+	margin: 20px auto;
+	background: #fff;
+}
+
+.tab-head ul li {
+	display:inline-block;
+	width:120px;
+	text-align:center;
+	font-size: 18px;
+	padding-left: 10px;
+}
+.selected{
+	color:#fff;
+	background: #ef4747;
+}
+.basketContainer {
+	width: 1210px;
+	background: #fff;
+	margin: auto;
+	margin-bottom: 70px;
+}
+
+.basketHeader {
+	border-bottom: solid 10px #f4f4f4;
+}
+
+.basketTitle {
+	height: 36px;
+	line-height: 36px;
+	overflow: hidden;
+	padding: 12px;
+}
+
+.center {
+	text-align: center;
+}
+
+.tab {
+	position: relative;
+	float: left;
+	width: 197px;
+	font-size: 16px;
+	color: #2e1f1c;
+}
+
+.checkboxContainer {
+	margin-left: 20px;
+	position: relative;
+}
+
+.checkLabel {
+	background-image: url("../img/unchecked.png")/*tpa=https://www.savingpay.com.cn/media/img/unchecked.png*/;
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	position: absolute;
+	top: 10px;
+	left: -20px;
+}
+
+.checkBox:checked+label {
+	background-image: url("../img/checked.png")/*tpa=https://www.savingpay.com.cn/media/img/checked.png*/;
+}
+
+.checkBox {
+	width: 0;
+	height: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.shopList {
+	font-size: 14px;
+	border-bottom: solid 10px #f4f4f4;
+}
+
+.shopHeader {
+	height: 40px;
+	line-height: 40px;
+	padding: 0 12px;
+}
+
+.shopList .checkLabel {
+	top: 12px;
+}
+
+.shopOrder {
+	height: 88px;
+	border: solid 1px #e0e0e0;
+	border-bottom: 0;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.shopOrder .checkboxContainer {
+	float: left;
+}
+
+.shopOrder .checkLabel {
+	top: 34px;
+	left: -19px;
+}
+
+.shopOrder .checkBox:checked+label {
+	background-image: url("../img/checked1.png")/*tpa=https://www.savingpay.com.cn/media/img/checked1.png*/;
+}
+
+.shopPic {
+	height: 86px;
+	width: 86px;
+	border: solid 1px #e0e0e0;
+	/* background: url(../img/basket/basketPic.jpg) no-repeat center; */
+	background-size: cover;
+	margin-left: 30px;
+	float: left;
+}
+
+.shopInfo {
+	float: left;
+	width: 200px;
+	margin-left: 30px;
+	margin-top: 25px;
+	font-size: 14px;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.spec {
+	float: left;
+	width: 246px;
+	margin-top: 25px;
+	overflow:hidden;
+}
+
+.num {
+	margin-left:30px;
+	float: left;
+}
+
+#num {
+	width: 78px;
+	height: 32px;
+	border: solid 1px #e0e0e0;
+	text-align: center;
+	color: #595959;
+	margin-top: 25px;
+	margin-left: -5px;
+	margin-right: -5px;
+}
+
+#min,
+#plus {
+	margin-top: 25px;
+	width: 40px;
+	height: 34px;
+	background: #fff;
+	border: solid 1px #e0e0e0;
+	cursor: pointer;
+}
+
+#min:hover,
+#plus:hover {
+	background: #e0e0e0;
+}
+
+.price {
+	float: left;
+	margin-top: 35px;
+	color: #C21E29;
+	margin-left: 90px;
+}
+
+.del {
+	float: right;
+	margin-top: 20px;
+	/* margin-left: 115px; */
+	cursor: pointer;
+	text-aglin:center;
+	width:210px;
+	height:50px;
+	line-height:50px;
+}
+.del:hover{
+	color: #c21e29;
+	transition: .3s;
+}
+.sumContainer{
+	width: 1210px;
+	height: 58px;
+	line-height: 58px;
+	background: #fff;
+	border: solid 1px #e0e0e0;
+	overflow: hidden;
+}
+.goShop{
+	margin: 15px 20px;
+	float: left;
+	width: 78px;
+	height: 26px;
+	line-height: 26px;
+	border: solid 1px #e0e0e0;
+	text-align: center;
+	font-size: 14px;
+	cursor: pointer;
+}
+.goShop:hover{
+	background: #C21E29;
+	color: #fff;
+	border-color: #C21E29;
+	transition: .3s;
+}
+.sumText{
+	margin-left: 364px;
+	font-size: 14px;
+	float: left;
+}
+.sumText span{
+	color: #C21E29;
+	font-weight: bold;
+}
+.total{
+	float: left;
+	margin-left: 104px;
+	font-size: 14px;
+}
+.total span{
+	font-size: 18px;
+	font-weight: bold;
+	color: #C21E29;
+}
+.buyBtn{
+	float: right;
+	color: #fff;
+	width: 170px;
+	height: 100%;
+	background: #C21E29;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+}
+.buyBtn:hover{
+	background: #e84e40;
+	transition: .3s;
+}
+
+.addrContainer{
+	margin:10px 20px;
+	}
+.addrTitle {
+    /* font-size: 14px; */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.addrBottm {
+    overflow: hidden;
+    margin-top: 15px;
+    padding-bottom: 10px;
+}
+.addAddr {
+    color: #c21e29;
+    float: left;
+    cursor: pointer;
+}
+.slideBtn {
+    float: right;
+    margin-right: 76px;
+    cursor: pointer;
+}
+
+.addAddrContainer {
+    position: absolute;
+    top: 0;
+    display: none;
+}
+.addAddrContainer .mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    z-index: 999;
+}
+.addAddrContainer .success {
+    width: 457px;
+    height: 410px;
+    margin: 200px auto;
+    background: #fff;
+    overflow: hidden;
+}
+.addAddrContainer .successHeader {
+    height: 46px;
+    line-height: 46px;
+    width: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    background: -ms-linear-gradient(top, #ff654f, #db3d3c);
+    background: -moz-linear-gradient(top, #ff654f, #db3d3c);
+    background: -webkit-gradient(linear, 0% 0%, 85% 100%, from(#ff654f),
+ to(#db3d3c));
+    background: -webkit-gradient(linear, 0% 0%, 85% 100%, from(#ff654f),
+ to(#db3d3c));
+    background: -webkit-linear-gradient(top, #ff654f, #db3d3c);
+    background: -o-linear-gradient(top, #ff654f, #db3d3c);
+}
+.addAddrContainer .newAddress {
+    font-size: 14px;
+    margin: auto;
+    margin-top: 20px;
+    width: 400px;
+}
+.addAddrContainer .newName, .addAddrContainer .newPhone, .newPost, .remark {
+    margin-left: 29px;
+    margin-bottom: 12px;
+}
+.addAddrContainer .newName input, .addAddrContainer .newPhone input,.addAddrContainer .newDetailAddr input,.addAddrContainer .newPost input {
+    width: 300px;
+}
+.addAddrContainer input {
+    height: 26px;
+    border: solid 1px #e0e0e0;
+    border-radius: 5px;
+}
+.addAddrContainer .newAddrInfo {
+    margin-left: 6px;
+}
+.addAddrContainer .newAddrInfo select {
+    border: 1px #e0e0e0 solid;
+    background: #FFFFFF;
+    width:24.8%;
+    height: 26px;
+    border-radius: 5px;
+}
+.addAddrContainer .newDetailAddr {
+    margin: 12px auto;
+}
+.addAddrContainer textarea {
+    width: 300px;
+    height: 56px;
+    border: solid 1px #e0e0e0;
+    resize: none;
+    outline: none;
+    border-radius: 5px;
+}
+.addAddrContainer .saveBtn {
+    width: 96px;
+    height: 40px;
+    background: #c21e29;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 3px;
+    margin-left: 145px;
+}
+.addAddrContainer .shutSuccess {
+    float: right;
+    margin-right: 8px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+.addrList {
+    height: 30px;
+    overflow: hidden;
+    margin-top: 10px;
+    line-height: 30px;
+}
+.nameBtn {
+    float: left;
+    width: 142px;
+    height: 28px;
+    line-height: 28px;
+    background: #fff;
+    border: solid 1px #e0e0e0;
+    text-align: center;
+    cursor: pointer;
+}
+.addrInfo {
+    width: 75%;
+}
+.addrInfo {
+    margin-left: 10px;
+    float: left;
+}
+.realName {
+    width: 18%;
+    vertical-align: top;
+}
+.realName, .address, .phone {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.address {
+    width: 60%;
+}
+.realName, .address, .phone {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.phone {
+    width: 20%;
+    vertical-align: top;
+    text-align: center;
+}
+.realName, .address, .phone {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.addrList:hover{background: #ffdadc;}
+.active {
+    border-color: #c21e29;
+    background: url("../img/specCheck.png")/*tpa=https://www.savingpay.com.cn/media/img/specCheck.png*/ no-repeat;
+    background-position: right bottom;
+}
+

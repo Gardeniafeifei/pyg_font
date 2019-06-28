@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      height: 100%;
+    }
+    body{
+      background: url("/public/assets/img/{{status}}.png") no-repeat center / cover;
+    }
+  </style>
+</head>
+<body>
+<!--如果状态码是 404 显示404.png 图片 -->
+<!--如果状态码是 500 显示500.png 图片 -->
+</body>
+</html>

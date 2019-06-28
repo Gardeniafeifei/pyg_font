@@ -1,0 +1,189 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>熊贝儿</title>
+    <link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="media/css/common.css">
+    <link rel="stylesheet" href="media/css/login.css">
+    <link rel="stylesheet" href="media/js/layer/skin/layer.css">
+    <script src="media/js/jquery.min.js"></script>
+    <script src="media/js/layer/layer.js"></script><link rel="stylesheet" href="media/js/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+    <script src="media/js/F12.js" type="text/javascript" charset="utf-8"></script>
+    <script src="media/js/IsIE.js" type="text/javascript" charset="utf-8"></script>
+    <script src="media/js/aes.js"></script>
+    <script src="media/js/pad-zeropadding-min.js"></script>
+    <script src="media/js/jm.js"></script> 
+    <style type="text/css">
+        .tip{padding-right:7px ;position: absolute;display: none;top: 127px;left: 210px}
+        .wrong{color:rgb(194, 30, 41);}
+        #password-tip{top: 180px;}
+        #code-tip{top: 236px;}
+        .loginContainer{top: 18%;right: 15%;}
+        .container{height:610px;width:100%;}
+        .container img{width: 100%;height:100%;}
+    </style>
+    
+    <script>
+        $(function() {
+            $('.findPwd').click(function() {
+                window.location.href = 'web/forgetPwd-step1.html';
+            });
+            $('.register').click(function(){
+                window.location.href = 'web/register.html';
+            });
+            
+        })
+    </script>
+</head>
+<body>
+        <div class="container">
+            <img src="media/img/login-bg (2).jpg" class="containerImg" style="height: 90%;">
+            
+            <div class="loginContainer" style="margin-top: -20px;">
+                <div class="title">会员登录</div>
+                <label class="phone">
+                    <div class="icon"></div>
+                    <input id="loginName" type="tel" placeholder="手机号/邮箱" maxlength="18">
+                    <p id="name-tip" class="tip">&nbsp;*请输入6~18位用户名</p>
+                </label>
+                <label class="pwd">
+                    <div class="icon"></div>
+                    <input id="passWord" type="password" maxlength="18" placeholder="密码">
+                    <p id="password-tip" class="tip">&nbsp;*密码在6-18位</p>
+                </label>
+                <div class="code">
+                    <input id="codeimg" type="text" maxlength="5" placeholder="验证码">
+                    <div><img class="codeImg" src="./get/coderedis.png"></div>
+                    <p id="code-tip" class="tip">&nbsp;*输入正确的验证码</p>
+                </div>
+                <a href="./index.html"><button type="submit" class="loginBtn">登录</button></a>
+                <!-- <a href="./index.html" id="sub" type="submit" class="loginBtn">登录</a> -->
+                <div class="findPwd register"><a href="./register.html">立即注册</a></div>
+                <a href="forgetPwd-step1.html"><div class="findPwd">找回密码</div></a>
+            </div>
+        </div>
+<!--		
+        <div class="container">
+            
+        </div>-->
+        <div class="companyContainer">
+            <div class="companyTitle">合作机构</div>
+            <img src="media/img/company.png" class="company">
+        </div>
+        <iframe src="footer.html" style="margin-bottom: -5px;height: 240px" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+    
+    <script type="text/javascript">
+     
+        $("#code").click(function(){
+            yzm();
+        });
+        
+        function yzm(){
+            document.getElementById("code").src = "web/get/coderedis?t="+new Date().getTime();
+        }		
+        $(function(){
+            yzm();
+            $("#loginName").blur(function(){
+                if(!($('#loginName').val().length >= 6 && $('#loginName').val().length <= 18)){
+                    $("#name-tip").css("display","block");
+                    $("#name-tip").addClass("wrong");
+                    return false;
+                }else{
+                    $("#name-tip").removeClass("wrong");
+                    $("#name-tip").css("display","none");
+                }	
+            });
+        
+            $("#passWord").blur(function(){
+                var passwordReg=/^[a-zA-Z0-9]{6,18}$/;
+                if(!passwordReg.test($("#passWord").val())){
+                    $("#password-tip").css("display","block");
+                    $("#password-tip").addClass("wrong");
+                    return false;
+                }else{
+                    $("#password-tip").removeClass("wrong");
+                    $("#password-tip").css("display","none");
+                }
+            });
+            
+            $("#codeimg").blur(function(){
+                
+                if(!($("#codeimg").val())){
+                    $("#code-tip").css("display","block");
+                    $("#code-tip").addClass("wrong");
+                    return false;
+                }else{
+                    $("#code-tip").removeClass("wrong");
+                    $("#code-tip").css("display","none");
+                }
+            });	
+            
+            
+            $("#sub").click(function(){
+                check()
+            });
+            // 为document绑定onkeydown事件监听是否按了回车键  
+             $(document).keydown(function(event){  
+                  if (event.keyCode === 13){ // 按了回车键  
+                      $("#sub").trigger("click");  
+                 }  
+             }); 
+        })	
+  //验证
+              function check(){
+          
+                var contentList = $('input');
+                for(var j=0;j<contentList.length;j++){
+                if(contentList[j].value==""){
+                    layer.msg("请输入完整信息", {offset: ['30%', '69%']});
+                    return;
+                }
+                }
+                
+                var loginName = document.getElementById("loginName").value;
+                var passWord = document.getElementById("passWord").value;
+                var code = document.getElementById("codeimg").value;
+                var loginNames = jma(loginName.toString());
+                var passWords = jma(passWord.toString());
+                
+                var pam = {
+                    code:code,
+                    loginName:loginNames,
+                    passWord:passWords
+                
+                };
+                
+                
+                $.post(
+                    "web/userLogin/login",
+                    pam,
+                    function(data){
+//							console.log('');
+                        if(data.code=="000000"){
+                            layer.msg(data.message, {offset: ['30%', '69%']});
+                            var userStorage = data.data;
+                            sessionStorage.setItem("userStorage",JSON.stringify(userStorage));
+                            window.location.href = 'web/index.html';
+                        }else{
+                            yzm();
+                            layer.msg(data.errorMessage, {offset: ['30%', '69%']});
+                        }
+                    }
+                );
+}
+              
+              
+              //
+               $(".container .containerImg").click(function(){
+                  window.location.href = "index.html";
+              }) 
+    </script>
+    
+    
+
+
+</body></html>

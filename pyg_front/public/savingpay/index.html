@@ -1,0 +1,1239 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>熊贝儿</title>
+    <link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="media/css/common.css">
+    <link rel="stylesheet" href="media/css/slideNav.css">
+    <link rel="stylesheet" href="media/css/index.css">
+    <link rel="stylesheet" href="media/css/carousel.css">
+    <link rel="stylesheet" href="media/css/leftNav.css">
+    <link rel="stylesheet" href="media/js/layer/skin/layer.css">
+    <link rel="stylesheet" href="media/css/kefu.css">
+    <script src="media/js/jquery.min.js"></script>
+    <script src="media/js/jquery.aimmenu.js"></script>
+    <script src="media/js/carousel.js"></script>
+    <script src="media/js/cutstr.js"></script>
+    <script src="media/js/knockout.js"></script>
+    <script src="media/js/purl.js"></script>
+    <script src="media/js/indexData.js"></script>
+    <script src="media/js/louti.js"></script>
+    <script src="media/js/number.js"></script>
+    <script src="media/js/layer/layer.js"></script><link rel="stylesheet" href="media/js/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+    <script src="media/js/jquery.session.js"></script>
+    <!-- <script src="media/js/F12.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="media/js/IsIE.js" type="text/javascript" charset="utf-8"></script>
+    <script src="media/js/kefu.js"></script>
+    <style>
+        #header{width:100%;}
+        .vip{
+            height: 25px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .vipJian {
+            display:inline-block;
+            background: rgba(227,104,68,1);
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            margin: 5px auto;
+            text-align: center;
+            padding: 1px 3px;
+        }
+        .hide{
+            display: none
+        }
+    </style>
+    <script>
+    /* 判断打开屏幕是移动端还是PC */
+     function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            this.location = "mobile.html";   // 手机网站
+        }
+    }
+    browserRedirect();
+
+
+
+
+    function getCategoryName(i) {
+            sessionStorage.setItem("catagoryClicked", i.innerHTML);
+            window.location.href = "hotSale.html";
+        }
+
+        function getItemName(i) {
+            var catagoryClicked = $(i).parents('.macth_popover').attr('id');
+            sessionStorage.setItem("catagoryClicked", catagoryClicked);
+            sessionStorage.setItem("itemClicked", i.innerHTML);
+            window.location.href = "hotSale.html";
+        }
+        var lunbotudata=[
+        {
+            "image": "./media/img/banners/lunbotu5.png",
+            "types": 5,
+            "id": 138,
+            "url": "689B9920E9D14826BF6347C2459B0CCF",
+            "order": 5,
+            "status": 0
+        },
+        {
+            "image": "./media/img/banners/lunbotu4.png",
+            "types": 4,
+            "id": 136,
+            "url": "#",
+            "order": 4,
+            "status": 0
+        },
+        {
+            "image": "./media/img/banners/lunbotu3.png",
+            "types": 3,
+            "id": 135,
+            "url": "./goods/goods1.html",
+            "order": 3,
+            "status": 0
+        },
+        {
+            "image": "./media/img/banners/lunbotu2.png",
+            "types": 2,
+            "id": 130,
+            "url": "1E08BA0519EE4F20B839A147BDC5BCC8",
+            "order": 2,
+            "status": 0
+        },
+        {
+            "image": "./media/img/banners/lunbotu1.png",
+            "types": 1,
+            "id": 128,
+            "url": "46004",
+            "order": 1,
+            "status": 0
+        }
+    ];
+    function lunbotu(data) {
+        var list = data
+        for(var i = 0; i < list.length; i++) {
+            var a = document.createElement("a");
+            var types=list[i].types;
+            if(!types){
+                types=0;
+            }
+            if(types==3){
+                a.href="./goods/goods1.html";
+            }else if(types==8){
+                a.href='hotSale-Detail.html?goodId='+list[i].url+'&type=0';
+            }else if(types==9){
+                a.href='hotSale-Detail.html?goodId='+list[i].url+'&type=1';
+            }else if(types==2){
+                a.href='shopList.html';
+            }else if(types==6){
+                a.href='hotSale.html';
+            }else if(types==7){
+                a.href='exchange.html';
+            }else if(types==1){
+                a.href = list[i].url;
+            }else {
+                a.href = "#";
+            }
+            document.getElementById("fistimg").appendChild(a);
+            var img = document.createElement("img");
+            img.className = "slide";
+            img.src = list[i].image+"?t="+new Date().getTime();
+            a.appendChild(img);
+        }
+
+        var div = document.createElement("div");
+        div.className = "fader_controls";
+        document.getElementById("carousel").appendChild(div);
+        var div1 = document.createElement("div");
+        div1.className = "page prev";
+        div1.dataset.target = "prev";
+        div1.innerHTML = "<";
+        div.appendChild(div1);
+        var div2 = document.createElement("div");
+        div2.className = "page next";
+        div2.dataset.target = "next";
+        div2.innerHTML = ">";
+        div.appendChild(div2);
+        var ul = document.createElement("ul");
+        ul.className = "pager_list";
+        div.appendChild(ul);
+
+        $('#carousel').easyFader();
+        $('.slider').hover(function() {
+            $('.prev,.next').css('display', 'block');
+        }, function() {
+            $('.prev,.next').css('display', 'none');
+        });
+            }
+        $(function() {
+            // 轮播图
+            // $.ajax({
+            //     type: "post",
+            //     url: "web/firstimg/firstimglist",
+            //     async: true,
+            //     success: function(data) {
+            //         if(data.code == "000000") {
+            //             var list = data.data;
+            //             for(var i = 0; i < list.length; i++) {
+            //                 var a = document.createElement("a");
+            //                 var types=list[i].types;
+            //                 if(!types){
+            //                     types=0;
+            //                 }
+            //                 if(types==3){
+            //                     a.href='web/shop.html?supplierId='+list[i].url;
+            //                 }else if(types==8){
+            //                     a.href='web/hotSale-Detail.html?goodId='+list[i].url+'&type=0';
+            //                 }else if(types==9){
+            //                     a.href='web/hotSale-Detail.html?goodId='+list[i].url+'&type=1';
+            //                 }else if(types==2){
+            //                     a.href='web/shopList.html';
+            //                 }else if(types==6){
+            //                     a.href='web/hotSale.html';
+            //                 }else if(types==7){
+            //                     a.href='web/exchange.html';
+            //                 }else if(types==1){
+            //                     a.href = list[i].url;
+            //                 }else {
+            //                     a.href = "#";
+            //                 }
+            //                 document.getElementById("fistimg").appendChild(a);
+            //                 var img = document.createElement("img");
+            //                 img.className = "slide";
+            //                 img.src = list[i].image+"?t="+new Date().getTime();
+            //                 a.appendChild(img);
+            //             }
+
+            //             var div = document.createElement("div");
+            //             div.className = "fader_controls";
+            //             document.getElementById("carousel").appendChild(div);
+            //             var div1 = document.createElement("div");
+            //             div1.className = "page prev";
+            //             div1.dataset.target = "prev";
+            //             div1.innerHTML = "<";
+            //             div.appendChild(div1);
+            //             var div2 = document.createElement("div");
+            //             div2.className = "page next";
+            //             div2.dataset.target = "next";
+            //             div2.innerHTML = ">";
+            //             div.appendChild(div2);
+            //             var ul = document.createElement("ul");
+            //             ul.className = "pager_list";
+            //             div.appendChild(ul);
+
+            //             $('#carousel').easyFader();
+            //             $('.slider').hover(function() {
+            //                 $('.prev,.next').css('display', 'block');
+            //             }, function() {
+            //                 $('.prev,.next').css('display', 'none');
+            //             });
+            //         }
+            //     }
+            // });
+            
+
+            lunbotu(lunbotudata);
+            //优选和推荐
+            $.post(
+                "supplier/supplierindex", {},
+                function(data) {
+                    if(data.code == "000000") {
+                        var maps = data.data;
+                        var recommenList = maps.recommen;
+                        var optimizationList = maps.optimization;
+                        if(recommenList) {
+                            var recommenL = recommenList[0];
+                            var addr = "";
+                            if(recommenL.supplierAddress){
+                                addr = recommenL.supplierAddress;
+                            }
+
+                            var backgroundimage = "media/img/zw.png";
+                            if(recommenL.backgroundimage){
+                                backgroundimage = recommenL.backgroundimage;
+                            }
+
+                            var htmlL =
+                                '<div class="fb-LPic ck" data-flag="' + recommenL.supplierId + '" style="background-image:url(' + backgroundimage + ')">' +
+                                '<img class="fb-LArr" src="media/img/index/floor-Arr.png">' +
+                                '<span class="fb-Lcount">' +
+                                toDecimal1(recommenL.consumptionDiscount * 10) + '折' +
+                                '</span>' +
+                                '</div>' +
+                                '<div class="fb-Lintro">' +
+                                '<div class="title ellipsis">' +
+                                recommenL.supplierName +
+                                '</div>' +
+                                '<div class="addr" id="cut_str">' +
+                                addr +
+                                '</div>' +
+                                '<div class="phone ellipsis">' +
+                                '电话：' + recommenL.phone +
+                                '</div>' +
+                                '</div>';
+                            $("#recommenL").html(htmlL);
+                            var htmlR = "";
+                            for(var i = 1; i < recommenList.length; i++) {
+
+                                var backgroundimage = "media/img/zw.png";
+                                if(recommenList[i].backgroundimage){
+                                    backgroundimage = recommenL.backgroundimage;
+                                }
+
+                                htmlR += '<div class="fb-Ritem">' +
+                                '<div class="fb-Rpic ck" data-flag="' + recommenList[i].supplierId + '" style="background-image:url(' + recommenList[i].backgroundimage + ')">' +
+                                '<img class="floor-sArr" src="media/img/index/floor-sArr.png" />' +
+                                '<span class="fb-Rcount">' +
+                                toDecimal1(recommenList[i].consumptionDiscount * 10) + '折' +
+                                '</span>' +
+                                '</div>' +
+                                '<div class="title ellipsis">' +
+                                recommenList[i].supplierName +
+                                '</div>' +
+                                '<div class="phone">' +
+                                '电话：' + recommenList[i].phone +
+                                '</div>' +
+                                '</div>';
+
+
+                            }
+                            $("#recommenR").html(htmlR);
+
+                        }
+                        if(optimizationList) {
+                            var optimizationL = optimizationList[0];
+                            var addr = "";
+                            if(optimizationL.supplierAddress){
+                                addr = optimizationL.supplierAddress;
+                            }
+
+                            var backgroundimage = "media/img/zw.png";
+                            if(optimizationL.backgroundimage){
+                                backgroundimage = optimizationL.backgroundimage;
+                            }
+
+                            var htmlL =
+                                '<div class="fb-LPic ck" data-flag="' + optimizationL.supplierId + '"  style="background-image:url(' + backgroundimage + ')">' +
+                                '<img class="fb-LArr" src="media/img/index/floor-Arr.png">' +
+                                '<span class="fb-Lcount">' +
+                                toDecimal1(optimizationL.consumptionDiscount * 10) + '折' +
+                                '</span>' +
+                                '</div>' +
+                                '<div class="fb-Lintro">' +
+                                '<div class="title ellipsis">' +
+                                optimizationL.supplierName +
+                                '</div>' +
+                                '<div class="addr" id="cut_str">' +
+                                addr +
+                                '</div>' +
+                                '<div class="phone">' +
+                                '电话：' + optimizationL.phone +
+                                '</div>' +
+                                '</div>';
+                            $("#optimizationL").html(htmlL);
+                            var htmlR = "";
+                            for(var i = 1; i < optimizationList.length; i++) {
+
+                                var backgroundimage = "media/img/zw.png";
+                                if(optimizationList[i].backgroundimage){
+                                    backgroundimage = optimizationList[i].backgroundimage;
+                                }
+
+                                htmlR += '<div class="fb-Ritem">' +
+                                    '<div class="fb-Rpic ck" data-flag="' + optimizationList[i].supplierId + '" style="background-image:url(' + backgroundimage + ')">' +
+                                    '<img class="floor-sArr" src="media/img/index/floor-sArr.png" />' +
+                                    '<span class="fb-Rcount">' +
+                                    toDecimal1(optimizationList[i].consumptionDiscount * 10) + '折' +
+                                    '</span>' +
+                                    '</div>' +
+                                    '<div class="title ellipsis">' +
+                                    optimizationList[i].supplierName +
+                                    '</div>' +
+                                    '<div class="phone">' +
+                                    '电话：' + optimizationList[i].phone +
+                                    '</div>' +
+                                    '</div>';
+                            }
+
+                            $("#optimizationR").html(htmlR);
+                        }
+
+                        $("#shopck").on("click", ".ck", function() {
+                            var supplierId = this.dataset.flag;
+                            window.location.href = 'shop.html?supplierId=' + supplierId;
+                        });
+
+                    } else {
+                        document.getElementById("floor-1").style.display = "none";
+                        document.getElementById("floor-2").style.display = "none";
+                    }
+
+                }
+            );
+
+            //特卖
+            $.ajax({
+                type: "post",
+                url: "special/salelistNew",
+                async: true,
+                success: function(data) {
+                    if(data.code == "000000") {
+                        var hotSale = '';
+                        var list = data.data;
+                        for(var i = 0; i < list.length; i++) {
+                            var hotSale = '';
+                            var newPrice = "";
+                            var moneySpecial = ""
+                            if(list[i].differencePrice){
+                                newPrice = list[i].differencePrice;
+                            }
+                            if(list[i].moneySpecial == "0.00" || !list[i].moneySpecial){
+                                moneySpecial = "";
+                            }else{
+                                moneySpecial = "+"+list[i].moneySpecial+"津贴";
+                            }
+                            hotSale += '<div class="hotSale-Ritem">' +
+                                '<div class="hotSalePic"  style="background-image:url(' + list[i].mainPicture + ')" data-flag="' + list[i].goodId + '"></div>' +
+                                '<div class="vip"><div class="vipJian" id="vipJianss'+i+'">VIP立减￥<span>'+newPrice+'</span></div></div>'+
+                                '<div class="title ellipsis">' + list[i].goodsName +
+                                '</div>' +
+                                '<div class="hotSale-price">￥' +
+                                 toDecimal2(list[i].newPrice) +
+                                 '<text style="font-size:13px;">'+moneySpecial+'</text>'+
+                                '</div>' +
+                                '</div>'
+                            $('.hotSale-R').append(hotSale);
+                            if(list[i].differencePrice == "0.00"){
+                                $("#vipJianss"+i).addClass("hide");
+                            }
+                        }
+
+                        
+                        
+                        $('.hotSale-R').on("click", ".hotSalePic", function() {
+                            var goodId = this.dataset.flag;
+                            window.location.href = 'hotSale-Detail.html?goodId=' + goodId+'&type=1';
+
+                        });
+                    }
+                }
+            });
+
+            //积分兑换
+            $.ajax({
+                type: "post",
+                url: "special/integrallistNew",
+                async: true,
+                success: function(data) {
+                    if(data.code == "000000") {
+                        var goods = data.data;
+                        var exchange = '';
+                        var moneyIntegral = "";
+                        var newPrice = "";
+                        for(var i = 0; i < goods.length; i++) {
+                            if(goods[i].moneyIntegral!="0"){
+                                moneyIntegral = goods[i].moneyIntegral+"积分"
+                            }else{
+                                moneyIntegral = ""
+                            }
+                            if(goods[i].newPrice!="0"){
+                                newPrice = "￥"+ toDecimal2(goods[i].newPrice)+"+" 
+                            }else{
+                                newPrice = ""
+                            }
+                            exchange += '<div class="exchange-item">' +
+                                '<div class="exchange-pic" data-flag="' + goods[i].goodId + '"></div>' +
+                                '<div class="exchange-title" id="cut_str">' + goods[i].goodsName + '</div>' +
+                                '<div class="exchange-price">' +
+                                '<span class="points"></span>' +
+                                '<span class="points integral">' + newPrice+moneyIntegral + '</span>' +
+                                '</div>' +
+                                '</div>';
+                        }
+                        $('.exchange-Container').html(exchange);
+
+                        for(var i = 0; i < goods.length; i++) {
+                            $(".exchange-pic:eq(" + i + ")").css("background-image", 'url(' + goods[i].mainPicture + ')');
+                        }
+
+                        // 点击后进入商品详情页面
+                        // 点击后进入商品详情页面
+                        $('.exchange-Container').on("click", ".exchange-pic", function() {
+                            var goodId = this.dataset.flag;
+                            var type=2;
+                            window.location.href = 'hotSale-Detail.html?goodId=' + goodId+'&type=2';
+                        });
+                    }
+                }
+            });
+
+            //集采专区
+            $.ajax({
+                type: "post",
+                url: "fubao/fubaozhuanqu",
+                async: true,
+                success: function(data) {
+                    if(data.code == "000000") {
+                        var fuBao = data.data;
+                        var exchange = '';
+                        for(var i = 0; i < fuBao.length; i++) {
+                            exchange += '<div class="exchange-item ">' +
+                                '<div class="exchange-pic btnFubao" data-flag="' + fuBao[i].goodsNo + '"></div>' +
+                                '<div class="exchange-title" id="cut_str">' + fuBao[i].goodsName + '</div>' +
+                                '<div class="exchange-price">' +
+                                '<span class="points"></span>' +
+                                '<span class="points integral">￥' + fuBao[i].newPrice + '</span>' +
+                                '</div>' +
+                                '</div>';
+                        }
+                        $('.exchange-fuBao').html(exchange);
+
+                        for(var i = 0; i < fuBao.length; i++) {
+                            $(".btnFubao:eq(" + i + ")").css("background-image", 'url(' + fuBao[i].mainPicture + ')');
+                        }
+
+                        // 点击后进入商品详情页面
+                        $('.exchange-fuBao').on("click", ".btnFubao", function() {
+                            var goodId = this.dataset.flag;
+                            window.location.href = 'fubaoDetail.html?goodId=' + goodId;
+                        });
+                    }
+                }
+            });
+
+
+
+            $("#header").load(function() {
+                $(this).contents().find(".index").css('color', '#C21E29');
+            });
+
+            $('.exchange-item').click(function() {
+                window.location.href = 'fubaoDetail.html';
+            });
+
+
+            $.ajax({
+                type: "post",
+                url: "left/menu",
+                // 必须使用同步，否则子菜单数据不加载
+                async: false,
+                success: function(data) {
+                    if(data.code == "000000"){
+                        var navData = data.data.catagory;
+                        ko.applyBindings({
+                            navData: navData
+                        });
+                    }
+
+                }
+            });
+
+            var floorWidth = $(".floor").width();
+            var loutinav = $("#loutinav").width();
+            var left = ((screen.width - floorWidth) / 2 - loutinav) * (0.8);
+            var top = screen.height * (0.15);
+            $('#loutinav').css({
+                "position": "fixed",
+                "top": top,
+                "left": left
+            });
+
+            $('.fb-LPic,.fb-Rpic').click(function() {
+                window.location.href = 'shop.html';
+            });
+            $('.hotSalePic').click(function() {
+                window.location.href = 'hotSale-Detail.html';
+            });
+            $('.exchange-item').click(function() {
+                // alert($(this).index())
+            });
+
+        })
+
+
+
+  function show1() {
+     $('#divFloatToolsView').animate({ width: 'show', opacity: 'show' }, 'normal', function() { $('#divFloatToolsView').show(); kf_setCookie('RightFloatShown', 0, '', '/', 'www.istudy.com.cn'); }); $('#aFloatTools_Show').attr('style', 'display:none'); $('#aFloatTools_Hide').attr('style', 'display:block');
+ }
+ function hide1() {
+     $('#divFloatToolsView').animate({ width: 'hide', opacity: 'hide' }, 'normal', function() { $('#divFloatToolsView').hide(); kf_setCookie('RightFloatShown', 1, '', '/', 'www.istudy.com.cn'); }); $('#aFloatTools_Show').attr('style', 'display:block'); $('#aFloatTools_Hide').attr('style', 'display:none');
+ }
+    </script>
+    <script src="media/js/navbar.js"></script>
+</head>
+
+<body>
+    <iframe id="header" src="header.html" style="margin-bottom: -6px; width: 100%;" height="165" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+
+    <div class="categorys-content">
+        <div class="categorys-bd">
+            <div class="container clearfix">
+                <div class="wp">
+
+                    <!--左侧导航 start-->
+                    <div class="macth_xv_categorys">
+                        <div class="macth_xv_cat_catlist ">
+                            <ul class="macth-dropdown-menu" data-bind="foreach:navData">
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="7B00DB55DD2F43FC8CB675E331E06353">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="###" data-bind="text:$data.title" onclick="getCategoryName(this);" class="">升级专区</a></span><s style="display: block;"></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="7B00DB55DD2F43FC8CB675E331E06353" style="display: none; top: 1px;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="./hotSale_up.html" data-bind="text:$data" onclick="getItemName(this);">升级专区</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="16f7c6f43e1d41428577f69fbd751bbf">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="./hotSale_tea.html" data-bind="text:$data.title" onclick="getCategoryName(this);" class="">茶酒</a></span><s style="display: block;"></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="16f7c6f43e1d41428577f69fbd751bbf" style="display: none; top: 1px;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">白酒</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">红酒</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">洋酒</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">啤酒</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">保健酒</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">茶具</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">铁观音</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">红茶</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">绿茶</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">安吉白茶</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="./hotSale_tea.html" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">营养生鲜</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">茶</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="./hotSale_tea.html" data-bind="text:$data" onclick="getItemName(this);">食品</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="018c3e62c467497fb7f8719f452e6943">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="###" data-bind="text:$data.title" onclick="getCategoryName(this);" class="">母婴玩具</a></span><s style="display: block;"></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="018c3e62c467497fb7f8719f452e6943" style="display: none; top: 1px;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">工艺玩具</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">孕婴日用</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">纸尿裤</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">洗护</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">喂养</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">车床</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">童装</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="6a56cbc97bf5400e92a914f6adcc9971">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="###" data-bind="text:$data.title" onclick="getCategoryName(this);" class="">鞋靴箱包</a></span><s style="display: block;"></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="6a56cbc97bf5400e92a914f6adcc9971" style="display: none; top: 1px;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">斜挎包</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">双肩背包</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">单肩包</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">手提包</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">收纳包</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">拉杆旅行包</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">手拎旅行包</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">女鞋</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">男鞋</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">女包</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content"></ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="89c9473a0e5743ddafd4c4f65b2b07e8">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="###" data-bind="text:$data.title" onclick="getCategoryName(this);" class="">工艺饰品</a></span><s style="display: block;"></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="89c9473a0e5743ddafd4c4f65b2b07e8" style="display: none; top: 1px;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">流行</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">眼镜</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">珠宝</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">腕表</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="ac3c1c9ebd6143dc9ccea5f1ab5aaaa4">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="###" data-bind="text:$data.title" onclick="getCategoryName(this);" class="">家居家装</a></span><s style="display: block;"></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="ac3c1c9ebd6143dc9ccea5f1ab5aaaa4" style="display: none; top: 1px;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">花卉绿植</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">五金工具</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">床上用品</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">家居家饰</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">软装家具</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="7542178b16de431c9d3d41e9b032c865">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="###" data-bind="text:$data.title" onclick="getCategoryName(this);" class="">日用百货</a></span><s style="display: block;"></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="7542178b16de431c9d3d41e9b032c865" style="display: none; top: 1px;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">健身器材</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">居家日用</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">餐饮用品</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="91dac129fe3b472d82bc68054b2a6bc6">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="###" data-bind="text:$data.title" onclick="getCategoryName(this);">汽车用品</a></span><s></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="91dac129fe3b472d82bc68054b2a6bc6" style="display: none;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">交通工具</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">油卡</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">挂摆工艺品</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">行车记录仪</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">靠垫</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="5e739ef6a97241eca782c13aaaa446c9">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="###" data-bind="text:$data.title" onclick="getCategoryName(this);">数码家电</a></span><s></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="5e739ef6a97241eca782c13aaaa446c9" style="display: none;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">电子产品</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">大家电</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">小家电</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">手机电脑</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="922a87031eec4a029ace1ec2011a413b">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="###" data-bind="text:$data.title" onclick="getCategoryName(this);">美妆洗护</a></span><s></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="922a87031eec4a029ace1ec2011a413b" style="display: none;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">彩妆</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">香水</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">头发造型</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">护发精油</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">洗护套装</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">护发素发膜</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">洗发水</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">美容护肤</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">洗护用品</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="6949917000e04e29939f82197e40d61c">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="###" data-bind="text:$data.title" onclick="getCategoryName(this);">服装</a></span><s></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="6949917000e04e29939f82197e40d61c" style="display: none;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">内衣</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">户外</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">女装</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">男装</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                                <li class="macth_xvitem" data-bind="attr:{'data-submenu-id':$data.id}" data-submenu-id="6282502850b942be9cf9f53194cfc02e">
+                                    <h3>
+                                        <span></span>
+                                        <span class="macth_xvh3_a"><a href="###" data-bind="text:$data.title" onclick="getCategoryName(this);">食品</a></span><s></s>
+                                    </h3>
+                                    <div data-bind="attr:{'id':$data.id}" class="macth_popover" id="6282502850b942be9cf9f53194cfc02e" style="display: none;">
+                                        <div class="macth_popover-content">
+                                            <ul class="macth_content_ul" data-bind="foreach:$data.content">
+                                                <li class="macth_nav_li">
+                                                    <a class="macth_xvnav_li_alist" href="###" data-bind="text:$data.title"></a>
+                                                    <ul class="macth_xvnav_li_ul" data-bind="foreach:$data.content">
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">生鲜</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">食品</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">饮品</a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="###" data-bind="text:$data" onclick="getItemName(this);">零食</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--左侧导航 end-->
+
+                </div>
+            </div>
+        </div>
+        <div class="focus">
+            <div class="slider">
+                <div id="carousel" class="fader">
+                    <div id="fistimg">
+                        <!-- <a href="689B9920E9D14826BF6347C2459B0CCF"><img class="slide" src="https://f.savingpay.com/ftp2/firstImg/2019/05/lunbotu5.png?t=1561017396069" style=" "></a><a href="#"><img class="slide" src="https://f.savingpay.com/ftp2/firstImg/2019/05/lunbotu4.png?t=1561017396069" style=" "></a><a href="web/hotSale-Detail.html?goodId=416FFFEF363C49B0AC49D143EDA79285&amp;type=0"><img class="slide" src="https://f.savingpay.com/ftp2/firstImg/2019/04/lunbotu3.png?t=1561017396069" style=" "></a><a href="web/hotSale-Detail.html?goodId=1E08BA0519EE4F20B839A147BDC5BCC8&amp;type=1"><img class="slide" src="https://f.savingpay.com/ftp2/firstImg/2019/03/lunbotu2.png?t=1561017396069" style="z-index: 2; opacity: 1;"></a><a href="web/shop.html?supplierId=46004"><img class="slide" src="https://f.savingpay.com/ftp2/firstImg/2019/04/lunbotu1.png?t=1561017396069" style="z-index: 3; opacity: 0.456074;"></a> -->
+                    </div>
+                <div class="fader_controls">
+                    <!-- <div class="page prev" data-target="prev" style="display: none;">&lt;</div><div class="page next" data-target="next" style="display: none;">&gt;</div><ul class="pager_list"><li class="page" data-target="0">0</li><li class="page" data-target="1">1</li><li class="page" data-target="2">2</li><li class="page" data-target="3">3</li><li class="page active" data-target="4">4</li></ul></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loutinav" style="position: fixed; top: 135px; left: 64px;">
+        <ul>
+            <!-- <li class="active"><span>推荐商户</span></li>
+            <li><span>优选商户</span></li>
+            <li><span>特卖商品</span></li>
+            <li><span>积分兑换</span></li> -->
+            <!-- <li><span>集采专区</span></li> -->
+            <li class="last">返回顶部</li>
+        </ul>
+    </div>
+    <div class="main" id="main">
+
+         <div id="shopck">
+            <div class="floor floor-1" id="floor-1">
+                <div class="floorHead"  style="margin-top: 20px;">推荐商户</div>
+                <div class="floorBody">
+                    <div class="fb-L" id="recommenL"><div class="fb-LPic ck" data-flag="43522" style="background-image:url('./media/img/shop/aGTQvVK.jpg')"><img class="fb-LArr" src="media/img/index/floor-Arr.png"><span class="fb-Lcount">8.0折</span></div><div class="fb-Lintro"><div class="title ellipsis">今品花园主题餐饮</div><div class="addr" id="cut_str">深圳市龙岗区坂田街道扬马小区2号101</div><div class="phone ellipsis">电话：02968968666</div></div></div>
+                    <div class="fb-R" id="recommenR">
+                        <a href="./shop.1.html"><div class="fb-Ritem">
+                            <div class="fb-Rpic ck" data-flag="43466" style="background-image:url(./media/img/shop/rEvCpPP.jpg)">
+                                <img class="floor-sArr" src="media/img/index/floor-sArr.png">
+                                <span class="fb-Rcount">8.0折</span>
+                            </div>
+                            <div class="title ellipsis">品位风情园</div>
+                            <div class="phone">电话：02989151199</div>
+                        </div></a>
+                        <a href="./shop.bo.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="41386" style="background-image:url(./media/img/shop/2qRfgYn.jpg)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">9.9折</span></div><div class="title ellipsis">伯朗造型</div><div class="phone">电话：18700307180</div></div></a>
+                        <a href="./shop.ou.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="25552" style="background-image:url(./media/img/shop/fjQrV5r.jpg)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">9.5折</span></div><div class="title ellipsis">欧米媞</div><div class="phone">电话：17802922974</div></div>
+                        <a href="./shop.mimi.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="23513" style="background-image:url('./media/img/shop/W4z6e67.png')"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">9.5折</span></div><div class="title ellipsis">咪咪川菜</div><div class="phone">电话：13679201921</div></div></a>
+                        <a href="./shop.gulu.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="22767" style="background-image:url('./media/img/shop/MnXpxEM.jpg')"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">9.0折</span></div><div class="title ellipsis">重庆咕噜鱼庄</div><div class="phone">电话：18792998568</div></div></a>
+                        <a href="./shop.IDo.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="25643" style="background-image:url(./media/img/shop/YFZduDy.png)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">9.0折</span></div><div class="title ellipsis">I DO CAKE手工烘焙坊</div><div class="phone">电话：13572913867</div></div></a>
+                        <a href="./shop.mo.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="22696" style="background-image:url(./media/img/shop/8AuKxrT.png)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">8.9折</span></div><div class="title ellipsis">巧手厨娘</div><div class="phone">电话：15976852585</div></div></a>
+                        <a href="./shop.boat.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="23283" style="background-image:url(./media/img/shop/aP98e2x.png)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">9.4折</span></div><div class="title ellipsis">船动力（太华北路）</div><div class="phone">电话：18966755588</div></div></div></a>
+                </div>
+            </div>
+            <div class="floor floor-2" id="floor-2">
+                <div class="floorHead">优选商户</div>
+                <div class="floorBody">
+                    <a href="./shop.cq_re.html"><div class="fb-L" id="optimizationL"><div class="fb-LPic ck" data-flag="24584" style="background-image:url('./media/img/shop/cq_re.jpg')"><img class="fb-LArr" src="media/img/index/floor-Arr.png"><span class="fb-Lcount">10.0折</span></div><div class="fb-Lintro"><div class="title ellipsis">重庆饭店</div><div class="addr" id="cut_str">重庆市渝中区新华路41.43号</div><div class="phone">电话：13669296826</div></div></div></a>
+                    <div class="fb-R" id="optimizationR">
+                        <a href="./shop.flow.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="25429" style="background-image:url(./media/img/shop/EGcDZBM.png)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">3.6折</span></div><div class="title ellipsis">高科度假酒店</div><div class="phone">电话：18710923384</div></div></a>
+                        <a href="./shop.young.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="32605" style="background-image:url(./media/img/shop/cq.jpg)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">9.9折</span></div><div class="title ellipsis">重庆港青旅</div><div class="phone">电话：18192892198</div></div></a>
+                        <a href="./shop.big.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="25506" style="background-image:url(./media/img/shop/hc6JgMg.png)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">8.8折</span></div><div class="title ellipsis">清真胖嘴肉蟹煲</div><div class="phone">电话：18991806096</div></div></a>
+                        <a href="./shop.yan.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="22758" style="background-image:url(./media/img/shop/xU7haDN.png)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">9.0折</span></div><div class="title ellipsis">晋肴阁大雁塔分公司</div><div class="phone">电话：18192255705</div></div></a>
+                        <a href="./shop.ho.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="24389" style="background-image:url(./media/img/shop/wuRfBjz.png)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">8.5折</span></div><div class="title ellipsis">加上烘焙工作室</div><div class="phone">电话：18792669118</div></div></a>
+                        <a href="./shop.ye.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="23577" style="background-image:url(./media/img/shop/fEJ9xpB.png)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">9.5折</span></div><div class="title ellipsis">芽庄—青叶越南粉店</div><div class="phone">电话：18629616272</div></div></a>
+                        <a href="./shop.cu.html"><div class="fb-Ritem"><div class="fb-Rpic ck" data-flag="22957" style="background-image:url(./media/img/shop/XsZWVRt.png)"><img class="floor-sArr" src="media/img/index/floor-sArr.png"><span class="fb-Rcount">9.5折</span></div><div class="title ellipsis">秦楚风餐厅</div><div class="phone">电话：13659259187</div></div></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="floor floor-3" id="floor-3">
+                <div class="head">
+                    <span class="headTitle">特卖商品</span>
+                    <div class="headLeft" onclick="window.open('hotSale.html','_blank')">更多<i class="iconMore"></i></div>
+                </div>
+                <div class="hotSale-L"></div>
+                <div class="hotSale-R">
+                    <div class="hotSale-Ritem"><div class="hotSalePic" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/06/F61778E9406B4C42B7A022D8A91AB9F6/kMZ7vsQ.jpg)" data-flag="F61778E9406B4C42B7A022D8A91AB9F6"></div><div class="vip"><div class="vipJian hide" id="vipJianss0">VIP立减￥<span>0.00</span></div></div><div class="title ellipsis">女士手表时尚简约手镯</div><div class="hotSale-price">￥129.00<text style="font-size:13px;"></text></div></div>
+                    <a href="./hotSale-Detail.sc.html" style="color:#000;"><div class="hotSale-Ritem"><div class="hotSalePic" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/06/74BC3C2C4FD649D5BB456A85C0CB2911/jb639zn.jpg)" data-flag="74BC3C2C4FD649D5BB456A85C0CB2911"></div><div class="vip"><div class="vipJian hide" id="vipJianss1">VIP立减￥<span>0.00</span></div></div><div class="title ellipsis">香水4瓶+1条丝巾</div><div class="hotSale-price">￥119.00<text style="font-size:13px;"></text></div></div></a>
+                    <a href="./hotSale-Detail.na.html" style="color:#000;"><div class="hotSale-Ritem"><div class="hotSalePic" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/06/03CEB2EB25B04AFDA5A4D2C9AEE91FBF/VcTFm6e.jpg)" data-flag="03CEB2EB25B04AFDA5A4D2C9AEE91FBF"></div><div class="vip"><div class="vipJian hide" id="vipJianss2">VIP立减￥<span>0.00</span></div></div><div class="title ellipsis">环保纳米超浓缩洗净片</div><div class="hotSale-price">￥49.00<text style="font-size:13px;"></text></div></div></a>
+                    <a href="./hotSale-Detail.mo.html" style="color:#000;"><div class="hotSale-Ritem"><div class="hotSalePic" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/06/0486698CA22C4329A08DAF8E9100C312/9DbctBF.jpg)" data-flag="0486698CA22C4329A08DAF8E9100C312"></div><div class="vip"><div class="vipJian hide" id="vipJianss3">VIP立减￥<span>0.00</span></div></div><div class="title ellipsis">升级版纳米液体膜</div><div class="hotSale-price">￥39.90<text style="font-size:13px;"></text></div></div></a>
+                    <a href="./hotSale-Detail.ca.html" style="color:#000;"><div class="hotSale-Ritem"><div class="hotSalePic" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/06/CA2D07B4B54F411AB60A5C1AB0D14D23/Xe5PxE5.jpg)" data-flag="CA2D07B4B54F411AB60A5C1AB0D14D23"></div><div class="vip"><div class="vipJian hide" id="vipJianss4">VIP立减￥<span>0.00</span></div></div><div class="title ellipsis">众泰康 草本植物精华</div><div class="hotSale-price">￥199.00<text style="font-size:13px;"></text></div></div></a>
+                    <a href="./hotSale-Detail.ba.html" style="color:#000;"><div href="./hotSale-Detail.na.html"><div class="hotSale-Ritem"><div class="hotSalePic" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/05/94273B753CCF45C89A64AF44F17FF385/WeG86M0.jpg)" data-flag="94273B753CCF45C89A64AF44F17FF385"></div><div class="vip"><div class="vipJian" id="vipJianss5">VIP立减￥<span>3.00</span></div></div><div class="title ellipsis">儿童洗头杯水勺婴儿</div><div class="hotSale-price">￥17.90<text style="font-size:13px;"></text></div></div></div></a>
+            </div>
+            <div class="floor floor-4" id="floor-4">
+                <div class="head">
+                    <span class="headTitle">积分兑换</span>
+                    <div class="headLeft" onclick="window.open('exchange.html','_blank')">更多<i class="iconMore"></i></div>
+                </div>
+                <a href="fubaoDetail.html"><div class="exchange-Container"><div class="exchange-item"><div class="exchange-pic" data-flag="D61AF523EAD84E3C89FA62ABD5C354EA" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2018/12/D61AF523EAD84E3C89FA62ABD5C354EA/Hh0RNJK.jpg&quot;);"></div><div class="exchange-title" id="cut_str">志高 电烧水壶304</div><div class="exchange-price"><span class="points"></span><span class="points integral">2160积分</span></div></div><div class="exchange-item"><div class="exchange-pic" data-flag="B5F00E0552144DD6AEA7FEF01967B0E4" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2018/12/B5F00E0552144DD6AEA7FEF01967B0E4/gfHWEh4.jpg&quot;);"></div><div class="exchange-title" id="cut_str">志高酸奶机家用</div><div class="exchange-price"><span class="points"></span><span class="points integral">1980积分</span></div></div><div class="exchange-item"><div class="exchange-pic" data-flag="ACF4E8499D344261B664556ECAF09483" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/01/ACF4E8499D344261B664556ECAF09483/pT8Zbqm.jpg&quot;);"></div><div class="exchange-title" id="cut_str">泊泉雅清香洁净洗衣片</div><div class="exchange-price"><span class="points"></span><span class="points integral">1180积分</span></div></div><div class="exchange-item"><div class="exchange-pic" data-flag="DD00961D989546D98B2CC22A600701B3" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/02/DD00961D989546D98B2CC22A600701B3/GFJwYEm.jpg&quot;);"></div><div class="exchange-title" id="cut_str">长款气质超仙叶子耳线</div><div class="exchange-price"><span class="points"></span><span class="points integral">2160积分</span></div></div><div class="exchange-item"><div class="exchange-pic" data-flag="9A58E0DC57974BD39DCDA5A8EE0F1528" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/02/9A58E0DC57974BD39DCDA5A8EE0F1528/YCWBk9f.jpg&quot;);"></div><div class="exchange-title" id="cut_str">北欧欧慕 电水壶</div><div class="exchange-price"><span class="points"></span><span class="points integral">10680积分</span></div></div><div class="exchange-item"><div class="exchange-pic" data-flag="F2DAF7FF25D440B19D42849231806D3C" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/F2DAF7FF25D440B19D42849231806D3C/2EqVQ4C.jpg&quot;);"></div><div class="exchange-title" id="cut_str">ECX杯具熊榨汁机</div><div class="exchange-price"><span class="points"></span><span class="points integral">9900积分</span></div></div><div class="exchange-item"><div class="exchange-pic" data-flag="A5B2DB8B0B024136A3B5788A00F7E9A6" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/A5B2DB8B0B024136A3B5788A00F7E9A6/Dbj5BXZ.jpg&quot;);"></div><div class="exchange-title" id="cut_str">超轻迷你黑胶口袋伞</div><div class="exchange-price"><span class="points"></span><span class="points integral">2700积分</span></div></div><div class="exchange-item"><div class="exchange-pic" data-flag="47C705932F26405E8BA4F130A8179BC9" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/04/47C705932F26405E8BA4F130A8179BC9/kK30KJN.jpg&quot;);"></div><div class="exchange-title" id="cut_str">懒人可撕式卷状抹布</div><div class="exchange-price"><span class="points"></span><span class="points integral">1100积分</span></div></div><div class="exchange-item"><div class="exchange-pic" data-flag="5A20A733DA574BF3BA87186F8325BA4F" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/04/5A20A733DA574BF3BA87186F8325BA4F/1McuPHg.jpg&quot;);"></div><div class="exchange-title" id="cut_str">抖音魔力除尘去尘胶</div><div class="exchange-price"><span class="points"></span><span class="points integral">2400积分</span></div></div><div class="exchange-item"><div class="exchange-pic" data-flag="FACD7A6E2CD341EBB8BDACCECF1DC8D3" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/FACD7A6E2CD341EBB8BDACCECF1DC8D3/rhKyfTs.jpg&quot;);"></div><div class="exchange-title" id="cut_str">银韩式淡水珍珠耳钩</div><div class="exchange-price"><span class="points"></span><span class="points integral">1720积分</span></div></div></div>
+                </a>
+            </div>
+            <div class="floor floor-4" id="floor-4">
+                <div class="head">
+                    <span class="headTitle">集采专区</span>
+                    <div class="headLeft" onclick="window.open('fuBao.html','_blank')">更多<i class="iconMore"></i></div>
+                </div>
+                <div class="exchange-fuBao"><div class="exchange-item "><div class="exchange-pic btnFubao" data-flag="19061916465009" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/snM4NNx.jpg&quot;);"></div><div class="exchange-title" id="cut_str">乔力豪华款踏步机</div><div class="exchange-price"><span class="points"></span><span class="points integral">￥229</span></div></div><div class="exchange-item "><div class="exchange-pic btnFubao" data-flag="19051416105906" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/05/h4bQARc.jpg&quot;);"></div><div class="exchange-title" id="cut_str">家用电器大礼包</div><div class="exchange-price"><span class="points"></span><span class="points integral">￥779</span></div></div><div class="exchange-item "><div class="exchange-pic btnFubao" data-flag="19061916494311" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/3umcNcU.jpg&quot;);"></div><div class="exchange-title" id="cut_str">海魂27英寸曲屏电脑</div><div class="exchange-price"><span class="points"></span><span class="points integral">￥3999</span></div></div><div class="exchange-item "><div class="exchange-pic btnFubao" data-flag="19061916481910" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/yJTe4Ry.jpg&quot;);"></div><div class="exchange-title" id="cut_str">惠而浦空气净化器</div><div class="exchange-price"><span class="points"></span><span class="points integral">￥899</span></div></div><div class="exchange-item "><div class="exchange-pic btnFubao" data-flag="19061916450308" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/FRDvMJK.jpg&quot;);"></div><div class="exchange-title" id="cut_str">亘帝8L车载冰箱便携</div><div class="exchange-price"><span class="points"></span><span class="points integral">￥521</span></div></div><div class="exchange-item "><div class="exchange-pic btnFubao" data-flag="19061817093207" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/JXBgvY9.jpg&quot;);"></div><div class="exchange-title" id="cut_str">归膳堂茶叶礼品盒</div><div class="exchange-price"><span class="points"></span><span class="points integral">￥188</span></div></div><div class="exchange-item "><div class="exchange-pic btnFubao" data-flag="19051715200200" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/05/KZsn7bQ.jpg&quot;);"></div><div class="exchange-title" id="cut_str">家居家纺大礼包</div><div class="exchange-price"><span class="points"></span><span class="points integral">￥909</span></div></div><div class="exchange-item "><div class="exchange-pic btnFubao" data-flag="19061817071606" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/17tYwtJ.jpg&quot;);"></div><div class="exchange-title" id="cut_str">牛皮商务男士腰带</div><div class="exchange-price"><span class="points"></span><span class="points integral">￥199</span></div></div><div class="exchange-item "><div class="exchange-pic btnFubao" data-flag="19061817051905" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/jmjHUgy.jpg&quot;);"></div><div class="exchange-title" id="cut_str">纯银项链蝴蝶结</div><div class="exchange-price"><span class="points"></span><span class="points integral">￥399</span></div></div><div class="exchange-item "><div class="exchange-pic btnFubao" data-flag="19051516234504" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/05/US1pKns.jpg&quot;);"></div><div class="exchange-title" id="cut_str">美妆个户大礼包</div><div class="exchange-price"><span class="points"></span><span class="points integral">￥330</span></div></div></div>
+            </div>
+        </div>
+        <div class="footerBanner">
+            <img src="media/img/index/footerBanner.png">
+        </div>
+    </div>
+    <div class="companyContainer">
+        <div class="companyTitle">合作机构</div>
+        <img src="media/img/company.png" class="company">
+    </div>
+    
+
+<!-------------客服----------------------->
+        <!-- <div id="floatTools" class="float0831">
+            <div class="floatL">
+                <a style="display: none" id="aFloatTools_Show" class="btnOpen" title="查看在线客服" onclick="javascript:show1();" href="javascript:void(0);">展开</a> <a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" onclick="javascript:hide1();" href="javascript:void(0);">收缩</a>
+            </div>
+            <div id="divFloatToolsView" class="floatR">
+                <div class="tp">
+                </div>
+                <div class="cn">
+                    <ul>
+                        <li class="top" style=" margin-bottom:0;">
+                            <h3 class="titZx">
+                                QQ咨询</h3>
+                        </li>
+                        <li><a class="icoTc" href="tencent://message/?V=1&amp;Uin=934757057&amp;Site=德商官网&amp;Menu=yes">总公司客服①</a> </li>
+                        <li><a class="icoTc" href="tencent://message/?V=1&amp;Uin=3020854855&amp;Site=德商官网&amp;Menu=yes">总公司客服②</a> </li>
+                        <li><a class="icoTc" href="tencent://message/?V=1&amp;Uin=3133055148&amp;Site=德商官网&amp;Menu=yes">对外宣传咨询</a> </li>
+                        <li><a class="icoTc" href="tencent://message/?V=1&amp;Uin=1970787689&amp;Site=德商官网&amp;Menu=yes">总公司商户服务</a> </li>
+
+                        <li><a class="icoTc" href="tencent://message/?V=1&amp;Uin=1763178961&amp;Site=德商官网&amp;Menu=yes">熊贝儿客服1</a> </li>
+                        <li><a class="icoTc" href="tencent://message/?V=1&amp;Uin=2969263121&amp;Site=德商官网&amp;Menu=yes">熊贝儿客服2</a> </li>
+                        <li><a class="icoTc" href="tencent://message/?V=1&amp;Uin=3470036968&amp;Site=德商官网&amp;Menu=yes">熊贝儿客服3</a> </li>
+                </ul></div>
+            </div>
+        </div> -->
+
+    <iframe src="footer.html" style="margin-bottom: -5px;height: 240px" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+
+<script>
+     ScreenWidth()
+    function ScreenWidth(){
+        if (screen.width == 1024){
+          $("#header").css("width","1210px")
+      }else if (screen.width == 1152){
+          $("#header").css("width","1210px")
+      }else{
+          $("#header").css("width","100%")
+      }
+    }
+
+//特卖
+$(".hotSale-L").click(function(){
+    window.location.href = 'VIPindex.html';
+})
+
+
+</script>
+
+</body></html>

@@ -1,0 +1,232 @@
+<html lang="en"><!-- Mirrored from www.zi-han.net/theme/hplus/login_v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:49 GMT --><head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+        <title>省付宝商户管理平台</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+        <link href="media/css/bootstrap.min.css" rel="stylesheet">
+        <link href="media/css/font-awesome.min93e3.css" rel="stylesheet">
+        <link href="media/css/animate.min.css" rel="stylesheet">
+        <link href="media/css/style.min.css" rel="stylesheet">
+        <link href="media/css/login.min.css" rel="stylesheet">
+       <!-- <link rel="stylesheet" href="https://www.savingpay.com:443/deshangshidai-supplier/media/js/plugins/layer/skin/layer.css"> --><!-- 
+        <script src="https://www.savingpay.com:443/deshangshidai-supplier/media/js/jquery-1.11.3.js"></script>
+        <script src="https://www.savingpay.com:443/deshangshidai-supplier/media/js/plugins/layer/layer.js"></script><link rel="stylesheet" href="https://www.savingpay.com/deshangshidai-supplier/media/js/plugins/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+        <script src="https://www.savingpay.com:443/deshangshidai-supplier/media/js/regular.js"></script>
+        <script src="https://www.savingpay.com:443/deshangshidai-supplier/media/js/F12.js" type="text/javascript" charset="utf-8"></script> 
+        <script src="https://www.savingpay.com:443/deshangshidai-supplier/media/js/aes.js"></script>
+        <script src="https://www.savingpay.com:443/deshangshidai-supplier/media/js/pad-zeropadding-min.js"></script>
+        <script src="https://www.savingpay.com:443/deshangshidai-supplier/media/js/jm.js"></script>  -->
+        <style>
+            body.signin{color:#000;}
+        </style>
+        <script>
+            if(window.top!==window.self){window.top.location=window.location};
+        </script>
+    </head>
+    <body class="signin">
+        <div class="signinpanel" style="background-color: orange;">
+            <div class="row">
+            <input type="hidden" id="msg" name="msg" value="">
+            <div class="form-signin" action="https://www.savingpay.com:443/deshangshidai-supplier/supplier/logining" method="post">  
+                <div id="defaultForm">
+                    <div style="margin: 10px auto;width:100%;">
+                        <!-- <div style="text-align: center;"><img src="https://www.savingpay.com:443/deshangshidai-supplier/media/image/logo002.png" alt=""></div> -->
+                        <div style="text-align: center; color:aliceblue; font-size: 40px;">熊贝儿商户管理平台</div>
+                        <div style="margin:30px auto;width:74%;text-align: center;">
+                            <input type="text" id="loginName" class="form-control uname" name="username" maxlength="18" onkeyup="regularNumEng(this)" placeholder="用户名">
+                            <input type="password" id="passWord" class="form-control pword m-b" name="password" maxlength="18" onkeyup="regularNumEng(this)" placeholder="密码"> 
+                        </div>
+                        <div style="margin: 0 auto;width: 74%;">
+                            <input type="text" id="codeimg" class="form-control YM" name="codeimg" style="color:#333;" maxlength="5" onkeyup="regularNumEng(this)" placeholder="验证码">
+                            <div class="YZM">
+                                <img src="https://www.savingpay.com:443/deshangshidai-supplier/supplier/get/coderedis?t=1561433463717" id="code" alt="" style="height: 40px;text-align: right;">
+                            </div>
+                            <a href="./index.html"><button class="btn btn-success btn-block" id="validateBtn">登录</button></a>
+                        </div> 
+                    </div> 
+                </div>
+               </div>  
+            </div>
+        </div>
+    
+    <script>
+           
+           IEVersion();
+           function IEVersion() {
+               var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+               var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
+               var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器  
+               var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+               if(isIE) {
+                   var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                   reIE.test(userAgent);
+                   var fIEVersion = parseFloat(RegExp["$1"]);
+                   if(fIEVersion == 7) {
+                       layer.alert("您的浏览器版本过低，建议使用Chrome浏览器",{
+                           yes:function(){
+                               window.location.href = "https://www.savingpay.com:443/deshangshidai-supplier/supplier/helpCh.html"
+                           }
+                       });
+                   
+                   } else if(fIEVersion == 8) {
+                       layer.alert("您的浏览器版本过低，建议使用Chrome浏览器",{
+                           yes:function(){
+                               window.location.href = "https://www.savingpay.com:443/deshangshidai-supplier/supplier/helpCh.html"
+                           }
+                       });
+                   } else if(fIEVersion == 9) {
+                       layer.alert("您的浏览器版本过低，建议使用Chrome浏览器",{
+                           yes:function(){
+                               window.location.href = "https://www.savingpay.com:443/deshangshidai-supplier/supplier/helpCh.html"
+                           }
+                       });
+                   } else if(fIEVersion == 10) {
+                       layer.alert("您的浏览器版本过低，建议使用Chrome浏览器",{
+                           yes:function(){
+                               window.location.href = "https://www.savingpay.com:443/deshangshidai-supplier/supplier/helpCh.html"
+                           }
+                       });
+                   } else {
+                       //IE版本<=7
+                       layer.alert("您的浏览器版本过低，建议使用Chrome浏览器",{
+                           yes:function(){
+                               window.location.href = "https://www.savingpay.com:443/deshangshidai-supplier/supplier/helpCh.html"
+                           }
+                       });
+                   }   
+               } else if(isEdge) {
+                    //edge
+                  
+               } else if(isIE11) {
+                    //IE11  
+                   layer.alert("您的浏览器版本过低，建议使用Chrome浏览器",{
+                       yes:function(){
+                           window.location.href = "https://www.savingpay.com:443/deshangshidai-supplier/supplier/helpCh.html"
+                       }
+                   });
+               }else{
+                   //不是ie浏览器
+                   
+               }
+           }
+        /* 给验证码绑定事件 */
+        $("#code").click(function(){
+            yzm();
+        });/*给验证码绑定事件结束  */
+    
+        var msgs = document.getElementById("msg").value;
+        if(msgs){
+            layer.msg(msgs);
+        }
+        
+        $("#loginName").blur(function(){
+            var val = $("#loginName").val();
+            if(!val){
+                layer.msg("用户名不能为空");
+            }
+        });
+        $("#passWord").blur(function(){
+            var val = $("#passWord").val();
+            if(!val){
+                layer.msg("密码不能为空");
+            }
+        });
+        $("#codeimg").blur(function(){
+            var val = $("#codeimg").val();
+            if(!val){
+                layer.msg("验证码不能为空");
+            }
+        });
+        
+    
+        
+        
+        
+        function yzm(){
+            document.getElementById("code").src = "https://www.savingpay.com:443/deshangshidai-supplier/supplier/get/coderedis?t="+new Date().getTime();
+        }
+        $(function(){
+            yzm();
+        /* 	$("#validateBtn").click(function(){
+                check();
+            }); */
+            // 为document绑定onkeydown事件监听是否按了回车键  
+             $(document).keydown(function(event){  
+                  if (event.keyCode === 13){ // 按了回车键  
+                      $("#validateBtn").trigger("click");  
+                 }  
+             });   
+        })
+        
+        $(document).ready(function() { 
+            sessionStorage.removeItem("backStageManageMentmemberId");
+            sessionStorage.removeItem("backStageManageMentcSupplierIdlist");
+            sessionStorage.removeItem("backStageManageMentisBosssupplierId");
+            sessionStorage.removeItem("backStageManageMentsupplierId");
+        
+      });   
+    
+        //登录运用ajax
+        $("#validateBtn").click(function(){
+            var loginName = $("#loginName").val();
+            if(!loginName){
+                layer.msg("用户名不能为空");
+                return;
+            }
+            var password = $("#passWord").val();
+            if(!password){
+                layer.msg("密码不能为空");
+                return;
+            }
+            var codeimg = $("#codeimg").val();
+            if(!codeimg){
+                layer.msg("验证码不能为空");
+                return;
+            }
+            
+            var loginNames = jma(loginName.toString());
+            var passwords = jma(password.toString());
+             var url="https://www.savingpay.com:443/deshangshidai-supplier/supplier/logining";
+                $.ajax({
+                    url :url,
+                    type:"post",
+                    data : {
+                        'username':loginNames,
+                        'password':passwords,
+                        'codeimg':codeimg
+                    },
+                    dataType : "json",
+                    success : function(data) {
+                        if(data.code=="000000"){
+                            console.log(data);
+                            var memberId=data.data.memberId;
+                            sessionStorage.setItem("backStageManageMentmemberId",memberId);
+                            sessionStorage.setItem("backStageManageMentcSupplierIdlist",data.data.list1);
+                            var supplierIds=sessionStorage.getItem("backStageManageMentcSupplierIdlist");
+                            sessionStorage.setItem("backStageManageMentisBosssupplierId",data.data.cIsBoss);
+                            window.location.href = 'https://www.savingpay.com:443/deshangshidai-supplier/supplier/index.html'
+                              } else if(data.code=="100000023"){
+                                  yzm();
+                                  $("#codeimg").val("");
+                                  layer.msg(data.errorMessage);
+                              }else if(data.code=="1505463441"){
+                                  yzm();
+                                  $("#loginName").val("");
+                                  $("#passWord").val("");
+                                  $("#codeimg").val("");
+                                  layer.msg(data.errorMessage);
+                              }else{
+                                  yzm();
+                                  $("#passWord").val("");
+                                  $("#codeimg").val("");
+                                  layer.msg(data.errorMessage);
+                              }
+                    }
+                });
+        });			
+                      
+    </script>
+    </body></html>

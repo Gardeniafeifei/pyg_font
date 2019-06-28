@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)header.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="renderer" content="webkit">
+	    <meta http-equiv="Cache-Control" content="no-siteapp">
+	    <meta name="keywords" content="">
+        <meta name="description" content="">
+		<title>熊贝儿</title><link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="media/css/common.css">
+		<link rel="stylesheet" href="media/css/header.css">
+		<link rel="stylesheet" href="media/css/layer.css">
+		<script src="media/js/jquery.min.js"></script>
+		<script src="media/js/layer.js"></script><link rel="stylesheet" href="media/css/layer.css" id="layui_layer_skinlayercss" style="">
+		<script src="media/js/jquery.session.js"></script>
+		<!-- <script src="media/js/F12.js" type="text/javascript" charset="utf-8"></script> -->
+	</head>
+
+	<body marginwidth="0" marginheight="0">
+	<div>
+		<div class="shortcut">
+			<div class="shortcut-con">
+				<div class="st-l">
+					您好，<span id="userName" style="color:#C21E29;"></span>欢迎访问熊贝儿！
+				</div>
+			</div>
+		</div>
+		<div class="header-c">
+			<div class="header">
+				<div class="w">
+					<h1 class="en-header-logo">
+						<a class="logo" style="cursor: pointer;"></a>
+						<a class="logo-right"></a>
+					</h1>
+				</div>
+			</div>
+		</div>
+		<div class="nav">
+			<div class="w">
+				<div class="categorys categorys-index">
+					<div class="categorys-hd" style="cursor: pointer;">
+						<a class="clstag" title="所有商品分类">
+							<!-- <i class="ico"></i> -->
+							<span style="font-family: &#39;微软雅黑&#39;;">所有商品分类</span>
+						</a>
+					</div>
+				</div>
+				<div class="navitems">
+					<ul>
+						<!-- <li>
+							<h2>
+								<a class="index" href="header.html#" style="color: rgb(194, 30, 41);">首页</a>
+							</h2>
+						</li> -->
+						<li>
+							<h2>
+								<a class="shopList" href="header.html#">商户频道</a>
+							</h2>
+						</li>
+						<!-- <li>
+							<h2>
+								<a class="hotSale" href="header.html#">特卖商城</a>
+							</h2>
+						</li>
+						<li>
+							<h2>
+								<a class="exchange" href="header.html#">积分商城</a>
+							</h2>
+						</li>
+						<li>
+							<h2>
+								<a class="fuBao" href="header.html#">集采专区</a>
+							</h2>
+						</li> -->
+						<!-- <li>
+							<h2>
+								<a class="vocher" href="header.html#">优惠券</a>
+							</h2>
+						</li> -->
+						<li>
+							<h2>
+								<a class="shop" href="merchants.html" target="_bank">商家入驻</a>
+							</h2>
+						</li>
+						<!-- <li>
+							<h2>
+								<a class=""  href="#" id="fuh">创业孵化中心</a>
+							</h2>
+						</li> -->
+						<!-- <li>
+							<h2>
+								<a href="#" id="gz">关注德商</a>
+							</h2>
+						</li> -->
+						
+						<!-- <li>
+							<h2>
+								<a href="#" id="cct">村村通</a>
+							</h2>
+						</li> -->
+						<!-- <li>
+							<h2>
+								<a href="#" id="game">游戏频道</a>
+							</h2>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+		<script type="text/javascript">
+			var userstorage = sessionStorage.getItem("userStorage");
+			$('.logo').click(function() {
+				window.top.location.href = '/';
+			});
+			$('.categorys-hd').click(function() {
+				window.top.location.href = '/';
+			});
+			$('.cityTab').click(function() {
+				window.top.location.href = 'cityTab.html';
+			});
+			$('.userCenter').click(function() {
+				window.top.location.href = 'userCenter.html';
+			});
+			$('.index').click(function() {
+				window.top.location.href = '/';
+			});
+			$('.shopList').click(function() {
+				window.top.location.href = 'shopList.html';
+			});
+			$('.hotSale').click(function() {
+				window.top.location.href = 'hotSale.html';
+			});
+			$('.exchange').click(function() {
+				window.top.location.href = 'exchange.html';
+			});
+			$('.fuBao').click(function() {
+				window.top.location.href = 'fuBao.html';
+			});
+			$('#game').click(function() {
+				window.top.location.href = 'game.html';
+			});
+			$('.tools-box').click(function() {
+				window.top.location.href = 'basket.html';
+			});
+			$('#gz').click(function() {
+				window.open("http://proc7e3f8.isitestar.cn/");
+			});
+			
+			/* $('#cct').click(function() {
+				window.open("http://cct.savingpay.com:9999");
+			}); */
+			
+			/* $('#fuh').click(function() {
+				window.open("http://proc7e3f8.isitestar.cn/page107");
+			}); */
+			/* $('.shop').click(function() {
+				window.top.location.href = 'merchants.html';
+			}); */
+			$('.vocher').click(function() {
+			});
+			
+			$('.fubaoBox').click(function() {
+				/* if(!userstorage) {
+					layer.msg("请先登录");
+					return;
+				} */
+				window.top.location.href = 'basket.html';
+			});
+			$('.login').click(function() {
+				window.top.location.href = 'login.html';
+			});
+			var localStrGetVal = sessionStorage.getItem("cityName");
+			if(!localStrGetVal) {
+				$("#city").html("重庆");
+			} else {
+				$("#city").html(localStrGetVal);
+			}
+			
+			// var supLink = 'https://www.savingpay.com/deshangshidai-supplier';
+			// var optLink = 'https://www.savingpay.com/deshangshidai-operator';
+			
+			$('#sup').click(function(){
+				window.open(supLink, null, null, null);
+			});
+			
+			$('#opt').click(function(){
+				window.open(optLink, null, null, null);
+			});
+			
+		
+			var userStorage = sessionStorage.getItem("userStorage");
+			var isFubao = 0;
+			if(userStorage) {
+				var user = JSON.parse(sessionStorage.getItem("userStorage"));
+				var userName = user.memberName;
+				var memberId = JSON.parse(sessionStorage.getItem("userStorage")).memberId;
+
+				$.post(
+					"web/FuBaoGoodsCarController/getB2cShoppingCarAddFubaoShoppingCarCountNum", {
+						memberId: memberId
+					},
+					function(data) {
+						if(data.code == "000000") {
+							var num = data.data.totalCount;
+							var fCount = data.data.fCount;
+							var tCount = data.data.tCount
+							if( fCount > 0 ){
+								isFubao = 1;
+							}
+							if ( tCount >0 ){
+								isFubao = 0;
+							}
+							/* if(fCount == 0 && tCount == 0 || !tCount || !fCount){
+								isFubao = 0;
+							} */
+							if(tCount){
+								document.getElementById("num").innerText = tCount;
+							}
+							if(fCount){
+								document.getElementById("numFuBao").innerText = fCount;
+							}
+						} 
+					}
+				);
+
+				document.getElementById("userName").innerText = userName;
+
+				document.getElementById("login").style.display = "none";
+
+				document.getElementById("outLogin").addEventListener("click", function() {
+					layer.confirm('您确认要退出吗？', {
+						title: ["提示"],
+						btn: ['确认', '取消'] //按钮
+					}, function() {
+						sessionStorage.removeItem("userStorage");
+						window.top.location.href = '/';
+					});
+
+				});
+			} else {
+				$("#outLogin").hide();
+				$(".userCenter").hide();
+			}
+			/* $('.detailBox').click(function() {
+				if(!userstorage) {
+					layer.msg("请先登录");
+					return;
+				}
+				window.top.location.href = 'basket.html?isFubao=0';
+			});
+			$('.fubaoBox').click(function() {
+				if(!userstorage) {
+					layer.msg("请先登录");
+					return;
+				}
+				window.top.location.href = 'basket.html?isFubao=1';
+			}); */
+			$(".shopUl li").click(function(){
+				$(this).addClass('active').siblings().removeClass('active');
+			})
+			
+			$(".selectShop1").click(function(){
+				var val = $(".selectShop li").html();
+				if(val == "商家"){
+					$(".selectShop li").html("商品")
+				}else if(val == "商品"){
+					$(".selectShop li").html("商家")
+				}
+			});
+			
+			// search jump
+			$('#doSearch').click(function(){
+				var searchKeyWord = $('#searchKeyWord').val();
+				var selectCate = $('.active').text();
+				if (searchKeyWord && selectCate == '商品') {
+					top.location.href='hotSale.html?searchKeyWord=' + searchKeyWord;
+				}else if(searchKeyWord && selectCate == '商家'){
+					top.location.href='shopList.html?searchKeyWord=' + searchKeyWord;
+				}else if(!searchKeyWord && selectCate == '商家'){
+					top.location.href='shopList.html'
+				}else if(!searchKeyWord && selectCate == '商品'){
+					top.location.href='hotSale.html'
+				}
+			});
+			
+			$("#searchKeyWord").keypress(function(e){  
+				if(e.which == 13) {  
+					var searchKeyWord = $('#searchKeyWord').val();
+					var selectCate = $('.active').text();
+					if (searchKeyWord && selectCate == '商品') {
+						top.location.href='hotSale.html?searchKeyWord=' + searchKeyWord;
+					}else if(searchKeyWord && selectCate == '商家'){
+						top.location.href='shopList.html?searchKeyWord=' + searchKeyWord;
+					}else if(!searchKeyWord && selectCate == '商家'){
+						top.location.href='shopList.html'
+					}else if(!searchKeyWord && selectCate == '商品'){
+						top.location.href='hotSale.html'
+					}
+				}  
+			}); 
+		</script>
+
+	
+
+</body></html>

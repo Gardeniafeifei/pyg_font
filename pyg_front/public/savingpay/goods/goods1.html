@@ -1,0 +1,1197 @@
+<html><head>
+		<meta charset="UTF-8">
+		<title>熊贝儿</title><link rel="shortcut icon" href="../media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="../media/css/common.css?time=+new Date()">
+		<link rel="stylesheet" href="../media/js/layer/skin/layer.css">
+		<link href="../media/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../media/css/pagination.css">
+		<link rel="stylesheet" href="../media/css/hotSale-Detail.css?time=+new Date()">
+		<link href="../media/js/summernote/summernote.css" rel="stylesheet">
+		<script src="../media/js/jquery.min.js?time=+new Date()"></script>
+		<script src="../media/js/layer/layer.js"></script><link rel="stylesheet" href="https://www.savingpay.com/../media/js/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+		<script src="../media/js/number.js"></script>
+		<script src="../media/js/bootstrap.min.js?time=+new Date()"></script>
+		<script src="../media/js/IsIE.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../media/js/summernote/summernote.js"></script>
+		<script src="../media/js/summernote/specialchars/summernote-ext-specialchars.js"></script>
+		<script src="../media/js/summernote/lang/summernote-zh-CN.js"></script>
+	<style type="text/css">
+	#img img:first-child{display: block;}
+	.th {float: left; text-align: center;height: 50px;line-height: 50px;padding:0 10px;}
+   .th:nth-of-type(1){width:6%;}
+   .th:nth-of-type(2){width:20%;}
+   .table-bordered{border: none;}
+   .modal-footer{border-top: none;}
+   .conList{overflow: hidden;height: 50px;border: 1px solid #e8e8e8;width: 90%;margin: 0 auto;	border-top: none;}
+   	.listActive{border: 1px solid #ef4747;}
+   	.modal-dialog{margin: 10% auto;}
+   	.addRess{margin:0 auto;color: #c21e29;width: 90%;text-align: center;font-weight: 700;}
+   	.table-bordered label{font-weight: 400;display: block;}
+   	.pages .searchPage{padding:24px 0;}
+   	.userComment{width: 100%;}
+   	.userImg{width: 100%!important;}
+   	.userImg,.PJImg{display: inline-block;}
+   	.userImg{width: 100%;text-align: left;margin-left: 0;}
+   	.PJImg{width:18%;margin-left: 10px;height: 90px;}
+   	.userImg img{vertical-align: middle;max-width: 100%;  max-height: 100%;  }
+	 /* 图片放大 */
+	 .userImg{position: relative;width: 300px;height: 80px;margin:30px auto;margin-left:74px;}
+	 .userImg img{display: inline-block;transition: all 1s;position: absolute;}
+	 .userImg img:hover{z-index:1000;box-shadow: 0 0 1px 1px #fff;transform: scale(2.5) rotate(720deg);}
+	 .img{ transform: rotate(0deg);}
+	 .comment{text-align:left;}
+	 .oPrice{text-decoration:line-through}
+	 #detailContent>div{text-align:left;}
+	 .a{float: left; text-align: left;height: 50px;line-height: 50px;width:50%;}
+	 .b{float: left; text-align:left;height: 50px;width:50%;padding:5px 10px 0 0;}
+	 
+	 
+	 /* 轮播图 */
+	 .carousel{
+	 	width:38%;
+	 }
+	 .basket{
+	 	width:60%;
+	 }
+
+	 #magnifier {
+		position: relative;
+		width: 100%;
+	}
+			
+	.small-box {
+		position: relative;
+		width: 100%;
+		height: 320px;
+		border: 1px solid #eee;
+	}
+	
+	.small-box img {
+		display: block;
+		width:100%;
+		height: 100%;
+		margin: 0 auto;
+	}
+			
+	.small-box .hover {
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 200px;
+		height: 200px;
+		border: 1px solid #aaa;
+		background: #0099ff;
+		opacity: .5;
+		filter: alpha(opacity: 50);
+		cursor: move;
+	}
+	
+	.thumbnail-box {
+		position: relative;
+		width: 100%;
+		margin-top:10px 
+	}
+	
+	.thumbnail-box .btn {
+		position: absolute;
+		top: 50%;
+		width: 22px;
+		height: 32px;
+		margin-top: -16px;
+	}
+	
+	.thumbnail-box .btn-prev {
+		left: 0;
+		background: url(../media/img/hotSaleDetail/btn_prev.png) no-repeat;
+	}
+	
+	.thumbnail-box .btn-next {
+		right: 0;
+		background: url(../media/img/hotSaleDetail/btn_next.png) no-repeat;
+	}
+	
+	.thumbnail-box .list {
+		overflow: hidden;
+		width: 390px;
+		margin: 0 auto;
+	}
+	
+	.thumbnail-box .wrapper {
+		width: 100000px;
+		overflow: hidden;
+	}
+	
+	.thumbnail-box .list .item {
+		float: left;
+		width:130px;
+		height: 100px;
+	}
+	
+	.thumbnail-box .list .item-cur {}
+	
+	.thumbnail-box .list .item img {
+		border: 2px solid #fff;
+		width:100%;
+		height: 100%
+	}
+	
+	.thumbnail-box .list .item-cur img {
+		border: 2px solid #e53e41;
+		width:100%;
+		height: 100px;
+	}
+	
+	.big-box {
+		display: none;
+		overflow: hidden;
+		position: absolute;
+		left: 451px;
+		top: 0;
+		width: 420px;
+		height: 300px;
+		border: 1px solid #e4e4e4;
+	}
+	
+	.big-box img {
+		display: block;
+	}
+	 	
+ 	.vip{
+		height: 25px;
+	}
+	.vipJian {
+	    display:inline-block;
+	    background: rgba(227,104,68,1);
+	    border-radius: 2px;
+	    color: #fff;
+	    font-size: 12px;
+	    margin: 5px auto;
+	    text-align: center;
+	    padding: 1px 3px;
+	}
+	.priceContainer{
+		height: 76px;
+		padding: 10px;
+	}
+	.price{
+		margin-top: 0;
+		display: inline-block;
+		width: 68%
+	}
+	.oPrice{
+		float:right;
+		width:30%;
+		line-height: 30px;
+	}
+	#detailContent img{
+		width:60%!important;
+		margin: 0 auto;
+		
+	}
+	.hide{
+	display: none
+	}
+</style><script>
+		// 姓名正则
+		function checkName(name) {
+			var reg1 = /^[\u4E00-\u9FA5]{2,8}$/;
+			if(reg1.exec(name)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		// 手机号正则
+		function checkMobile(mobile) {
+			var reg2 = /^0?(13[0-9]|15[012356789]|16[012356789]|19[012356789]|18[0123456789]|14[57]|17[012356789])[0-9]{8}$/;
+			if(reg2.exec(mobile)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	</script></head>
+
+	
+	<body>
+		<iframe id="header" src="../header.html" style="margin-bottom: -6px; width: 100%;" width="100%" height="165" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+
+		<div class="content">
+			<div class="nav">
+				<a href="../index.html">首页</a> &gt;
+				<a id="goodsTypeName" onclick="getItemName();">居家日用</a> &gt;
+				<span id="titleall">生活元素 I10 折叠水壶旅行电热水壶</span>
+			</div>
+			<div class="product">
+				<div class="carousel" id="sss">
+					<div id="magnifier"><div class="small-box"><img src="../media/img/goods/JF5CDn1.jpg" alt="#"></div></div>
+					<!-- <div id="wrapper"></div> -->
+				</div> 
+				
+				
+				
+				
+				<div class="basket">
+					<div class="title" id="title">生活元素 I10 折叠水壶旅行电热水壶</div>
+					<div class="subTitle" id="subTitle">生活元素 I10 折叠水壶旅行电热水壶</div>
+					<div class="priceContainer">
+						<div class="price">现价：
+							<span id="price">10500.00积分</span>
+						</div>
+						<div class="oPrice" id="oPrice">原价：￥0.00</div>
+						<div class="vip"><div class="vipJian" style="display: none;">VIP立减￥<span id="vipPrice">10</span></div></div>
+						
+					</div>
+					<div class="info">
+						<span>运费:
+							<a style="color: #C21E29;" id="postId">0.00</a>
+						</span>
+						<span>已售:
+							<a style="color: #C21E29;" id="saled">1</a>
+						</span>
+						<!--<span>剩余：253</span>-->
+					</div>
+					<div class="spec" id="spec">
+						<label>规格：</label>
+						<div id="conActive"><span class="active">l10</span></div>
+						<!--<span class="active">4层200g卷纸*27卷</span>
+						<span>3层250g卷纸*27卷</span>-->
+					</div>
+					<div class="sum">
+						<label>数量：</label>
+						<input type="button" value="-" id="min">
+					    <input type="text" id="num" value="1" readonly="">
+					  	<input type="button" value="+" id="plus">
+					</div>
+					<div class="buyBtn">
+						<span id="toBuy">立即购买</span>
+						<span id="addBasket">加入购物车</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="detail">
+				<div class="hotRec">
+					<div class="title">热门推荐</div>
+					<div class="recList"><div class="recItem"><div class="itemPic" data-id="F61778E9406B4C42B7A022D8A91AB9F6" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/06/F61778E9406B4C42B7A022D8A91AB9F6/kMZ7vsQ.jpg)"></div><div class="vip hide" id="vipJianss0"><div class="vipJian" style="display: none;">VIP立减￥<span>0.00</span></div></div><div class="recInfo ellipsis">女士手表时尚简约手镯</div><div class="recPrice">￥129.00<text style="font-size:13px;"></text></div></div><div class="recItem"><div class="itemPic" data-id="74BC3C2C4FD649D5BB456A85C0CB2911" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/06/74BC3C2C4FD649D5BB456A85C0CB2911/jb639zn.jpg)"></div><div class="vip hide" id="vipJianss1"><div class="vipJian" style="display: none;">VIP立减￥<span>0.00</span></div></div><div class="recInfo ellipsis">香水4瓶+1条丝巾</div><div class="recPrice">￥119.00<text style="font-size:13px;"></text></div></div><div class="recItem"><div class="itemPic" data-id="03CEB2EB25B04AFDA5A4D2C9AEE91FBF" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/06/03CEB2EB25B04AFDA5A4D2C9AEE91FBF/VcTFm6e.jpg)"></div><div class="vip hide" id="vipJianss2"><div class="vipJian" style="display: none;">VIP立减￥<span>0.00</span></div></div><div class="recInfo ellipsis">环保纳米超浓缩洗净片</div><div class="recPrice">￥49.00<text style="font-size:13px;"></text></div></div><div class="recItem"><div class="itemPic" data-id="0486698CA22C4329A08DAF8E9100C312" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/06/0486698CA22C4329A08DAF8E9100C312/9DbctBF.jpg)"></div><div class="vip hide" id="vipJianss3"><div class="vipJian" style="display: none;">VIP立减￥<span>0.00</span></div></div><div class="recInfo ellipsis">升级版纳米液体膜</div><div class="recPrice">￥39.90<text style="font-size:13px;"></text></div></div><div class="recItem"><div class="itemPic" data-id="CA2D07B4B54F411AB60A5C1AB0D14D23" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/06/CA2D07B4B54F411AB60A5C1AB0D14D23/Xe5PxE5.jpg)"></div><div class="vip hide" id="vipJianss4"><div class="vipJian" style="display: none;">VIP立减￥<span>0.00</span></div></div><div class="recInfo ellipsis">众泰康 草本植物精华</div><div class="recPrice">￥199.00<text style="font-size:13px;"></text></div></div><div class="recItem"><div class="itemPic" data-id="94273B753CCF45C89A64AF44F17FF385" style="background-image:url(https://f.savingpay.com/ftp2/goodsImg/2019/05/94273B753CCF45C89A64AF44F17FF385/WeG86M0.jpg)"></div><div class="vip" id="vipJianss5"><div class="vipJian" style="display: none;">VIP立减￥<span>3.00</span></div></div><div class="recInfo ellipsis">儿童洗头杯水勺婴儿</div><div class="recPrice">￥17.90<text style="font-size:13px;"></text></div></div></div>
+				</div>
+				<div class="tabContent">
+					<div class="tabContainer">
+						<div class="tab active" id="details">产品详情</div>
+						<!-- <div class="tab">规格参数</div> -->
+						<!-- <div class="tab">包装清单</div>
+						<div class="tab">售后保障</div> -->
+						<div class="tab">用户评价</div>
+						<!--<div class="tab">热门晒单</div>-->
+					</div>
+					<div class="detailContent" id="detailContent" style="font-size: 14px;"><img src="../media/img/goods/Ehx5cJX.jpg"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="addSuccess">
+			<div class="mask">
+				<div class="success">
+					<div class="successHeader">
+						成功加入购物车
+					</div>
+					<div class="successBtn">
+						<div class="goShopBtn">继续购物</div>
+						<div class="goBasketBtn">购物车结算</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		  <!-- 选择收货地址弹框 -->
+		<div class="modal fade" id="myModal-find-supplier-info" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">选择收货地址</h4>
+					</div>
+				 	<form class="form-horizontal" role="form" action="" method="post" id="categoryuuadd">
+						<div class="modal-body">
+						 	 <div class="form-group ">
+								<div id="find_supplier" class="table table-bordered table-striped">
+								</div>
+								<div class="addRess">+添加新地址</div>
+							 </div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" id="toConfirm">确定</button>
+							</div>
+						</div>
+					 </form>
+				</div>
+			</div>
+		</div>
+		<!-- start to add address's div -->
+		<div class="addAddrContainer">
+			<div class="mask">
+				<div class="success">
+					<div class="successHeader">
+						<div style="float: left;margin-left: 28px;">添加收货地址</div>
+						<img class="shutSuccess" src="../media/img/shut.png">
+					</div>
+					<div class="newAddress">
+						<div class="newName">
+							姓名：
+							<input type="text" id="realName" maxlength="8">
+						</div>
+						<div class="newPhone">
+							手机：
+							<input type="text" id="mobile" maxlength="11">
+						</div>
+						<div class="newAddrInfo">
+							省 市 区：
+							<select id="s_province" name="s_province"><option class="options" value="010000">请选择</option><option class="options" value="110000">北京市</option><option class="options" value="120000">天津市</option><option class="options" value="130000">河北省</option><option class="options" value="140000">山西省</option><option class="options" value="150000">内蒙古</option><option class="options" value="210000">辽宁省</option><option class="options" value="220000">吉林省</option><option class="options" value="230000">黑龙江</option><option class="options" value="310000">上海市</option><option class="options" value="320000">江苏省</option><option class="options" value="330000">浙江省</option><option class="options" value="340000">安徽省</option><option class="options" value="350000">福建省</option><option class="options" value="360000">江西省</option><option class="options" value="370000">山东省</option><option class="options" value="410000">河南省</option><option class="options" value="420000">湖北省</option><option class="options" value="430000">湖南省</option><option class="options" value="440000">广东省</option><option class="options" value="450000">广 西</option><option class="options" value="460000">海南省</option><option class="options" value="500000">重庆市</option><option class="options" value="510000">四川省</option><option class="options" value="520000">贵州省</option><option class="options" value="530000">云南省</option><option class="options" value="540000">西 藏</option><option class="options" value="610000">陕西省</option><option class="options" value="620000">甘肃省</option><option class="options" value="630000">青海省</option><option class="options" value="640000">宁 夏</option><option class="options" value="650000">新 疆</option><option class="options" value="710000">台湾省</option><option class="options" value="810000">香 港</option><option class="options" value="820000">澳 门</option></select>
+							<select id="s_city" name="s_city"><option value="010100">请选择</option></select>
+							<select id="s_county" name="s_county"><option value="010101">请选择</option></select>
+						</div>
+						<div class="newDetailAddr">
+							详细地址：
+							<input type="text" id="address" maxlength="25">
+						</div>
+						<div class="newPost">
+							邮编：
+							<input type="text" id="zipCode" maxlength="6" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}">
+						</div>
+						<div class="remark">
+							<span style="vertical-align: top;">备注：</span>
+							<textarea rows="5" cols="20" type="text" id="remark" maxlength="20" placeholder="可选"></textarea>
+						</div>
+						<button type="submit" class="saveBtn">
+							保存
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="mask"></div>
+		<div id="maskDialog">
+			<img src="" class="maskImg">
+		</div>
+		<!-- end to add address's div -->
+		<input type="hidden" id="goodId" name="goodId" value="F61778E9406B4C42B7A022D8A91AB9F6">
+		<iframe src="../footer.html" style="margin-bottom: -5px;margin-top: 70px;height:240px;" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		<script src="../media/js/detailCarousel.js"></script>
+		<script src="../media/js/jquery.imagezoom.min.js"></script>
+		<!-- start to 省市区三级联动 -->
+		<script src="../media/js/city.js"></script>
+		<script src="../media/js/magnifier.js"></script>
+		<script src="../media/js/javascriptUtil.js"></script>
+		<script>
+		var type = getUrlParam("type"); // 1、津贴 2、积分
+		// 点击事件，通过商品详情页的分类进入特卖分类页面
+		function getItemName() {
+
+			var goodsTypeName = document.getElementById("goodsTypeName").innerText.trim();
+
+			var catagoryClicked;
+
+			$.post(
+				'web/hotSale/getParentTypeBychild',
+				{goodsTypeName:goodsTypeName},
+				function(data){
+					if (data.code.trim() != '000000') {
+						return;
+					} else {
+						catagoryClicked = data.data.parentId;
+						sessionStorage.setItem("catagoryClicked", catagoryClicked);
+						sessionStorage.setItem("itemClicked", goodsTypeName);
+						window.location.href = "web/hotSale.html";
+					}
+				}
+			);
+		}
+
+			$(function(){
+				var goodId = document.getElementById("goodId").value;
+				var maps = {};
+
+				$('#addBasket').click(function(){
+					$('#header').attr('src', $('#header').attr('src'));
+				});
+
+				var goodsCount = 0;
+				var good = "";
+				var nom = "";
+				var goodsPackage = "";
+				var goodsId = "";
+				var goodsBreed = "1";
+				$.post(
+					"web/goodsdetails/detailsNew",
+					{goodId:goodId,isHotSale:type},
+					function(data){
+						if(data.code=="000000"){
+							good = data.data;
+							goodsCount = good.goodsCount;
+							goodsId = good.goodsNo;
+							goodsBreed = good.goodsBreed;
+							maps["goodId"] = goodsId;//id加入
+							var goodsTitle = good.goodsTitle;
+							maps["goodsTitle"] = goodsTitle;//商品标题加入
+							var goodsSubtitle = good.goodsSubtitle;
+							document.getElementById("titleall").innerHTML = goodsTitle;
+							document.getElementById("title").innerHTML = goodsTitle;
+							document.getElementById("subTitle").innerHTML = goodsSubtitle;
+							var goodsTypeName = good.goodsTypeName;
+							maps["goodsTypeName"] = goodsTypeName;//类型名
+							document.getElementById("goodsTypeName").innerHTML = goodsTypeName;
+							document.getElementById("saled").innerHTML = good.goodsSaledCount;
+							/* var brandName = good.brandName;
+							console.log(brandName)
+							maps["brandName"] = brandName;//品牌名称 */
+							var goodsName = good.goodsName;
+							maps["goodsName"] = goodsName;//商品名称
+							var pictureIcon = good.mainPicture;
+							maps["pictureIcon"] = pictureIcon//商品主图
+							var supplierId = good.supplierId;
+							maps["supplierId"] = supplierId//供应商
+
+							var images = good.images;
+							var imgArr = new Array();
+							imgArr=images.split("&");
+							var liImg = "";
+							for(var i=0;i<imgArr.length;i++){
+								liImg += '<li class="item" data-src="'+imgArr[i]+'"><img src="'+imgArr[i]+'" alt="#"></li>'
+							}
+							var manifier = '<div class="small-box">'+
+												'<img src="'+imgArr[0]+'" alt="#">'+
+												'<span class="hover" style="display: none; width: 303.75px; height: 303.75px; left: 146px; top: 146px;"></span>'+
+											'</div>'+
+											'<div class="thumbnail-box">'+
+												'<a href="javascript:;" class="btn btn-prev"></a>'+
+												'<a href="javascript:;" class="btn btn-next"></a>'+
+												'<div class="list">'+
+													'<ul class="wrapper" style="margin-left: 0px;">'+liImg+'</ul>'+
+												'</div>'+
+											'</div>'+
+											'<div class="big-box" style="display: none;">'+
+												'<img src="'+imgArr[0]+'" alt="#">'+
+											'</div>'
+							$('#magnifier').html(manifier)
+							$('#magnifier').magnifier();
+
+							/* var laber = document.createElement("label");
+							laber.innerHTML = "规格：";
+							document.getElementById("spec").appendChild(laber);
+							var div = document.createElement("div");
+							document.getElementById("spec").appendChild(div); */
+
+							var goodNorms = good.goodNorms;
+							for(var i=0;i<goodNorms.length;i++ ){
+								var span = document.createElement("span");
+								span.innerHTML = goodNorms[i].goodsPackage;
+								if(i==0){
+									span.className = "active";
+									goodsPackage = goodNorms[0].goodsPackage;
+									priceHtml(goodNorms[0],goodsBreed);
+									nom = goodNorms[0];
+								}
+
+								var norms = goodNorms[i];
+								span[0] = norms;
+								document.getElementById("conActive").appendChild(span);
+							}
+
+							$('.spec span').click(function(){
+								$(this).addClass('active');
+								$(this).siblings().removeClass('active');
+								$("#details").trigger("click");
+								var spannorms = this;
+								var norms = spannorms[0];
+								nom = norms;
+								goodsPackage = norms.goodsPackage;
+								priceHtml(norms,goodsBreed);
+
+							});
+						}else{
+							window.location.href = 'web/index.html';
+						}
+
+					}
+				);
+				
+				
+				// 商品详情
+				$.post(
+					"web/goodsdetails/detailsUrl",
+					{goodId:goodId},
+					function(data){
+						if(data.code == "000000"){
+							if(data.data.detailsUrl){
+								//中文格式
+								  $('#summernote').summernote({
+									    lang: 'zh-CN' // default: 'en-US'
+								 });
+								$("#detailContent").append(data.data.detailsUrl);
+							}else{
+								
+								if(data.data.detailsPicture){
+									var img = document.createElement("img");
+									img.src = data.data.detailsPicture.replace('savinggooddetailsurl','goodsImg');
+									document.getElementById("detailContent").appendChild(img);
+								}
+								
+							}
+							$('.tabContainer .tab:eq(0)').click(function(){
+								if(data.data.detailsUrl){
+									//中文格式
+									  $('#summernote').summernote({
+										    lang: 'zh-CN' // default: 'en-US'
+									 });
+									document.getElementById("detailContent").innerHTML="";
+									$("#detailContent").append(data.data.detailsUrl);
+								}else{
+									document.getElementById("detailContent").innerHTML="";
+									if(data.data.detailsPicture){
+										var img = document.createElement("img");
+										img.src = data.data.detailsPicture.replace('savinggooddetailsurl','goodsImg');
+										document.getElementById("detailContent").appendChild(img);
+									}
+									
+								}
+									
+							});
+						}else{
+							window.location.href = 'web/index.html';
+						}
+					})
+				
+				
+
+				// 推荐 goods start
+				$.ajax({
+					type : 'post',
+					url : 'web/special/salelistNew',
+					async: false,
+					success : function(data) {
+						if(data.code == "000000") {
+							var hotSale = '';
+							var list = data.data;
+							for(var i = 0; i < list.length; i++) {
+								var hotSale = '';
+								var newPrice = "";
+								var moneySpecial = ""
+								if(list[i].differencePrice){
+									newPrice = list[i].differencePrice;
+								}
+								if(list[i].moneySpecial == "0.00"){
+									moneySpecial = "";
+								}else{
+									moneySpecial = "+"+list[i].moneySpecial+"津贴";
+								}
+								hotSale += '<div class="recItem">' +
+												'<div class="itemPic"   data-id="' + list[i].goodId + '"  style="background-image:url(' + list[i].mainPicture + ')"></div>' +
+												'<div class="vip" id="vipJianss'+i+'"><div class="vipJian">VIP立减￥<span>'+newPrice+'</span></div></div>'+
+												'<div class="recInfo ellipsis">' + list[i].goodsName +
+												'</div>' +
+												'<div class="recPrice">￥' +
+												 toDecimal2(list[i].newPrice) +
+												 '<text style="font-size:13px;">'+moneySpecial+'</text>'+
+												'</div>' +
+											'</div>'
+								$('.recList').append(hotSale);
+								if(list[i].differencePrice == "0.00"){
+									$("#vipJianss"+i).addClass("hide");
+								}
+							}
+							// 点击后进入商品详情页面
+							$('.itemPic').click(function(){
+								var goodId = this.dataset.id;
+								window.location.href='web/hotSale-Detail.html?goodId='+goodId+'&type=1';
+							});
+						}
+					}
+				});
+			// 推荐 goods end
+
+				var nums = 1;
+				maps["count"]=nums;//数量
+//				商品加减
+				$('#min').click(function () {
+					var n = $('#num').val();
+					if ( n > 1 ) {
+						n--;
+					}
+					$('#num').val(n);
+					nums = n;
+					maps["count"]=nums;//数量
+					});
+				$('#plus').click(function () {
+					var n = $('#num').val();
+						n++;
+					$('#num').val(n);
+					nums = n;
+					maps["count"]=nums;//数量
+					});
+
+//				tab切换
+				$('.tabContainer .tab').click(function(){
+					$(this).addClass('active');
+					$(this).siblings().removeClass('active');
+				});
+//				加入购物车
+				$('#addBasket').click(function(){
+					var userStorage = sessionStorage.getItem("userStorage");
+					if(!userStorage){
+						layer.msg("请先登录！");
+						return;
+					}
+					if(!goodsPackage){
+						layer.msg("请选中一个");
+						return;
+					}
+					if(goodsCount<1){
+						layer.msg("库存不足");
+						return;
+					}
+					var user = JSON.parse(userStorage);
+					var memberId = user.memberId;
+					var count = $('#num').val();
+					var maps = {};
+					maps["memberId"] = memberId;
+					maps["normsId"] = nom.normsId;
+					maps["count"] = count;
+					maps = JSON.stringify(maps);
+					/* memberId,normsId,count normsId:nom.normsId count:count*/
+					$.ajax({
+						type:'post',
+						url:"web/v3/md/b2cshopping/addshopping",
+						data:maps,
+						contentType:'application/json;charset=UTF-8',
+						dataType:'json',
+						success:function(data){
+							if(data.code=="000000"){
+								$('.addSuccess').show();
+							}
+						}
+					})
+
+				});
+				
+				/* 立即购买 */
+				var memberAddresssId = "";
+				$('#toConfirm').click(function(){
+					var userStorage = sessionStorage.getItem("userStorage");
+					if(!userStorage){
+						layer.msg("请先登录");
+						return;
+					}
+					if(!memberAddresssId){
+						layer.msg("请选择收货地址");
+						return;
+					}
+					var user = JSON.parse(userStorage);
+					memberId = user.memberId;
+					var count = $('#num').val();
+					// goodsId,count,memberId,addressId,normsId,shareId
+					var data = {
+							goodsId:goodsId,
+							normsId:nom.normsId,
+							memberId:memberId,
+							count:count,
+							addressId:memberAddresssId,
+							shareId:""
+						}
+					data = JSON.stringify(data);
+					$.ajax({
+						type:'post',
+						url:'web/v3/md/SavingDetailToOrder',
+						data,
+						contentType:'application/json;charset=UTF-8',
+						dataType:'json',
+						success:function(data){
+							if (data.code == '000000') {
+								var orderNo_L = data.data.serialNumber;
+								var orderNo_D = data.data.orderNo;
+								window.location.href = 'web/toExchange.html?orderNo_D='+orderNo_D;
+							}else{
+								layer.msg(data.errorMessage);
+							}
+						}
+					});
+
+
+				});
+				$('.goShopBtn').click(function(){
+					$('.addSuccess').hide();
+				})
+
+				$('.goBasketBtn').click(function(){
+					var detailFubao = "1";
+					window.location.href="web/basket.html?detailFubao="+detailFubao;
+				})
+
+//				var productDetail = '<img src=https://www.savingpay.com:443/../media/"img/detail.jpg" style="display:block;width:751px;margin: auto;"/>';
+				function priceHtml(objs,goodsBreed){
+					if(goodsBreed == "1"){
+						if(objs.priceDifferences == 0){
+							$('.vipJian').hide();
+							$(".priceContainer").css("height:50px")
+							
+						}else{
+							document.getElementById("vipPrice").innerHTML = toDecimal2(objs.priceDifferences);
+						}
+						// 津贴
+						if(objs.moneySpecial != 0){
+							var moneySpecial = "<span style='font-size:16px;margin-left:6px;'>+"+objs.moneySpecial+"津贴</span>"
+							document.getElementById("price").innerHTML ="￥" + toDecimal2(objs.newPrice)+moneySpecial;
+							maps["moneySpecial"] = objs.moneySpecial;
+						}else{
+							document.getElementById("price").innerHTML = "￥" + toDecimal2(objs.newPrice);
+							maps["moneySpecial"] = "";
+						}
+						$("#header").load(function() {
+							$(this).contents().find(".hotSale").css('color', '#C21E29');
+						});
+					}else{
+						$('.vipJian').hide();
+						$(".priceContainer").css("height:50px")
+						$("#addBasket").hide();
+						$("#toBuy").html("立即兑换")
+						var newPrice = "";
+						if(!objs.newPrice || objs.newPrice=="0"||objs.newPrice=="0.00"){
+							newPrice = ""
+						}else{
+							newPrice = "￥" + toDecimal2(objs.newPrice)+"+"
+						}
+						// 积分
+						if(objs.moneyIntegral != 0){
+							var moneyIntegral = "<span>"+objs.moneyIntegral+"积分</span>"
+							document.getElementById("price").innerHTML = newPrice+moneyIntegral;
+							maps["moneyIntegral"] = objs.moneyIntegral;
+						}else{
+							document.getElementById("price").innerHTML = "￥" + newPrice;
+							maps["moneyIntegral"] = "";
+						}
+						$("#header").load(function() {
+							$(this).contents().find(".exchange").css('color', '#C21E29');
+						});
+					}
+					
+					document.getElementById("oPrice").innerHTML = "原价：￥"+toDecimal2(objs.oldPrice);
+					
+					
+					var integral = objs.integral;
+					maps["normsPrice"] = objs.newPrice;//价格
+					maps["normsId"] = objs.normsId;//规格id
+
+
+					var postId = objs.postId;
+					if(postId||postId==0){
+						document.getElementById("postId").innerHTML = toDecimal2(postId);
+					}
+					$('.tabContainer .tab:eq(1)').click(function(){
+						var divstr =
+							'<div id ="d1">暂无评论</div>'+
+							'<div class="pages">'+
+									'<div id="Pagination">'+
+										'<div class="pagination">'+
+											'<a class="current prev min">上一页</a>'+
+											'<a class="current page">1</a>'+
+											'<a class="next plus">下一页</a>'+
+										'</div>'+
+									'</div>'+
+									'<div class="searchPage">'+
+										'<span class="page-sum">共<strong class="allPage">15</strong>页</span>'+
+										'<span class="page-go">跳转<input type="text" class="tot">页</span>'+
+										'<a class="page-btn">确定</a>'+
+									'</div>'+
+								'</div>'+
+							'</div>';
+						document.getElementById("detailContent").innerHTML = divstr;
+
+						var pageSize = 1;
+						var quantity = 0;
+						var memberId ="";
+						listHtml(goodId,pageSize);
+
+						function listHtml(goodId,pageSize){
+							if(pageSize<1){
+								pageSize = 1;
+							}
+							var pam = {
+								pageSize:pageSize,
+								pageNo:10,
+								goodId:goodId
+							};
+
+							$.post(
+								"web/comment/goodscomment",
+								pam,
+								function(data){
+									if(data.code=="000000"){
+										var numbers = data.data.quantity;
+										quantity = Math.ceil(numbers/10);
+										$(".allPage").html(quantity);
+										var list = data.data.list;
+
+										var rate ='';
+										for (var i=0;i<list.length;i++) {
+											var content = "好评";
+											if(list[i].content){
+												content = list[i].content;
+											}
+											var picStr = "";
+											var imagePath = list[i].imagePath;
+											if(imagePath){
+												var imgNum = imagePath.length;
+												if(imgNum>4){
+													imgNum=4;
+												}
+												for(var k = 0; k < imagePath.length; k++) {
+													picStr+= '<div class="PJImg PJimgaaa"><img src="'+imagePath[k]+'" class="img"/></div>';
+												}
+												picStr = '<div class="userImg">'+picStr+'</div>';
+											}
+											var name = "匿名用户";
+											if(list[i].memberName){
+												if(list[i].memberName.length==11){
+													name = list[i].memberName.substr(0, 3) + '****' + list[i].memberName.substr(7);
+												}
+											}
+											rate+='<div class="rate">'+
+													'<div class="userID">'+name+'</div>'+
+													'<div class="userComment">'+
+														'<div class="comment">'+content+'</div>'+
+														picStr+
+														'<div class="time">'+list[i].commentDate+'</div>'+
+													'</div>'+
+												'</div>'
+										}
+
+										$('#d1').html(rate);
+
+//										$(".detailContent").find(".PJimgaaa img").click(function(){
+//										 	var imgSrc = $(this).attr("src");
+//											$("#mask").show();
+//											$("#maskDialog").show();
+//											$(".maskImg").attr("src",imgSrc);
+//											$(body).css("overflow-y","hidden")
+//										 })
+
+
+									}else{
+										$(".allPage").html(1);
+										$('.commentList').html("");
+									}
+
+								}
+							);
+						}
+
+						//页码
+						$('.min').click(function () {
+							var n = $(".page").html();
+							if ( n < 2 ) {
+								return;
+							}
+							n--;
+							pageSize=n;
+							listHtml(goodId,pageSize);
+							$(".page").html(n);
+						});
+						$('.plus').click(function () {
+							var n = $(".page").html();
+							if(n<quantity){
+								n++;
+								pageSize=n;
+								listHtml(goodId,pageSize);
+								$(".page").html(n);
+							}else{
+								layer.msg("没有更多数据");
+							}
+
+						});
+						$('.page-btn').click(function(){
+							var n = $('.tot').val();
+							if(!n){
+								return;
+							}
+							var f = parseInt(n);
+							if (isNaN(f)) {
+								return;
+							}
+
+							if(n>quantity||n<1){
+								layer.msg("没有更多数据");
+								return;
+							}
+							pageSize=n;
+							listHtml(goodId,pageSize);
+							$(".page").html(n);
+						});
+					});
+				};
+
+
+
+				// start to flashing go
+				$('#toBuy').click(function(){
+
+					var userStorage = sessionStorage.getItem("userStorage");
+					if(!userStorage){
+						layer.msg("请先登录");
+						return;
+					}
+					if(goodsCount<1){
+						layer.msg("库存不足");
+						return;
+					}
+					$("#myModal-find-supplier-info").modal('show');
+					// get user's id
+					var user = JSON.parse(userStorage);
+					memberId = user.memberId;
+					//ajax方法
+					addressNew();
+
+				})
+				// end to flashing go
+				
+
+
+				//……
+				$('.saveBtn').click(function(){
+
+					var userStorage = sessionStorage.getItem("userStorage");
+					var	memberId = "";
+					if(userStorage){
+						var user = JSON.parse(userStorage);
+						memberId = user.memberId;
+					}
+
+					var realName = document.getElementById("realName").value;
+					var mobile = document.getElementById("mobile").value;
+					var province = $("#s_province").find("option:selected").text();
+					var city = $("#s_city").find("option:selected").text();
+					var county = $("#s_county").find("option:selected").text();
+					var address = document.getElementById("address").value;
+					var zipCode = document.getElementById("zipCode").value;
+					var remark = document.getElementById("remark").value;
+
+
+
+					if(!checkName(realName)){
+						layer.msg("姓名不合法");
+						return;
+					}
+
+					if(!checkMobile(mobile)){
+						layer.msg("手机号不合法");
+						return;
+					}
+					if(province=="请选择"||city=="请选择"||county=="请选择"){
+						layer.msg("请选择城市");
+						return;
+					}
+					if(!address){
+						layer.msg("详细地址不能为空");
+						return;
+					}
+					if(zipCode.length!=6){
+						layer.msg("邮政编码不合法");
+						return;
+					}
+
+					if(!realName||!mobile||!address||!zipCode){
+						layer.msg("请将地址填写完整");
+						return;
+					}
+					address = province+" "+city+" "+county+"-"+address;
+					var pam = {
+						memberId:memberId,
+						realName:realName,
+						mobile:mobile,
+						address:address,
+						zipCode:zipCode,
+						remark:remark
+					}
+
+					$.ajax({
+						type:'post',
+						url:'web/add/addAddress',
+						data:pam,
+						success:function(data){
+							if(data.code=="000000"){
+//								layer.msg("地址添加成功，请您继续愉快而又放心的购物。");
+//								setTimeout(function(){
+//									window.location.reload();
+//								},1000);
+								document.getElementById("realName").value="";
+								document.getElementById("mobile").value="";
+								document.getElementById("address").value="";
+								document.getElementById("zipCode").value="";
+								document.getElementById("remark").value="";
+								$(".addAddrContainer").hide();
+								addressNew();
+								$("#myModal-find-supplier-info").modal('show');
+							}else{
+								layer.msg(data.errorMessage);
+							}
+						}
+					});
+
+				});
+				// end to add address
+
+				function addressNew(){
+
+					$.ajax({
+						type:'post',
+						url:'web/add/findList',
+						async:true,
+						data:{memberId:memberId},
+						success:function(data){
+
+							if(data.code=="000000"){
+								var addresses = data.data;
+								var conlist = '';
+								if(addresses){
+									for(var i = 0; i < addresses.length; i++) {
+										j = i + 1;
+
+										var radiostr = "";
+										if(addresses[i].isDefault=="1"){
+											memberAddresssId = addresses[i].id;
+											radiostr = '<input  type="radio" checked="checked" name="radioname" id="'+ i +'" data-flag="'+addresses[i].id+'">';
+										}else{
+											radiostr = '<input  type="radio" name="radioname" id="'+ i +'" data-flag="'+addresses[i].id+'">';
+										}
+										var classname="";
+										if(addresses[i].address.length>20){
+											classname="b";
+										}else{
+											classname="a";
+										}
+
+										conlist+='<label for="'+ i +'" >'+
+										'<div class="conList" style="border-top: 1px solid #e8e8e8;">'+
+												'<div class="th radioTh">'+radiostr+'</div>'+
+												'<div class="th">'+addresses[i].realName+'</div>'+
+												'<div class="'+classname+'" >'+addresses[i].address+'</div>'+
+												'<div class="th">' + addresses[i].mobile + '</div>'+
+											'</div>'+
+											'</label>';
+									}
+									$(".table-striped").html(conlist);
+
+									$("input[name='radioname']").click(function(){
+										memberAddresssId = this.dataset.flag;
+									});
+
+								}
+
+							}else{
+								return false;
+							}
+
+						}
+					})
+				}
+
+				//……
+
+			});
+
+
+
+			//添加新地址
+				$(".addRess").click(function(){
+					$("#myModal-find-supplier-info").modal('hide');
+					$(".addAddrContainer").show();
+				});
+			// start to add address
+				$('.addAddr,.editBtn').click(function() {
+					$('.addAddrContainer').show();
+				});
+				$('.shutSuccess').click(function() {
+					$('.addAddrContainer').css('display', 'none');
+				});
+		</script>
+	
+
+
+<script>
+			for(var i=0;i<cityData3.length;i++){
+				var options = $("<option class='options'></option>");
+				//省名
+				var provinceText = cityData3[i].text;
+				options.html(provinceText);
+				//省Id
+				var valIdPro = cityData3[i].value;
+				options.attr("value",valIdPro);
+				$("#s_province").append(options)
+			}
+
+			function citys(proId){
+				for(var i=0;i<cityData3.length;i++){
+					var valIdPro = cityData3[i].value;
+					if(valIdPro == proId){
+						var province = cityData3[i].children;
+						$("#s_city").html("");
+						for(var j = 0;j<province.length;j++){
+							var options = $("<option></option>");
+							var cityText = province[j].text;
+							options.html(cityText);
+							var valIdCity = province[j].value;
+							options.attr("value",valIdCity);
+							$("#s_city").append(options);
+						}
+					}
+				}
+			}
+
+
+			function countys(proId){
+				for(var i=0;i<cityData3.length;i++){
+					var childrens = cityData3[i].children;
+					for(var k=0;k<childrens.length;k++){
+						var countyvalue = childrens[k].value;
+						if(proId==countyvalue){
+							var countys = childrens[k].children;
+							$("#s_county").html("");
+							for(var j=0;j<countys.length;j++){
+								var options = $("<option></option>");
+								var cityText = countys[j].text;
+								options.html(cityText);
+								var valIdCity = countys[j].value;
+								options.attr("value",valIdCity);
+								$("#s_county").append(options);
+							}
+						}
+					}
+				}
+			}
+
+			 var selects1=document.getElementById("s_province");
+			var selects2=document.getElementById("s_city");
+		　　	selects1.onchange=function(){
+				var val = selects1.options[selects1.selectedIndex].value;
+		　　　　	citys(val);
+		　　　　	selects2.onchange();
+		　　	}
+
+		　　	selects2.onchange=function(){
+				var val = selects2.options[selects2.selectedIndex].value;
+		　　　　	countys(val);
+		　　	}
+		　　	citys("010000");
+			countys("010100");
+
+
+			ScreenWidth()
+			function ScreenWidth(){
+			    if (screen.width == 1024){
+			      $("#header").css("width","1210px")
+			  }else if (screen.width == 1152){
+				  $("#header").css("width","1210px")
+			  }else{
+				  $("#header").css("width","100%")
+			  }
+			}
+		</script>
+		<!-- end to 省市区三级联动 --></body></html>

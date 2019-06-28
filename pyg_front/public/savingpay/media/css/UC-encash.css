@@ -1,0 +1,79 @@
+.UC-encash{
+	width: 946px;
+	height: 600px;
+	background-color: #fff;
+	color: #505050;
+}
+.UC-encash .header,.UC-addrList .header,.UC-addrDetail .header,.UC-newPhone .header{
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-encash .name{
+	float: left;
+	line-height: 30px;
+	font-size: 14px;	
+}
+.UC-encash .info{
+	margin-top: 20px;
+	margin-left: 56px;
+	overflow: hidden;
+}
+.UC-encash .info input{
+	width: 287px;
+	height: 30px;
+	border: solid 1px #cccccc;
+	margin-left: 10px;
+}
+.UC-encash .info select{
+	width: 289px;
+	height: 32px;
+	border: solid 1px #cccccc;
+	margin-left: 10px;
+	outline: none;
+}
+.UC-encash .pwdBtn{
+	width: 118px;
+	height: 32px;
+	background: #c21e29;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	margin-left: 10px;
+}
+.UC-encash .pwdBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.UC-encash input.addr{
+	width: 520px;
+}
+.UC-encash .saveBtn{
+	width: 130px;
+	height: 40px;
+	margin-left: 200px;
+	margin-top: 20px;
+}
+.UC-encash .code{
+	width: 74px;
+	height: 32px;
+	background: url("../img/newPhone-code.jpg")/*tpa=https://www.savingpay.com.cn/media/img/newPhone-code.jpg*/ no-repeat center;
+	background-size: cover;
+	float: left;
+	margin-left: 10px;
+}
+.UC-encash .refresh{
+	font-size: 14px;
+	color: #C21E29;
+	float: left;
+	margin-left: 10px;
+	line-height: 32px;
+	cursor: pointer;
+}
+.UC-encash .instr{
+	font-size: 14px;
+	color: #C21E29;
+	margin-top: 15px;
+}
+

@@ -1,0 +1,128 @@
+<html><head>
+		<meta charset="UTF-8">
+		<title>熊贝儿</title><link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="media/css/common.css">
+		<link rel="stylesheet" href="media/css/pagination.css">
+		<link rel="stylesheet" href="media/css/shopList.css">
+		<link rel="stylesheet" href="media/css/shop.css">
+		<link rel="stylesheet" href="media/js/layer/skin/layer.css">
+		<style>
+			.introImg{text-align: center;}
+			.introImg img{width: 600px;}
+			.introWord{letter-spacing:3px;display: none;}
+			.introContainer .brief{background: none;}
+			.commentContainer,.mapContainer{background: none;}
+			.shopHeader{background-color: none;}
+			.BMapLabel{height: 30px;line-height: 30px!important;text-align: center;font-size: 16px!important;top: -35px!important;}
+			.BMap_Marker div{width:25px!important;height:40px!important;} 
+			#img img:first-child{display: block;}
+			 .pages #Pagination .pagination .current{background-color:transparent;color: #666666;}
+			 .PJImg{width:23%;display:inline-block;margin-right:5px;height:100%;}
+			 .PJImg img{width:100%;}
+			 /* 图片放大 */
+			  .userImg{position: relative;width: 300px;height: 80px;margin: 0 auto;}
+			 .userImg img{display: inline-block;transition: all 1s;height:100%;}
+			 /* .userImg img:hover{z-index:1000;box-shadow: 0 0 1px 1px #fff;transform: scale(3) rotate(720deg);}
+			 .img0{left: 12px; top: 0px; transform: rotate(0deg);}
+			 .img1{left: 92px; top: 0px; transform: rotate(0deg);}
+			 .img2{left: 172px;top: 0px; transform: rotate(0deg);}
+			 .img3{left: 252px;top: 0px; transform: rotate(0deg);} */
+			 
+			 
+		</style>
+	<body>
+		<iframe id="header" src="header.html" style="margin-bottom: -6px; width: 100%;" width="100%" height="165" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		<input type="hidden" id="supplierId" name="supplierId" value="25429">
+		<div class="content">
+			<div class="nav">
+				<a href="index.html" style="color: #337ab7">首页</a>&gt;
+				<a href="shopList.html" style="color: #337ab7">商户</a>&gt;
+				<a id="supplierName">加上烘焙工作室</a>
+			</div>
+			<div class="shopHeader">
+				<div class="headerContainer">
+					<img class="headerPic" id="headerPic" src="https://f.savingpay.com/ftp2/supplier/old5/0000024389/wuRfBjz.png">
+					<div class="headerInfo">
+						<div class="title ellipsis" id="supplierName2">加上烘焙工作室</div>
+						<div class="payment">
+							<label>支付方式：</label>
+							<span>支付宝、微信支付</span>
+						</div>
+						<div class="phone">
+							<label>预约电话：</label>
+							<span id="phone">18792669118</span>
+						</div>
+						<div class="addr ellipsis" id="address">商家地址：广东省东莞市沙田镇西太隆管理区明珠路跨速仓储3楼</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mapContainer">
+				<div class="carousel">
+					<div id="wrapper"><div id="picSlideWrap" class="clearfix"><div class="imgnav" id="imgnav"><div id="img"><img src="https://f.savingpay.com/ftp2/supplier/old5/0000024389/wuRfBjz.png" rel="https://f.savingpay.com/ftp2/supplier/old5/0000024389/wuRfBjz.png" class="jqzoom" width="240" height="180"><div id="front" title="上一张"><a href="javaScript:void(0)" class="pngFix"></a></div><div id="next" title="下一张"><a href="javaScript:void(0)" class="pngFix"></a></div></div><div id="cbtn"><i class="picSildeLeft"><img src="https://www.savingpay.com:443/media/img/ico/shopSlideLeft.jpg"></i><i class="picSildeRight"><img src="https://www.savingpay.com:443/media/img/ico/shopSlideRight.jpg"></i><div id="cSlideUl"><ul><li class="hov"><img src="https://f.savingpay.com/ftp2/supplier/old5/0000024389/wuRfBjz.png"></li></ul></div></div></div></div></div>
+				</div>
+
+				<div class="shopInfo">
+					<div class="count info">
+						<div class="data" id="discount">8.5折</div>
+						<div>本店折扣</div>
+					</div>
+					<div class="sumSale info">
+						<div class="data" id="sales">60</div>
+						<div>本店总销量</div>
+					</div>
+					<div class="positive info">
+						<div class="data" id="acclaims">60</div>
+						<div>本店好评数</div>
+					</div>
+					<div class="score info">
+						<div class="data" id="score">4.00</div>
+						<div>综合评分</div>
+					</div>
+				</div>
+
+				<div class="map">
+					<!--百度地图容器-->
+					<div style="width: 600px; height: 228px; border: 1px solid rgb(204, 204, 204); font-size: 12px; overflow: hidden; position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;" id="map"><div style="overflow: visible; position: absolute; z-index: 0; left: 0px; top: 29px; cursor: url(&quot;https://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default;"><div class="BMap_mask" style="position: absolute; left: 0px; top: -29px; z-index: 9; overflow: hidden; user-select: none; width: 600px; height: 228px;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 800;"><div class="BMap_pop" style="box-sizing: content-box; position: absolute; cursor: default; left: 191px; top: -19px;"><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 0px; top: 0px; width: 25px; height: 25px;"><div style="box-sizing:content-box;background:#fff;border-top:1px solid #ababab;border-left:1px solid #ababab;width:30px;height:30px;"></div></div><div class="BMap_top" style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 25px; top: 0px; width: 202px; height: 25px;"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 227px; top: 0px; width: 25px; height: 25px;"><div style="box-sizing:content-box;position:absolute;top:0;left:-6px;background:#fff;border-top:1px solid #ababab;border-right:1px solid #ababab;width:30px;height:30px;"></div></div><div class="BMap_center" style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 0px; top: 25px; width: 250px; height: 59px;"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 0px; top: 84px; width: 25px; height: 25px;"><div style="box-sizing:content-box;position:absolute;top:-6px;left:0;background:#fff;border-bottom:1px solid #ababab;border-left:1px solid #ababab;width:30px;height:30px;"></div></div><div class="BMap_bottom" style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 25px; top: 84px; width: 202px; height: 24px;"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 227px; top: 84px; width: 25px; height: 25px;"><div style="box-sizing:content-box;position:absolute;top:-6px;left:-6px;background:#fff;border-right:1px solid #ababab;border-bottom:1px solid #ababab;width:30px;height:30px;"></div></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 109px; top: 84px; width: 34px; height: 50px;"><img style="box-sizing:content-box;border:none;margin:0px;padding:0px;margin-left:-186px;margin-top:-691px;max-width:none; width:690px;height:786px;" src="https://api.map.baidu.com/images/iw3.png"></div><div style="box-sizing: content-box; width: 220px; height: 77px; position: absolute; left: 16px; top: 16px; z-index: 10; overflow: hidden;"><div class="BMap_bubble_title" style="overflow: hidden; height: auto; line-height: 24px; white-space: nowrap; width: auto;">商家名称：加上烘焙工作室</div><div class="BMap_bubble_content" style="width: auto; height: auto;"><p>商家电话：18792669118</p><p>商家地址：广东省东莞市沙田镇西太隆管理区明珠路跨速仓储3楼</p></div><div class="BMap_bubble_max_content" style="display:none;position:relative"></div></div><img style="position: absolute; top: 12px; width: 10px; height: 10px; cursor: pointer; z-index: 10000; left: 227px;" src="https://api.map.baidu.com/images/iw_close1d3.gif"><img style="position:absolute;top:12px;width:10px;height:10px;-moz-user-select:none;cursor:pointer;z-index:10000;display:none" src="https://api.map.baidu.com/images/quanjing.png" title="进入全景"><img style="position:absolute;top:10px;width:9px;height:14px;-moz-user-select:none;cursor:pointer;z-index:10000;display:none;" src="https://api.map.baidu.com/images/phone.png" title="发送到手机"><img style="position: absolute; top: 12px; width: 10px; height: 10px; cursor: pointer; z-index: 10000; display: none; left: 207px;" src="https://api.map.baidu.com/images/iw_plus1d3.gif"><div style="position: absolute; top: 0px; left: 0px; z-index: 10000; width: 252px;"></div></div></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 700;"><span class="BMap_Marker BMap_noprint" unselectable="on" "="" style="position: absolute; padding: 0px; margin: 0px; border: 0px; cursor: pointer; background: url(&quot;https://api.map.baidu.com/images/blank.gif&quot;); width: 20px; height: 25px; left: 290px; top: 102px; z-index: -6852880;" title=""></span><span class="BMap_Marker BMap_noprint" unselectable="on" "="" style="position: absolute; padding: 0px; margin: 0px; border: 0px; cursor: pointer; background: url(&quot;https://api.map.baidu.com/images/blank.gif&quot;); width: 1px; height: 1px; left: 300px; top: 114px; z-index: -6852880;" title=""></span></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 600;"><div class="BMap_shadow" style="position: absolute; left: 169px; top: 36px;" type="infowindow_shadow"><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 47px; top: 0px; width: 70px; height: 30px;"><img onmousedown="return false" style="margin-left: -323px; margin-top: 0px;" src="https://api.map.baidu.com/images/iws3.png"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 117px; top: 0px; width: 163px; height: 30px;"><img onmousedown="return false" style="margin-left: -393px; margin-top: 0px;" src="https://api.map.baidu.com/images/iws3.png"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 280px; top: 0px; width: 70px; height: 30px;"><img onmousedown="return false" style="margin-left: -1033px; margin-top: 0px;" src="https://api.map.baidu.com/images/iws3.png"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 29px; top: 30px; width: 88px; height: 18px;"><img onmousedown="return false" style="margin-top: -30px; margin-left: -305px;" src="https://api.map.baidu.com/images/iws3.png"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 117px; top: 30px; width: 174px; height: 18px;"><img onmousedown="return false" style="margin-left: -360px; margin-top: -30px;" src="https://api.map.baidu.com/images/iws3.png"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 291px; top: 30px; width: 88px; height: 18px;"><img onmousedown="return false" style="margin-top: -30px; margin-left: -1045px;" src="https://api.map.baidu.com/images/iws3.png"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 0px; top: 48px; width: 50px; height: 60px;"><img onmousedown="return false" style="margin-left: -14px; margin-top: -310px;" src="https://api.map.baidu.com/images/iws3.png"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 50px; top: 48px; width: 11px; height: 60px;"><img onmousedown="return false" style="margin-left: -255px; margin-top: -310px;" src="https://api.map.baidu.com/images/iws3.png"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 61px; top: 48px; width: 140px; height: 60px;"><img onmousedown="return false" style="margin-left: -440px; margin-top: -310px;" src="https://api.map.baidu.com/images/iws3.png"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 201px; top: 48px; width: 61px; height: 60px;"><img onmousedown="return false" style="margin-left: -255px; margin-top: -310px;" src="https://api.map.baidu.com/images/iws3.png"></div><div style="box-sizing: content-box; overflow: hidden; z-index: 1; position: absolute; left: 262px; top: 48px; width: 70px; height: 60px;"><img onmousedown="return false" style="margin-left: -754px; margin-top: -310px;" src="https://api.map.baidu.com/images/iws3.png"></div></div></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 500;"><label class="BMapLabel" unselectable="on" style="position: absolute; display: none; cursor: inherit; background-color: rgb(190, 190, 190); border: 1px solid rgb(190, 190, 190); padding: 1px; white-space: nowrap; font: 12px arial, sans-serif; z-index: -20000; color: rgb(190, 190, 190);">shadow</label></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 400;"><span class="BMap_Marker" unselectable="on" style="position: absolute; padding: 0px; margin: 0px; border: 0px; width: 0px; height: 0px; left: 290px; top: 102px; z-index: -6852880;"><div style="position: absolute; margin: 0px; padding: 0px; width: 20px; height: 25px; overflow: hidden;"><img src="https://www.savingpay.com:443/media/img/map@2x.png" style="display: block; border:none;margin-left:0px; margin-top:3px; "></div></span><span class="BMap_Marker" unselectable="on" style="position: absolute; padding: 0px; margin: 0px; border: 0px; width: 0px; height: 0px; left: 300px; top: 114px; z-index: -6852880;"><div style="position: absolute; margin: 0px; padding: 0px; width: 1px; height: 1px; overflow: hidden;"><img src="https://api.map.baidu.com/images/blank.gif" style="display: block; border:none;margin-left:0px; margin-top:0px; "></div></span></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 300;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 201;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"></div></div><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 1;"><div style="position: absolute; overflow: visible; z-index: -100; left: 300px; top: 85px; display: block; transform: translate3d(0px, 0px, 0px);"><img src="https://gss0.bdstatic.com/8bo_dTSlRcgBo1vgoIiO_jowehsv/tile/?qt=vtile&amp;x=47361&amp;y=15781&amp;z=18&amp;styles=pl&amp;scaler=1&amp;udt=20190622" style="position: absolute; border: none; width: 256px; height: 256px; left: -127px; top: -81px; max-width: none; opacity: 1;"><img src="https://gss0.bdstatic.com/8bo_dTSlRMgBo1vgoIiO_jowehsv/tile/?qt=vtile&amp;x=47360&amp;y=15781&amp;z=18&amp;styles=pl&amp;scaler=1&amp;udt=20190622" style="position: absolute; border: none; width: 256px; height: 256px; left: -383px; top: -81px; max-width: none; opacity: 1;"><img src="https://gss0.bdstatic.com/8bo_dTSlRsgBo1vgoIiO_jowehsv/tile/?qt=vtile&amp;x=47362&amp;y=15781&amp;z=18&amp;styles=pl&amp;scaler=1&amp;udt=20190622" style="position: absolute; border: none; width: 256px; height: 256px; left: 129px; top: -81px; max-width: none; opacity: 1;"><img src="https://gss0.bdstatic.com/8bo_dTSlRsgBo1vgoIiO_jowehsv/tile/?qt=vtile&amp;x=47361&amp;y=15782&amp;z=18&amp;styles=pl&amp;scaler=1&amp;udt=20190622" style="position: absolute; border: none; width: 256px; height: 256px; left: -127px; top: -337px; max-width: none; opacity: 1;"><img src="https://gss0.bdstatic.com/8bo_dTSlRcgBo1vgoIiO_jowehsv/tile/?qt=vtile&amp;x=47360&amp;y=15782&amp;z=18&amp;styles=pl&amp;scaler=1&amp;udt=20190622" style="position: absolute; border: none; width: 256px; height: 256px; left: -383px; top: -337px; max-width: none; opacity: 1;"><img src="https://gss0.bdstatic.com/8bo_dTSlQ1gBo1vgoIiO_jowehsv/tile/?qt=vtile&amp;x=47362&amp;y=15782&amp;z=18&amp;styles=pl&amp;scaler=1&amp;udt=20190622" style="position: absolute; border: none; width: 256px; height: 256px; left: 129px; top: -337px; max-width: none; opacity: 1;"></div></div><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 2; display: none;"><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 0; display: none;"></div><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 10; display: none;"></div></div><div style="position: absolute; overflow: visible; top: 0px; left: 0px; z-index: 3;"></div></div><div class="pano_close" title="退出全景" style="z-index: 1201; display: none;"></div><a class="pano_pc_indoor_exit" title="退出室内景" style="z-index: 1201; display: none;"><span style="float:right;margin-right:12px;">出口</span></a><div class=" anchorBL" style="height: 32px; position: absolute; z-index: 30; text-size-adjust: none; bottom: 20px; right: auto; top: auto; left: 1px;"><a title="到百度地图查看此区域" target="_blank" href="http://map.baidu.com/?sr=1" style="outline: none;"><img style="border:none;width:77px;height:32px" src="https://api.map.baidu.com/images/copyright_logo.png"></a></div><div id="zoomer" style="position:absolute;z-index:0;top:0px;left:0px;overflow:hidden;visibility:hidden;cursor:url(https://api.map.baidu.com/images/openhand.cur) 8 8,default"><div class="BMap_zoomer" style="top:0;left:0;"></div><div class="BMap_zoomer" style="top:0;right:0;"></div><div class="BMap_zoomer" style="bottom:0;left:0;"></div><div class="BMap_zoomer" style="bottom:0;right:0;"></div></div><div unselectable="on" class=" BMap_scaleCtrl BMap_noprint anchorBL" style="bottom: 18px; right: auto; top: auto; left: 81px; width: 79px; position: absolute; z-index: 10; text-size-adjust: none;"><div class="BMap_scaleTxt" unselectable="on" style="background-color: transparent; color: black;">200&nbsp;英尺</div><div class="BMap_scaleBar BMap_scaleHBar" style="background-color: black;"><img style="border:none" src="https://api.map.baidu.com/images/mapctrls.png"></div><div class="BMap_scaleBar BMap_scaleLBar" style="background-color: black;"><img style="border:none" src="https://api.map.baidu.com/images/mapctrls.png"></div><div class="BMap_scaleBar BMap_scaleRBar" style="background-color: black;"><img style="border:none" src="https://api.map.baidu.com/images/mapctrls.png"></div></div><div unselectable="on" class=" BMap_stdMpCtrl BMap_stdMpType1 BMap_noprint anchorTL" style="width: 37px; height: 97px; bottom: auto; right: auto; top: 10px; left: 10px; position: absolute; z-index: 1100; text-size-adjust: none;"><div class="BMap_stdMpPan"><div class="BMap_button BMap_panN" title="向上平移"></div><div class="BMap_button BMap_panW" title="向左平移"></div><div class="BMap_button BMap_panE" title="向右平移"></div><div class="BMap_button BMap_panS" title="向下平移"></div><div class="BMap_stdMpPanBg BMap_smcbg"></div></div><div class="BMap_stdMpZoom" style="height: 42px; width: 37px;"><div class="BMap_button BMap_stdMpZoomIn" title="放大一级"><div class="BMap_smcbg"></div></div><div class="BMap_button BMap_stdMpZoomOut" title="缩小一级" style="top: 21px;"><div class="BMap_smcbg"></div></div><div class="BMap_stdMpSlider" style="height: 0px;"><div class="BMap_stdMpSliderBgTop" style="height: 0px;"><div class="BMap_smcbg"></div></div><div class="BMap_stdMpSliderBgBot"></div><div class="BMap_stdMpSliderMask" title="放置到此级别"></div><div class="BMap_stdMpSliderBar" title="拖动缩放" style="cursor: url(&quot;https://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default;"><div class="BMap_smcbg"></div></div></div><div class="BMap_zlHolder"><div class="BMap_zlSt"><div class="BMap_smcbg"></div></div><div class="BMap_zlCity"><div class="BMap_smcbg"></div></div><div class="BMap_zlProv"><div class="BMap_smcbg"></div></div><div class="BMap_zlCountry"><div class="BMap_smcbg"></div></div></div></div><div class="BMap_stdMpGeolocation" style="position: initial; display: none; margin-top: 43px; margin-left: 10px;"><div class="BMap_geolocationContainer" style="position: initial; width: 24px; height: 24px; overflow: hidden; margin: 0px; box-sizing: border-box;"><div class="BMap_geolocationIconBackground" style="width: 24px; height: 24px; background-image: url(https://api.map.baidu.com/images/navigation-control/geolocation-control/pc/bg-20x20.png); background-size: 20px 20px; background-position: 3px 3px; background-repeat: no-repeat;"><div class="BMap_geolocationIcon" style="position: initial; width: 24px; height: 24px; cursor: pointer; background-image: url('https://api.map.baidu.com/images/navigation-control/geolocation-control/pc/success-10x10.png'); background-size: 10px 10px; background-repeat: no-repeat; background-position: center;"></div></div></div></div></div><div unselectable="on" class=" BMap_cpyCtrl BMap_noprint anchorBL" style="cursor: default; white-space: nowrap; color: black; background: none; font: 11px/15px arial, sans-serif; bottom: 2px; right: auto; top: auto; left: 2px; position: absolute; z-index: 10; text-size-adjust: none;"><span _cid="1" style="display: inline;"><span style="background: rgba(255, 255, 255, 0.701961);padding: 0px 1px;line-height: 16px;display: inline;height: 16px;">©&nbsp;2019 Baidu - GS(2018)5572号 - 甲测资字1100930 - 京ICP证030173号 - Data © 长地万方</span></span></div></div>
+				</div>
+			</div>
+
+			<div class="introContainer">
+				<div class="brief">
+					<div class="briefTitle">
+						商家简介
+					</div>
+					<div class="intro">
+						<div class="introImg" id="introImg"><img src="https://f.savingpay.com/ftp2/supplier/old5/0000024389/wuRfBjz.png"></div>
+						
+						<div class="introWord" id="introWord">
+						</div>
+						<!--<img src=""/>-->
+					</div>
+				</div>
+				<div class="commentContainer">
+					<div class="commentHeader">
+						用户评价
+					</div>
+					<div class="commentList"></div>
+					<div class="pages">
+						<div id="Pagination">
+							<div class="pagination">
+								<a class="current prev min">上一页</a>
+								<a class="current page">1</a>
+								<a class="next plus">下一页</a>
+							</div>
+						</div>
+						<div class="searchPage">
+							<span class="page-sum">共<strong class="allPage">0</strong>页</span>
+							<span class="page-go">跳转<input type="text" class="tot" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}">页</span>
+							<a class="page-btn">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<iframe id="footer" src="footer.html" style="margin-bottom: -5px;margin-top: 70px;height:240px;" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+
+<div style="display:none;" class="jqPreload0"><img src="./media/img/shop/cq.jpg"></div></body></html>

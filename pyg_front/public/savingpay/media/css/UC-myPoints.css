@@ -1,0 +1,44 @@
+.UC-myPoints{
+	width: 946px;
+	height: 600px;
+	background-color: #fff;
+	color: #505050;
+}
+.UC-myPoints .header{
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-myPoints .points{
+	margin-top: 25px;
+	font-weight: bold;
+	font-size: 16px;
+}
+.UC-myPoints .table{
+	width: 944px;
+	border: solid 1px #e0e0e0;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 10px;
+}
+.UC-myPoints .tableHead{
+	overflow: hidden;
+	background: #FAFAFA;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-myPoints .tr{
+	overflow: hidden;
+	height: 58px;
+	line-height: 58px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-myPoints .td{
+	width: 220px;
+	float: left;
+}
+a{
+	text-decoration: none;	
+}

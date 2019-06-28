@@ -1,0 +1,585 @@
+<html><head>
+		<meta charset="UTF-8">
+		<title>熊贝儿</title>
+		<link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="media/css/common.css">
+		<link rel="stylesheet" href="media/css/basket.css">
+		<link rel="stylesheet" href="media/js/layer/skin/layer.css">
+		<link rel="stylesheet" href="media/css/hotSale.css">
+		<style type="text/css">
+			body{
+
+			}
+
+			.nums {
+				width: 78px;
+				height: 32px;
+				border: solid 1px #e0e0e0;
+				text-align: center;
+				color: #595959;
+				margin-top: 25px;
+				margin-left: -5px;
+				margin-right: -5px;
+			}
+			.min,
+			.plus {
+				margin-top: 25px;
+				width: 40px;
+				height: 34px;
+				background: #fff;
+				border: solid 1px #e0e0e0;
+				cursor: pointer;
+			}
+
+			.priceJF {
+				margin-left: 10px;
+			}
+
+			.shoplistImg,.shoplistImgFubao {
+				margin-bottom: 30px;
+				display: none;
+			}
+
+			.companyTitle {
+				height: 73px;
+				line-height: 73px;
+				text-align: center;
+				font-size: 24px;
+				color: #646464;
+			}
+
+			.company {
+				display: block;
+				width: 1134px;
+				margin: auto;
+			}
+
+			.del {
+				width: 120px;
+			}
+
+			.shopContainer {
+				cursor: pointer;
+			}
+			.checkBox{
+				display:none;
+			}
+			.spec{height:52px;}
+			.addContent{
+				width:1210px;
+				margin: 0px auto;
+				border: 1px solid #E0E0E0;
+			}
+			.recItem{
+				border-top:none;
+				border-bottom:none;
+				border-left:1px solid #fff;
+				border-right:1px solid #fff;
+			}
+		</style>
+
+		<script src="media/js/jquery.min.js"></script>
+		<script src="media/js/number.js"></script>
+		<script src="media/js/layer/layer.js"></script><link rel="stylesheet" href="media/js/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+		<script src="media/js/number.js"></script>
+		<!-- start to 省市区三级联动 -->
+		<script src="media/js/city.js"></script>
+		<script src="media/js/F12.js" type="text/javascript" charset="utf-8"></script>
+		<script src="media/js/IsIE.js" type="text/javascript" charset="utf-8"></script>
+		<script src="media/js/basket.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<iframe id="header" src="header.html" style="margin-bottom: -6px;" width="100%" height="165" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		<div style="background: #f4f4f4;">
+			<div style="height:15px;"></div>
+			<div class="addContent">
+				<div class="addrContainer">
+					<div class="addrTitle">收货地址</div>
+					<div class="showAddr">
+						<!-- 插入地址的JS -->
+					</div>
+					<div class="addrBottm">
+						<div class="addAddr">+使用新地址</div>
+						<div class="slideBtn">展开&nbsp;&nbsp;&nbsp;&nbsp;<img src="media/img/ArrDown.png"></div>
+					</div>
+				</div>
+			</div>
+			<div id="oauthTabs">
+				<div class="tab-head">
+					<!-- <span></span><span></span> -->
+		            <ul>
+		                <li class="hotBasket">特卖购物车</li>
+		                <li class="selected">集采购物车</li>
+		            </ul>
+				</div>
+				<div class="basketContainer hotBasketContainer" style="display: none;">
+					<div class="basketHeader basketCommon" style="display: none;">
+						<div class="basketTitle">
+							<div class="tab">
+								<div class="checkboxContainer">
+									<input type="checkbox" class="checkBox" name="checkBox" id="checkBox">
+									<label class="checkLabel" for="checkBox"></label>全选
+
+								</div>
+							</div>
+							<div class="tab center">商品</div>
+							<div class="tab center">规格</div>
+							<div class="tab center">数量</div>
+							<div class="tab center">单价</div>
+							<div class="tab center">操作</div>
+						</div>
+					</div>
+					<div class="shopContainer" id="shopContainer">
+						<a href="index.html"><img class="shoplistImg" src="media/img/buy.jpg" style="display: inline;"></a>
+					</div>
+
+					<div class="sumContainer basketCommon" style="display: none;">
+						<div class="goShop" onclick="window.location.href='web/index.html'">
+							继续购物
+						</div>
+						<div class="sumText">
+							已选商品<span id="lens">0</span>件
+						</div>
+						<div class="total">
+							合计（不含运费）：
+							<span><span class="pri" id="pri">￥0</span><span class="JiFen" id="JiFen"></span></span>
+						</div>
+						<div class="buyBtn" onclick="commitOrder();">去结算</div>
+					</div>
+				</div>
+				<div class="basketContainerFuBao basketContainer" style="">
+					<div class="basketHeader basketHeaderFubao" style="display: none;">
+						<div class="basketTitle">
+							<div class="tab">
+								<div class="checkboxContainer">
+									<input type="checkbox" class="checkBox" name="checkBox" id="checkBoxFubao">
+									<label class="checkLabel" for="checkBoxFubao"></label>全选
+								</div>
+							</div>
+							<div class="tab center">商品</div>
+							<div class="tab center">规格</div>
+							<div class="tab center">数量</div>
+							<div class="tab center">单价</div>
+							<div class="tab center">操作</div>
+						</div>
+					</div>
+					<div class="shopContainer" id="shopContainerFuBao">
+						<a href="index.html"><img class="shoplistImgFubao" src="media/img/buy.jpg" style="display: inline;"></a>
+					</div>
+
+					<div class="sumContainer basketHeaderFubao" style="display: none;">
+						<div class="goShop" onclick="window.location.href='web/index.html'">
+							继续购物
+						</div>
+						<div class="sumText">
+							已选商品<span id="lensFubao">0</span>件
+						</div>
+						<div class="total">
+							合计（不含运费）：
+							<span><span class="pri" id="priFubao">￥0</span></span>
+						</div>
+						<div class="buyBtn" onclick="commitOrderFubao();">去结算</div>
+					</div>
+
+				</div>
+			</div>
+			<div style="height:15px;"></div>
+		</div>
+
+
+
+		<div style="width:100%;background: #fff">
+			<div class="recommended">
+				<div class="recTitle">熊贝儿推荐</div>
+				<div class="recContainer"><div class="recItem"><div class="recPic" id="F61778E9406B4C42B7A022D8A91AB9F6" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/F61778E9406B4C42B7A022D8A91AB9F6/kMZ7vsQ.jpg&quot;); background-position: center center; background-size: contain; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥129</span></div><div class="recInfo">女士手表时尚简约手镯</div><div class="recAdd"><div class="recSale"></div></div></div><div class="recItem"><div class="recPic" id="74BC3C2C4FD649D5BB456A85C0CB2911" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/74BC3C2C4FD649D5BB456A85C0CB2911/jb639zn.jpg&quot;); background-position: center center; background-size: contain; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥119</span></div><div class="recInfo">香水4瓶+1条丝巾</div><div class="recAdd"><div class="recSale"></div></div></div><div class="recItem"><div class="recPic" id="03CEB2EB25B04AFDA5A4D2C9AEE91FBF" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/03CEB2EB25B04AFDA5A4D2C9AEE91FBF/VcTFm6e.jpg&quot;); background-position: center center; background-size: contain; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥49</span></div><div class="recInfo">环保纳米超浓缩洗净片</div><div class="recAdd"><div class="recSale"></div></div></div><div class="recItem"><div class="recPic" id="0486698CA22C4329A08DAF8E9100C312" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/0486698CA22C4329A08DAF8E9100C312/9DbctBF.jpg&quot;); background-position: center center; background-size: contain; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥39.9</span></div><div class="recInfo">升级版纳米液体膜</div><div class="recAdd"><div class="recSale"></div></div></div><div class="recItem"><div class="recPic" id="CA2D07B4B54F411AB60A5C1AB0D14D23" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/CA2D07B4B54F411AB60A5C1AB0D14D23/Xe5PxE5.jpg&quot;); background-position: center center; background-size: contain; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥199</span></div><div class="recInfo">众泰康 草本植物精华</div><div class="recAdd"><div class="recSale"></div></div></div><div class="recItem"><div class="recPic" id="94273B753CCF45C89A64AF44F17FF385" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/94273B753CCF45C89A64AF44F17FF385/WeG86M0.jpg&quot;); background-position: center center; background-size: contain; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥17.9</span></div><div class="recInfo">儿童洗头杯水勺婴儿</div><div class="recAdd"><div class="recSale"></div></div></div></div>
+			</div>
+
+		</div>
+
+		<!-- start to add address's div -->
+		<div class="addAddrContainer">
+			<div class="mask">
+				<div class="success">
+					<div class="successHeader">
+						<div style="float: left;margin-left: 28px;">添加收货地址</div>
+						<img class="shutSuccess" src="media/img/shut.png">
+					</div>
+					<div class="newAddress">
+						<div class="newName">
+							姓名：
+							<input type="text" id="realName">
+						</div>
+						<div class="newPhone">
+							手机：
+							<input type="text" id="mobile" maxlength="11">
+						</div>
+						<div class="newAddrInfo">
+							省 市 区：
+							<select id="s_province" name="s_province"><option class="options" value="010000">请选择</option><option class="options" value="110000">北京市</option><option class="options" value="120000">天津市</option><option class="options" value="130000">河北省</option><option class="options" value="140000">山西省</option><option class="options" value="150000">内蒙古</option><option class="options" value="210000">辽宁省</option><option class="options" value="220000">吉林省</option><option class="options" value="230000">黑龙江</option><option class="options" value="310000">上海市</option><option class="options" value="320000">江苏省</option><option class="options" value="330000">浙江省</option><option class="options" value="340000">安徽省</option><option class="options" value="350000">福建省</option><option class="options" value="360000">江西省</option><option class="options" value="370000">山东省</option><option class="options" value="410000">河南省</option><option class="options" value="420000">湖北省</option><option class="options" value="430000">湖南省</option><option class="options" value="440000">广东省</option><option class="options" value="450000">广 西</option><option class="options" value="460000">海南省</option><option class="options" value="500000">重庆市</option><option class="options" value="510000">四川省</option><option class="options" value="520000">贵州省</option><option class="options" value="530000">云南省</option><option class="options" value="540000">西 藏</option><option class="options" value="610000">陕西省</option><option class="options" value="620000">甘肃省</option><option class="options" value="630000">青海省</option><option class="options" value="640000">宁 夏</option><option class="options" value="650000">新 疆</option><option class="options" value="710000">台湾省</option><option class="options" value="810000">香 港</option><option class="options" value="820000">澳 门</option></select>
+							<select id="s_city" name="s_city"><option value="010100">请选择</option></select>
+							<select id="s_county" name="s_county"><option value="010101">请选择</option></select>
+						</div>
+						<div class="newDetailAddr">
+							详细地址：
+							<input type="text" id="address" maxlength="20">
+						</div>
+						<div class="newPost">
+							邮编：
+							<input type="text" id="zipCode" maxlength="6">
+						</div>
+						<div class="remark">
+							<span style="vertical-align: top;">备注：</span>
+							<textarea rows="5" cols="20" type="text" id="remark"></textarea>
+						</div>
+						<button type="submit" class="saveBtn">
+							保存
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" id="isFubao" name="isFubao" value="1">
+		<input type="hidden" id="detailFubao" name="detailFubao" value="">
+		<!-- end to add address's div -->
+		<iframe src="footer.html" style="margin-bottom: -5px;height: 240px" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		<script>
+			for(var i=0;i<cityData3.length;i++){
+				var options = $("<option class='options'></option>");
+				//省名
+				var provinceText = cityData3[i].text;
+				options.html(provinceText);
+				//省Id
+				var valIdPro = cityData3[i].value;
+				options.attr("value",valIdPro);
+				$("#s_province").append(options)
+			}
+
+			function citys(proId){
+				for(var i=0;i<cityData3.length;i++){
+					var valIdPro = cityData3[i].value;
+					if(valIdPro == proId){
+						var province = cityData3[i].children;
+						$("#s_city").html("");
+						for(var j = 0;j<province.length;j++){
+							var options = $("<option></option>");
+							var cityText = province[j].text;
+							options.html(cityText);
+							var valIdCity = province[j].value;
+							options.attr("value",valIdCity);
+							$("#s_city").append(options);
+						}
+					}
+				}
+			}
+
+
+			function countys(proId){
+				for(var i=0;i<cityData3.length;i++){
+					var childrens = cityData3[i].children;
+					for(var k=0;k<childrens.length;k++){
+						var countyvalue = childrens[k].value;
+						if(proId==countyvalue){
+							var countys = childrens[k].children;
+							$("#s_county").html("");
+							for(var j=0;j<countys.length;j++){
+								var options = $("<option></option>");
+								var cityText = countys[j].text;
+								options.html(cityText);
+								var valIdCity = countys[j].value;
+								options.attr("value",valIdCity);
+								$("#s_county").append(options);
+							}
+						}
+					}
+				}
+			}
+
+			var selects1=document.getElementById("s_province");
+			var selects2=document.getElementById("s_city");
+		　　	selects1.onchange=function(){
+				var val = selects1.options[selects1.selectedIndex].value;
+		　　　　	citys(val);
+		　　　　	selects2.onchange();
+		　　	}
+
+		　　	selects2.onchange=function(){
+				var val = selects2.options[selects2.selectedIndex].value;
+		　　　　	countys(val);
+		　　	}
+		　　	citys("010000");
+			countys("010100");
+		</script>
+		<!-- end to 省市区三级联动 -->
+		<script>
+		var urlPath = "web/";
+		var addressId = '';
+		var isFubao = "0"
+		if(document.getElementById("isFubao").value){
+			isFubao = document.getElementById("isFubao").value;
+			if(isFubao == 1){
+				$(".basketContainerFuBao").show();
+				$(".hotBasketContainer").hide();
+				$('.fubaoBasket').attr("class","selected")
+			}else{
+				$(".hotBasketContainer").show();
+				$(".basketContainerFuBao").hide();
+				$('.hotBasket').attr("class","selected")
+			}
+		}
+		var detailFubao = "1";
+		if(document.getElementById("detailFubao").value){
+			detailFubao = document.getElementById("detailFubao").value;
+			 if(detailFubao == 0){
+					$(".basketContainerFuBao").show();
+					$(".hotBasketContainer").hide();
+					$('.fubaoBasket').attr("class","selected")
+				}else{
+					$(".hotBasketContainer").show();
+					$(".basketContainerFuBao").hide();
+					$('.hotBasket').attr("class","selected")
+				}
+		}
+
+
+		basket(urlPath);
+		basketFubao(urlPath);
+		tuijian();
+		/* 购物车切换  */
+		$(".tab-head").find("ul li").click(function(){
+            $(this).addClass("selected").siblings().removeClass("selected");
+            var tabNum = $(this).index();
+            $("#oauthTabs").find(".basketContainer").hide();
+            $("#oauthTabs").find(".basketContainer").eq(tabNum).show();
+		})
+
+				// start to get user id
+				var userStorage = sessionStorage.getItem("userStorage");
+				// if(!userStorage){
+				// 	window.top.location.href='web/index.html';
+				// }
+				var user = JSON.parse(userStorage);
+				var memberId = user.memberId;
+				// end to get user id
+				// start to loop address
+				$.ajax({
+					type:'post',
+					url:'web/add/findList',
+					async:true,
+					data:{memberId:memberId},
+					success:function(data){
+						var addresses = data.data;
+						if(data.code=='000000'){
+							var addrList = '';
+							var j = 0;
+							for(var i = 0; i < addresses.length; i++) {
+								j = i + 1;
+								addrList += '<div class="addrList">' +
+									'<div data-id="'+ addresses[i].id +'" class="nameBtn">' +
+									'第' + j + '个' +
+									'</div>' +
+									'<div class="addrInfo">' +
+									'<span class="realName" title="'+addresses[i].realName+'">' + addresses[i].realName + '</span>' +
+									'<span class="address" title="'+addresses[i].address+'">' + addresses[i].address + '</span>' +
+									'<span class="phone">' + addresses[i].mobile + '</span>' +
+									'</div>' + '</div>'
+							}
+							$('.showAddr').html(addrList);
+						}else{
+							return false;
+						}
+						//				点击按钮选中排序到第一
+						$('.nameBtn').click(function() {
+							$(this).addClass('active');
+							$(this).parent().siblings().find('.nameBtn').removeClass('active');
+							addressId = this.dataset.id;
+						});
+						//				隐藏超过两个地址
+						$('.addrList:gt(1)').hide();
+						//				点击展开收起地址
+						var onOff = true;
+						$('.slideBtn').click(function() {
+							if(onOff) {
+								$('.addrList:gt(1)').slideDown();
+								$(".slideBtn img").attr("src", "media/"+"img/ArrUp.png");
+								onOff = false;
+							} else {
+								$('.addrList:gt(1)').slideUp();
+								$(".slideBtn img").attr("src", "media/"+"img/ArrDown.png");
+								onOff = true;
+							}
+						});
+					}
+				});
+				// end to loop address
+				// start to add address
+				$('.addAddr,.editBtn').click(function() {
+					$('.addAddrContainer').show();
+				});
+				$('.shutSuccess').click(function() {
+					$('.addAddrContainer').css('display', 'none');
+				});
+
+				$('.saveBtn').click(function(){
+
+					var realName = document.getElementById("realName").value;
+					var mobile = document.getElementById("mobile").value;
+					var province = $("#s_province").find("option:selected").text();
+					var city = $("#s_city").find("option:selected").text();
+					var county = $("#s_county").find("option:selected").text();
+					var address = document.getElementById("address").value;
+					var zipCode = document.getElementById("zipCode").value;
+					var remark = document.getElementById("remark").value;
+
+					if(!realName||!mobile||!address||!zipCode){
+						layer.msg("请将地址填写完整");
+						return;
+					}
+					if(province=="请选择"||city=="请选择"||county=="请选择"){
+						layer.msg("请选择城市");
+						return;
+					}
+
+					address = province+" "+city+" "+county+"-"+address;
+					var pam = {
+						memberId:memberId,
+						realName:realName,
+						mobile:mobile,
+						address:address,
+						zipCode:zipCode,
+						remark:remark
+					}
+
+					$.ajax({
+						type:'post',
+						url:'web/add/addAddress',
+						data:pam,
+						success:function(data){
+							if(data.code=="000000"){
+								layer.msg("地址添加成功");
+								setTimeout(function(){
+									window.location.reload();
+								},1000);
+							}else{
+								layer.msg(data.errorMessage);
+							}
+						}
+					});
+				});
+				// end to add address
+				// start to input password
+
+				// end to input password
+
+				//点击购物车里面的图片返回首页
+				$(".shopContainer img").click(function() {
+					window.location.href = "web/index.html"
+				})
+				/*方法函数*/
+
+			/* 特卖结算  */
+			// start to commit to the order
+			function commitOrder(){
+				/* alert(addressId); */
+				if(!addressId){
+					layer.msg("请选择收货地址");
+					return;
+				}
+				var lens = getJsonLength(maps);
+				if(lens<1){
+					layer.msg("请选择一件商品");
+					return;
+				}
+				var data = [];
+				// start concat two jsons,give the numMap(count) in json of numMaps  to the map(count) in json of maps
+				for(var numMap in numMaps){
+					for(var map in maps){
+						if(numMap == map){
+							maps[map].count = numMaps[numMap];
+							data.push(maps[map]);
+						}
+					}
+				}
+				// end concat two jsons,give the numMap(count) in json of numMaps  to the map(count) in json of maps
+				data = JSON.stringify(data);
+// 				var maps2 = maps;
+// 				maps2 = JSON.stringify(maps2);
+// 				console.log(maps);
+				var data22 = {
+					maps:data,addressId:addressId
+				}
+				data22 = JSON.stringify(data22);
+				$.ajax({
+					type:'post',
+					contentType:'application/json;charset=UTF-8',
+					url:'web/v3/md/fuBaoShoppCarToOrder',
+					data:data22,
+					success:function(data){
+					// 判断订单是否成功返回
+						var serialNumber = data.data.serialNumber;
+						if (data.code=="000000") {
+							header()
+						  	window.location.href='web/toExchange.html?orderNo_L='+serialNumber;
+						} else {
+							layer.msg(data.message);
+							return false;
+						}
+					}
+				});
+			}
+			// end to commit to the order
+
+			/* 福宝结算 */
+			// start to commit to the order
+			function commitOrderFubao(){
+				/* alert(addressId); */
+				if(!addressId){
+					layer.msg("请选择收货地址");
+					return;
+				}
+				var lens = getJsonLength(mapsFubao);
+				if(lens<1){
+					layer.msg("请选择一件商品");
+					return;
+				}
+				// start concat two jsons,give the numMap(count) in json of numMaps  to the map(count) in json of maps
+				for(var numMap in numMapsFubao){
+					for(var map in mapsFubao){
+						if(numMap == map){
+							mapsFubao[map].count = numMapsFubao[numMap];
+						}
+					}
+				}
+				var mapsFubaoss = mapsFubao;
+				// end concat two jsons,give the numMap(count) in json of numMaps  to the map(count) in json of maps
+				mapsFubaoss = JSON.stringify(mapsFubaoss);
+				$.ajax({
+					type:'post',
+					url:'web/fuBaoOrder/insertFuBaoOrder',
+					data:{mapsFuBao:mapsFubaoss,addressId:addressId},
+					success:function(data){
+					// 判断订单是否成功返回
+						var code = data.code;
+						if (code=="000000") {
+							header();
+							window.location.href='web/toExchangeFubao.html?orderNo='+data.data.orderNo;
+						} else if(code=="1000001") {
+							layer.msg(data.errorMessage);
+							return false;
+						} else {
+							layer.msg("对不起，订单生成失败，请重试或联系客服解决。");
+							return false;
+						}
+					}
+				});
+			}
+			// end to commit to the order
+
+
+
+
+
+		</script>
+	
+
+</body></html>

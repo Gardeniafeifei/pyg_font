@@ -1,0 +1,55 @@
+.UC-notice {
+	width: 946px;
+	height: 600px;
+	background-color: #fff;
+	color: #505050;
+}
+
+.UC-notice .header {
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	border-bottom: solid 1px #e0e0e0;
+}
+
+.UC-notice .table {
+	width: 944px;
+	border: solid 1px #e0e0e0;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 20px;
+}
+
+.UC-notice .tableHead {
+	overflow: hidden;
+	background: #FAFAFA;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: solid 1px #e0e0e0;
+}
+
+.UC-notice .tr {
+	overflow: hidden;
+	border-bottom: solid 1px #e0e0e0;
+	vertical-align: middle;
+	height: auto;
+}
+
+.UC-notice .td {
+	float: left;
+	white-space: normal;
+}
+
+.UC-notice .msg {
+	width: 695px;
+	text-align: center;
+	border-right: solid 1px #e0e0e0;
+	padding: 20px;
+}
+.UC-notice .time{
+	width: 163px;
+	padding: 20px;
+}
+a {
+	text-decoration: none;
+}

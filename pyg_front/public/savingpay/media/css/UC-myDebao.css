@@ -1,0 +1,226 @@
+.UC-myDebao{
+	width: 946px;
+	height: 600px;
+	background-color: #fff;
+	color: #505050;
+}
+.UC-myDebao select{
+	border-color: #e0e0e0;
+	outline: none;
+}
+.UC-myDebao .header{
+	height: 50px;
+	line-height: 50px;
+	font-size: 14px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-myDebao .tabContainer{
+	width: 946px;
+	border-bottom: solid 1px #e0e0e0;
+	overflow: hidden;
+	margin-top: 10px;
+}
+.UC-myDebao s{
+	float: left;
+	margin-top: 13px;
+	width: 1px;
+	height: 16px;
+	background-color: #e0e0e0;
+}
+.UC-myDebao .tab, .tabTab{
+	width: 143px;
+	float: left;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	cursor: pointer;
+}
+.UC-myDebao .active{
+	font-weight: bold;
+	color: #C21E29;
+	border-bottom: solid 2px #C21E29;
+	
+}
+.UC-myDebao .table{
+	width: 944px;
+	border: solid 1px #e0e0e0;
+	border-bottom: 0;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 20px;
+}
+.UC-myDebao .tableHead{
+	overflow: hidden;
+	background: #FAFAFA;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-myDebao .tr{
+	overflow: hidden;
+	height: 58px;
+	line-height: 58px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-myDebao .shopTable .td{
+	width: 213.8px;
+	float: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.UC-myDebao .codeTable .td{
+	width: 238.8px;
+	float: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+a{
+	text-decoration: none;	
+}
+.UC-myDebao .rating{
+	overflow: hidden;
+	margin-top: 30px;
+}
+
+.UC-myDebao label{
+	float: left;
+	margin-right: 20px;
+}
+.UC-myDebao .ratingText{
+	margin-top: 35px;
+	position: relative;
+}
+.UC-myDebao .ratingText textarea{
+	margin-left: 30px;
+	width: 705px;
+	height: 104px;
+	border: solid 1px #e0e0e0;
+	resize: none;
+	outline: none;
+}
+.UC-myDebao .leftText{
+	font-size: 12px;
+	color: #AAAAAA;
+	position: absolute;
+	right: 180px;
+	bottom: 10px;
+}
+.UC-myDebao .subBtn{
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	background: #c21e29;
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	margin-left: 650px;
+	margin-top: 20px;
+}
+.UC-myDebao .subBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.UC-myDebao .data{
+	float: left;
+	margin-top: 3px;
+}
+.UC-myDebao .data:first-child{
+	font-size: 18px;
+	margin-top: 0px;
+}
+.UC-myDebao .header s{
+	float: left;
+	width: 1px;
+	height: 16px;
+	margin: 20px 10px 0 10px;	
+}
+.UC-myDebao .red{
+	color: #c21e29;
+}
+.UC-myDebao .blue{
+	color: #005AA0;
+}
+
+
+.left{
+	width:50%;
+	};
+.yaoqing-tit{
+	font-size:24px;
+	color:#484848;
+	}
+.shopTable,.codeTable{
+	border:1px solid #e0e0e0;
+	border-bottom:none;
+	text-align:center;
+	}
+.yaoqing-tit{
+	font-size:24px;
+	color:#484848;
+	text-align:center;
+	}
+.yaoqingCon{
+	width:70%;
+	margin:0 auto;
+	}
+.yaoqingLeft,.yaoqingRight{
+	float:left;
+	width:40%;
+}
+.TabRight{
+	position: absolute;
+ 	top: 21.7%;
+    left:56%;
+}
+.beijingShare{
+	background:url("../img/my_share.png")/*tpa=https://www.savingpay.com.cn/media/img/my_share.png*/no-repeat 85%;
+	width:100px;
+	display:inline-block;
+	color:#484848;
+	font-size:16px;
+}
+.beijingRadio{
+	background:url("../img/beijingradio.png")/*tpa=https://www.savingpay.com.cn/media/img/beijingradio.png*/no-repeat 100%;
+	width:260px;
+	height:260px;
+	text-align:center;
+	margin-bottom:50px;
+}
+.RadioImg{
+	width:92%;
+	height:92%;
+	margin-top:10px;
+}
+.usernameP{
+	width:100%;
+	line-height:100px;
+	height:100px;
+	color:#c21e29;
+	font-size:22px;
+}
+.rightWord{
+	color:#c21e29;
+	font-size:32px;
+	margin-bottom:35px;
+	height:30px;
+}
+.mobile{
+	margin-bottom:20px;
+	font-size:18px;
+}
+.moneyMobile{
+	width:175px;
+	height:40px;
+	line-height:40px;
+	background:#c21e29;
+	color:#fff;
+	text-align:center;
+	border-radius:5px;
+	font-size:16px;
+}
+

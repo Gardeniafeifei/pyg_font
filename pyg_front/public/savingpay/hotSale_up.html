@@ -1,0 +1,480 @@
+
+
+
+<!DOCTYPE html>
+<html><head>
+		<meta charset="UTF-8">
+		<title>熊贝儿</title><link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="media/css/common.css">
+		<link rel="stylesheet" href="media/css/hotSale.css">
+		<link rel="stylesheet" href="media/css/pagination.css">
+		<link rel="stylesheet" href="media/css/category.css">
+		
+		<!-- 引入自定义CSS文件 -->
+		<link rel="stylesheet" href="media/js/layer/skin/layer.css">
+		<!-- 引入自定义JS文件 -->
+		
+		<script src="media/js/jquery.min.js"></script>
+		<script src="media/js/jquery.pagination.js"></script>
+		<script src="media/js/javascriptUtil.js"></script>
+		<script src="media/js/number.js"></script>
+		<script src="media/js/recommendedGoods.js"></script>
+		<script src="media/js/layer/layer.js"></script><link rel="stylesheet" href="media/js/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+		<style type="text/css">
+			.vip{
+				height: 25px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			.vipJian {
+				display:inline-block;
+				background: rgba(227,104,68,1);
+				border-radius: 2px;
+				color: #fff;
+				font-size: 12px;
+				margin: 5px auto;
+				text-align: center;
+				padding: 1px 3px;
+			}
+			.productName{
+				margin-top:10px;
+			}
+			.hide{
+				display: none
+			}
+		</style>
+		
+		<script>
+		
+			var catagoryClicked = sessionStorage.getItem("catagoryClicked");
+			var itemClicked = sessionStorage.getItem("itemClicked");
+			var searchKeyWord = getUrlParam("searchKeyWord");
+			sessionStorage.removeItem("catagoryClicked");
+			sessionStorage.removeItem("itemClicked");
+			if (itemClicked) {
+				getParentGoodsType();
+				getItems(catagoryClicked);
+			} else {
+				getParentGoodsType();
+			}
+		
+			removeParamFromIndex();
+			tuijian();
+			var currentPage = 1;
+			var totalPage;
+			var statisticalClicks = 0; // statistical click number
+		
+		
+			var sortName = 'sg.sort';
+			var sortRule = 'desc';
+		
+			// 加载大类
+			function getParentGoodsType(){
+				// 页面从菜单跳转时加载大类
+				$.ajax({
+					type: 'post',
+					url: 'web/hotSale/findParentGoodsType',
+					success:function(data){
+						if (data.length > 0) {
+							for(var i = 0; i < data.length; i++) {
+								$('#category_id').append('<a id=\"' + data[i].goodsTypeCode + '\" class="cate_detail_con_lk" >' + data[i].goodsTypeName + '</a>');
+								if(catagoryClicked == data[i].goodsTypeName || catagoryClicked == data[i].goodsTypeCode){
+									$("#"+ data[i].goodsTypeCode).addClass("active");
+									$(".cate_detail_titChild").addClass("active");
+									$(".cate_detail_tit").removeClass("active");
+								}
+							}
+							getItems(catagoryClicked);
+							getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+							page(totalPage);
+						}
+		
+						// 点击某个大类，移除其他大类和全部的特效
+						$('#category_id').find(".cate_detail_con_lk").click(function(){
+							catagoryClicked = $(this)[0].innerText.trim();
+							itemClicked = null;
+							$(this).addClass('active');
+							$(this).siblings().removeClass("active");
+							$(".cate_detail_tit").removeClass("active");
+							getItems(catagoryClicked);
+							getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+							page(totalPage);
+						});
+						// 点击某个大类，移除其他大类和全部的特效
+		
+						// 点击全部，移除其他大类的特效
+						$(".cate_detail_tit").click(function(){
+							$(".cate_detail_titChild").removeClass("active");
+							$('#item_id').empty();
+							$(this).addClass('active');
+							$(".cate_detail_con_lk").removeClass("active");
+							catagoryClicked = null;
+							itemClicked = null;
+							getItems(catagoryClicked);
+							getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+							page(totalPage);
+						});
+						// 点击全部，移除其他大类的特效
+					}
+				});
+				// 页面从菜单跳转时加载大类
+			}
+			// 加载大类
+		
+			// 加载小类
+			function getItems(catagoryClicked){
+		
+				var getItemsParam = {
+					'catagoryClicked':catagoryClicked
+				}
+		
+				$.ajax({
+					type: 'post',
+					url: 'web/hotSale/findChildGoodsTypeByParent',
+					data:getItemsParam,
+					success:function(data){
+						if (data.length > 0) {
+							$('#item_id').empty();
+							for(var i = 0; i < data.length; i++) {
+								$('#item_id').append('<a class="cate_detail_con_2k" id=\"' + data[i].goodsTypeCode + '\" >' + data[i].goodsTypeName + '</a>');
+								if (itemClicked == data[i].goodsTypeName) {
+									$("#"+ data[i].goodsTypeCode).addClass("active");
+									$(".cate_detail_titChild").removeClass("active");
+								}
+							}
+							getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+							page(totalPage);
+						}
+		
+						// 点击子类，移除其他子类的全部特效
+						$('#item_id').find(".cate_detail_con_2k").click(function(){
+							catagoryClicked = $(this)[0].innerText.trim();
+							$(this).addClass('active');
+							$(this).siblings().removeClass("active");
+							itemClicked = $(this).val();
+							$(".cate_detail_titChild").removeClass("active");
+							getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+							page(totalPage);
+						});
+						// 点击子类，移除其他子类的全部特效
+		
+						// 点击全部，移除其他小类的特效
+						$(".cate_detail_titChild").click(function(){
+							$(this).addClass('active');
+							$(".cate_detail_con_2k").removeClass("active");
+							catagoryClicked = $('.cate_detail_con_lk.active').text();
+							itemClicked = null;
+							getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+							page(totalPage);
+						});
+						// 点击全部，移除其他小类的特效
+					}
+				});
+			}
+			// 加载小类
+		
+			// 加载商品
+			function getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule){
+		
+				var getGoodsParam = {
+					'catagoryClicked':catagoryClicked,
+					'itemClicked':itemClicked,
+					'currentPage':currentPage,
+					'sortName':sortName,
+					'sortRule':sortRule,
+					'searchKeyWord':searchKeyWord
+				}
+				$.ajax({
+					url: "web/hotSale/goods",
+					type: "post",
+					data: getGoodsParam,
+					async: false,
+					success:function(data){
+						totalPage = data.page;
+						$('.productList').empty();
+						if(data.code != "100001"){
+							var goods = data.rows;
+							if(!goods){
+								return;
+							}
+							// 产品列表循环
+							var newPrice = "";
+							var moneySpecial = "";
+							for(var i = 0; i < goods.length; i++) {
+								var product = '';
+								if(goods[i].moneySpecial){
+									moneySpecial = '+'+goods[i].moneySpecial+"津贴";
+								}
+								if(goods[i].salePrice==undefined){
+									goods[i].salePrice = 0;
+								 }
+								if(goods[i].normsContent==undefined){
+									goods[i].normsContent = "no data";
+								 }
+								if(goods[i].normsId==undefined){
+									goods[i].normsId = "1";
+								 }
+								if(goods[i].Integral==undefined){
+									goods[i].Integral = "0";
+								 }
+								newPrice = goods[i].differencePrice;
+								product += '<div class="product">' +
+									'<div class="pic" id="'+goods[i].goodId+'"></div>' +
+									'<div class="vip"><div class="vipJian" id="vipJian'+i+'">VIP立减￥<span>'+newPrice+'</span></div></div>'+
+									'<div class="price"><span class="newPrice">￥' + toDecimal2(goods[i].salePrice) +'<span style="font-size:14px;">'+moneySpecial+'</span></span></div>' +
+									'<div class="productName ellipsis">' + goods[i].goodsName + '</div>' +
+									'<div class="productInfo ellipsis">' + goods[i].goodsTitle + '</div>' +
+									'<div class="productAdd">' + '<div class="sale">' + '已售：' +'<span class="num">' + goods[i].goodsSaledCount + '</span>' + '</div>' +
+									'<div class="addBtn" goodsCount="'+goods[i].goodsCount+'" content="'+goods[i].normsContent+'" normsId="'+goods[i].normsId+'" supplierId="'+goods[i].supplierId+'">' + '加入购物车' + '</div>' +
+									'</div>' +
+									'</div>';
+								$('.productList').append(product);
+								if(goods[i].differencePrice == "0"){
+									$("#vipJian"+i).addClass("hide");
+								}
+		
+							}
+		
+							for(var i = 0; i < goods.length; i++) {
+								$(".product .pic:eq(" + i + ")").css("background-image",'url(' + goods[i].mainPicture + ')');
+							}
+							// 加载商品详情页方法
+							$('.pic').on("click",function(){
+								var goodId = $(this).attr('id');
+								window.location.href = 'hotSale-Detail.html?goodId='+goodId+'&type='+1;
+							});
+							// 加载加入购物车页方法
+							$('.addBtn').on('click',function() {
+								var userStorage = sessionStorage.getItem("userStorage");
+								if(!userStorage){
+									layer.msg("加入失败，也许您还没有登录");
+									return;
+								}
+								// get user's id
+								var user = JSON.parse(userStorage);
+								var memberId = user.memberId;
+								var goodsPackage = $(this).attr('content');
+								var normsId = $(this).attr('normsId');
+								var goodsCount = $(this).attr('goodsCount');
+								/* if(goodsCount<1){
+									layer.msg("库存不足");
+									return;
+								} */
+								var maps = {};
+								var count = "1"
+								maps["memberId"] = memberId;
+								maps["normsId"] = normsId;
+								maps["count"] = count;
+								maps = JSON.stringify(maps);
+								
+								/* var shoppingCarParam = {
+									memberId:memberId,
+									goodsPackage:goodsPackage,
+									normsId:normsId,
+								}; */
+								$.ajax({
+									type:'post',
+									url:"web/v3/md/b2cshopping/addshopping",
+									data:maps,
+									contentType:'application/json;charset=UTF-8',
+									dataType:'json',
+									success:function(data){
+										if(data.code=="000000"){
+											layer.msg("恭喜，成功加入购物车，快去支付吧");
+										}
+									}
+								});
+		
+								var memberId = JSON.parse(sessionStorage.getItem("userStorage")).memberId;
+								var num;
+								$.ajax({
+									type : 'post',
+									url : 'web/b2cshopping/shoppingnum',
+									data : {
+										memberId : memberId
+									},
+									async : true,
+									success : function(data) {
+										if (data.code == "000000") {
+											$('#header').attr('src', $('#header').attr('src'));
+										}
+									},
+								});
+							});
+						}
+					}
+				})
+			}
+		
+			function tuijian(){
+				var recommendedGoods;
+				var rec = '';
+				$.ajax({
+					type : 'post',
+					url : 'web/special/salelistNew',
+					async: true,
+					success : function(data) {
+						recommendedGoods = data.data;
+						var moneySpecial = "";
+						for(var i = 0; i < recommendedGoods.length; i++) {
+							if(recommendedGoods[i].moneySpecial == "0.00" || !recommendedGoods[i].moneySpecial){
+								moneySpecial = ""
+							}else{
+								moneySpecial = "+"+recommendedGoods[i].moneySpecial+"津贴";
+							}
+							rec += '<div class="recItem">' +
+								'<div class="recPic" id="'+recommendedGoods[i].goodId+'"></div>' +
+								'<div class="recPrice"><span class="newPrice">￥' + recommendedGoods[i].newPrice +'<span style="font-size:13px;">'+moneySpecial+'</span></span></div>' +
+								'<div class="recInfo ellipsis">' + recommendedGoods[i].goodsName + '</div>' +
+								'<div class="recAdd">' +
+								'<div class="recSale">' +
+								'</div>' +
+								'</div>' +
+								'</div>';
+						};
+						$('.recContainer').html(rec);
+						// load recommended goods' picture
+						for (var i = 0; i < recommendedGoods.length; i++) {
+							$(".recPic:eq(" + i + ")").css("background-image",'url(' + recommendedGoods[i].mainPicture + ')');
+						}
+						$('.recPic').css({
+							"background-position": "center",
+							"background-size": "100% 100%",
+							"background-repeat": "no-repeat"
+						});
+		
+						// 点击后进入商品详情页面
+						$('.recPic').click(function(){
+							var goodId = $(this).attr('id');
+							window.location.href='hotSale-Detail.html?goodId='+goodId+'&type=1';
+						});
+					}
+				})
+		
+		
+		
+			}
+		
+			// 加载商品
+		
+			function page(totalPage){
+		
+				$('#totalPageNumber').text(totalPage);
+		
+				// 加载jQuery分页插件
+				$('#Pagination').pagination(totalPage,{
+					prev_text:"上一页",
+					next_text:"下一页 ",
+					callback:pageselectCallback // 对应回调函数1
+				});
+		
+				// 对应回调函数1
+				function pageselectCallback(page_index){
+					var currentPage = page_index+1;
+					getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+				}
+			}
+		
+			function removeParamFromIndex(){
+			}
+			</script>
+		
+		</head>
+		
+		<body>
+			<iframe id="header" src="header.html" style="margin-bottom: -6px; width: 100%;" width="100%" height="165" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		
+			<div class="category">
+				<div class="top-category">
+					<div class="categoryTitle">
+						<img src="media/img/category.png"> <span>分类</span>
+					</div>
+					<div class="item-sub">
+						<div class="cate_detail">
+							<dl class="cate_detail_item">
+								<dt class="cate_detail_tit">
+									<a> 全部 </a>
+								</dt>
+								<dd id="category_id" class="cate_detail_con">
+									<!-- insert category names there -->
+								<a id="7B00DB55DD2F43FC8CB675E331E06353" class="cate_detail_con_lk active">升级专区</a><a href="./hotSale_tea.html" id="16f7c6f43e1d41428577f69fbd751bbf" class="cate_detail_con_lk">茶酒</a><a href="./hotSale_baby.html" id="018c3e62c467497fb7f8719f452e6943" class="cate_detail_con_lk">母婴玩具</a><a id="6a56cbc97bf5400e92a914f6adcc9971" class="cate_detail_con_lk">鞋靴箱包</a><a id="89c9473a0e5743ddafd4c4f65b2b07e8" class="cate_detail_con_lk">工艺饰品</a><a id="ac3c1c9ebd6143dc9ccea5f1ab5aaaa4" class="cate_detail_con_lk">家居家装</a><a id="7542178b16de431c9d3d41e9b032c865" class="cate_detail_con_lk">日用百货</a><a id="91dac129fe3b472d82bc68054b2a6bc6" class="cate_detail_con_lk">汽车用品</a><a id="5e739ef6a97241eca782c13aaaa446c9" class="cate_detail_con_lk">数码家电</a><a id="922a87031eec4a029ace1ec2011a413b" class="cate_detail_con_lk">美妆洗护</a><a id="6949917000e04e29939f82197e40d61c" class="cate_detail_con_lk">服装</a><a id="6282502850b942be9cf9f53194cfc02e" class="cate_detail_con_lk">食品</a></dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+				<div class="sec-category">
+					<div class="item-sub2">
+						<div class="cate_detail">
+							<dl class="cate_detail_item">
+								<dt class="cate_detail_titChild">
+									<a> 全部 </a>
+								</dt>
+								<dd id="item_id" class="cate_detail_con">
+									<!-- insert item names there -->
+		
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="productContent">
+				<div class="sortContainer">
+					<div class="sort">
+						<span id="sg.sort" class="span active">默认</span>
+						<span id="sg.goods_saled_count" class="span">热销</span>
+						<span id="sn.new_price" class="span">价格↑↓</span>
+						<span id="sg.create_time" class="span">最新</span>
+					</div>
+					<!-- <div class="productList"><div class="product"><div class="pic" id="F61778E9406B4C42B7A022D8A91AB9F6" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/F61778E9406B4C42B7A022D8A91AB9F6/kMZ7vsQ.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian0">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥129.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">女士手表时尚简约手镯</div><div class="productInfo ellipsis">Clous Krause女士手表时尚手镯</div><div class="productAdd"><div class="sale">已售：<span class="num">3</span></div><div class="addBtn" goodscount="99996" content="玫金白面红皮带手表手镯" normsid="2381" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="74BC3C2C4FD649D5BB456A85C0CB2911" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/74BC3C2C4FD649D5BB456A85C0CB2911/jb639zn.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian1">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥119.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">香水4瓶+1条丝巾</div><div class="productInfo ellipsis">香水25ml*4瓶+1条百搭丝巾</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="香水25ml *4瓶+1条百搭丝巾" normsid="2380" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="03CEB2EB25B04AFDA5A4D2C9AEE91FBF" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/03CEB2EB25B04AFDA5A4D2C9AEE91FBF/VcTFm6e.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian2">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥49.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">环保纳米超浓缩洗净片</div><div class="productInfo ellipsis">奥美净环保纳米超浓缩速溶洗净片30片一盒</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="30片/盒" normsid="2379" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="0486698CA22C4329A08DAF8E9100C312" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/0486698CA22C4329A08DAF8E9100C312/9DbctBF.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian3">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥39.90<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">升级版纳米液体膜</div><div class="productInfo ellipsis">升级版纳米液体膜</div><div class="productAdd"><div class="sale">已售：<span class="num">1</span></div><div class="addBtn" goodscount="99998" content="液态" normsid="2377" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="CA2D07B4B54F411AB60A5C1AB0D14D23" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/CA2D07B4B54F411AB60A5C1AB0D14D23/Xe5PxE5.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian4">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥199.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">众泰康 草本植物精华</div><div class="productInfo ellipsis">众泰康 草本植物精华（两瓶装）</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="两瓶" normsid="2376" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="4EA86B3777B74D9598F69F87AF94FBF1" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/4EA86B3777B74D9598F69F87AF94FBF1/rfEaJE8.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian5">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥1700.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">女款降魔杵手表</div><div class="productInfo ellipsis">女款降魔杵手表 编号：NVF2020JG</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="配钢带，另送一条牛皮表带" normsid="2373" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="BCED7349B63E43A3AECA362233457FEC" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/BCED7349B63E43A3AECA362233457FEC/Q37a4KD.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian6">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥15.90<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">带盖防尘筷子架塑料筒</div><div class="productInfo ellipsis">带盖防尘筷子架塑料筷子筒 厨房餐具收纳架</div><div class="productAdd"><div class="sale">已售：<span class="num">1</span></div><div class="addBtn" goodscount="99999" content="北欧粉" normsid="2365" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="A7CA9382A3624BFFA439D66EA3CE008B" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/A7CA9382A3624BFFA439D66EA3CE008B/5Y8r0Ue.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian7">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥1175.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">男款三眼五针降魔杵表</div><div class="productInfo ellipsis">男款三眼五针降魔杵手表</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="蓝色（配皮带另送 一条多彩尼龙带）" normsid="2363" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="E6FB0685FC104AF389BEE98F49875701" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/E6FB0685FC104AF389BEE98F49875701/ZD05d7f.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian8">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥1165.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">2018绿度母情侣表</div><div class="productInfo ellipsis">2018绿度母情侣表</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="男表黑色皮带，送黑色尼龙带" normsid="2361" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="6B55105AFC6D4366AACB82A734ED3648" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/6B55105AFC6D4366AACB82A734ED3648/JW0btYa.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian9">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥1666.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">黄财神藏文种子字手表</div><div class="productInfo ellipsis">2018贺岁版黄财神藏文种子字手表男款</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="钢带，另送皮带一条" normsid="2360" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="5323371C5853459B931220848D4551CE" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/5323371C5853459B931220848D4551CE/5wBrQAn.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian10">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥1165.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">2018新款莲花女表</div><div class="productInfo ellipsis">2018最新款莲花女表 编号：NVF23</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="配钢带，另送牛皮表带一条" normsid="2359" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="B03B02E931344A06BFB3A0E386AA304D" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/B03B02E931344A06BFB3A0E386AA304D/yfH44WU.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian11">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥1165.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">药师佛种子字女表</div><div class="productInfo ellipsis">2018最新款药师佛种子字女表 编号：N</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="配钢带，另送牛皮表带一条" normsid="2357" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="AC328664D1934DB9B3A5DA9ADB9ABE57" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/AC328664D1934DB9B3A5DA9ADB9ABE57/9QtKcEg.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian12">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥1292.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">2019绿度母女表</div><div class="productInfo ellipsis">2019轻奢款绿度母心咒女表</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="NVF-2260-1LDM" normsid="2355" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="94273B753CCF45C89A64AF44F17FF385" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/94273B753CCF45C89A64AF44F17FF385/WeG86M0.jpg&quot;);"></div><div class="vip"><div class="vipJian" id="vipJian13">VIP立减￥<span>3</span></div></div><div class="price"><span class="newPrice">￥17.90<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">儿童洗头杯水勺婴儿</div><div class="productInfo ellipsis">儿童洗头杯水勺婴儿洗澡洗发杯花洒水瓢宝宝</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="灵动蓝" normsid="2352" supplierid="1">加入购物车</div></div></div><div class="product"><div class="pic" id="E8945440F3F14C4C98847FE18FCF6A15" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/E8945440F3F14C4C98847FE18FCF6A15/hWaUJkb.jpg&quot;);"></div><div class="vip"><div class="vipJian hide" id="vipJian14">VIP立减￥<span>0</span></div></div><div class="price"><span class="newPrice">￥3366.00<span style="font-size:14px;"></span></span></div><div class="productName ellipsis">黄财神种子男式机械表</div><div class="productInfo ellipsis">黄财神种子男式机械表</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" goodscount="99999" content="F3960HCS" normsid="2351" supplierid="1">加入购物车</div></div></div></div> -->
+				</div>
+			</div>
+			<div class="productContent">
+				<div class="pages">
+					<!-- <div id="Pagination"><div class="pagination"><a class="current prev1">上一页</a><a class="current">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><span class="pagination-break">...</span><a href="#" class="ep">26</a><a href="#" class="next1">下一页 </a></div></div> -->
+					<div class="searchPage">
+						<span class="page-sum">共&nbsp;<strong id="totalPageNumber" class="allPage">1</strong>&nbsp;页</span>
+					</div>
+				</div>
+			</div>
+		
+			<div class="recommended">
+				<div class="recTitle">熊贝儿推荐</div>
+				<div class="recContainer"><div class="recItem"><div class="recPic" id="F61778E9406B4C42B7A022D8A91AB9F6" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/F61778E9406B4C42B7A022D8A91AB9F6/kMZ7vsQ.jpg&quot;); background-position: center center; background-size: 100% 100%; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥129<span style="font-size:13px;"></span></span></div><div class="recInfo ellipsis">女士手表时尚简约手镯</div><div class="recAdd"><div class="recSale"></div></div></div><div class="recItem"><div class="recPic" id="74BC3C2C4FD649D5BB456A85C0CB2911" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/74BC3C2C4FD649D5BB456A85C0CB2911/jb639zn.jpg&quot;); background-position: center center; background-size: 100% 100%; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥119<span style="font-size:13px;"></span></span></div><div class="recInfo ellipsis">香水4瓶+1条丝巾</div><div class="recAdd"><div class="recSale"></div></div></div><div class="recItem"><div class="recPic" id="03CEB2EB25B04AFDA5A4D2C9AEE91FBF" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/03CEB2EB25B04AFDA5A4D2C9AEE91FBF/VcTFm6e.jpg&quot;); background-position: center center; background-size: 100% 100%; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥49<span style="font-size:13px;"></span></span></div><div class="recInfo ellipsis">环保纳米超浓缩洗净片</div><div class="recAdd"><div class="recSale"></div></div></div><div class="recItem"><div class="recPic" id="0486698CA22C4329A08DAF8E9100C312" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/0486698CA22C4329A08DAF8E9100C312/9DbctBF.jpg&quot;); background-position: center center; background-size: 100% 100%; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥39.9<span style="font-size:13px;"></span></span></div><div class="recInfo ellipsis">升级版纳米液体膜</div><div class="recAdd"><div class="recSale"></div></div></div><div class="recItem"><div class="recPic" id="CA2D07B4B54F411AB60A5C1AB0D14D23" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/CA2D07B4B54F411AB60A5C1AB0D14D23/Xe5PxE5.jpg&quot;); background-position: center center; background-size: 100% 100%; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥199<span style="font-size:13px;"></span></span></div><div class="recInfo ellipsis">众泰康 草本植物精华</div><div class="recAdd"><div class="recSale"></div></div></div><div class="recItem"><div class="recPic" id="94273B753CCF45C89A64AF44F17FF385" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/05/94273B753CCF45C89A64AF44F17FF385/WeG86M0.jpg&quot;); background-position: center center; background-size: 100% 100%; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥17.9<span style="font-size:13px;"></span></span></div><div class="recInfo ellipsis">儿童洗头杯水勺婴儿</div><div class="recAdd"><div class="recSale"></div></div></div></div>
+			</div>
+		
+			<iframe src="footer.html" style="margin-bottom: -5px;height: 240px" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		
+		<script>
+			$("#header").load(function() {
+				$(this).contents().find(".hotSale").css('color', '#C21E29');
+			});
+			$('.sort .span').click(function(){
+				$(this).addClass('active').siblings().removeClass('active');
+				sortName = $(this).attr('id').trim();
+				if (sortName == 'sn.new_price') {
+					if (sortRule == 'desc') {
+						sortRule = 'asc';
+					} else {
+						sortRule = 'desc';
+					}
+				}
+				if (sortName == 'sg.sort' || sortName == 'sg.goods_saled_count' || sortName == 'sg.create_time') {
+					sortRule = 'desc';
+				}
+				getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+			});
+		
+			function ScreenWidth(){
+				if (screen.width == 1024){
+				  $("#header").css("width","1210px")
+			  }else if (screen.width == 1152){
+				  $("#header").css("width","1210px")
+			  }else{
+				  $("#header").css("width","100%")
+			  }
+			}
+			ScreenWidth();
+		</script>
+		</body></html>

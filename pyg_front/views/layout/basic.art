@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{site.title}}</title>
+  <meta name="description" content="{{site.description}}" />
+  <meta name="Keywords" content="{{site.Keywords}}" />
+  <link rel="stylesheet" href="/public/assets/css/common.css">
+  {{block 'styles'}}{{/block}}
+</head>
+<body>
+{{block 'body'}}{{/block}}
+<script src="/public/assets/js/jquery.js"></script>
+<script src="/public/assets/js/sui.transition.js"></script>
+<script src="/public/assets/js/common.js"></script>
+{{block 'scripts'}}{{/block}}
+</body>
+</html>

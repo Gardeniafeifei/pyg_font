@@ -1,0 +1,64 @@
+{{extend './layout/basic.art'}}
+{{block 'styles'}}
+<link rel="stylesheet" href="/public/assets/css/page-account.css">
+{{/block}}
+{{block 'scripts'}}
+<script src="/public/assets/js/sui.tab.js"></script>
+{{/block}}
+{{block 'body'}}
+<div class="register py-container ">
+  <!--head-->
+  <div class="logoArea"><a href="/" class="logo"></a></div>
+  <!--register-->
+  <div class="registerArea">
+    <h3>注册新用户<span class="go">我有账号，去<a href="/login">登录</a></span></h3>
+    <div class="info">
+      <form class="sui-form form-horizontal">
+        <div class="control-group">
+          <label class="control-label">用户名：</label>
+          <div class="controls">
+            <input name="username" type="text" class="input-xfat input-xlarge" placeholder="用户名">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">邮箱：</label>
+          <div class="controls">
+            <input name="email" type="text" class="input-xfat input-xlarge" placeholder="邮箱">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">登录密码：</label>
+          <div class="controls">
+            <input name="password" type="password" class="input-xfat input-xlarge" placeholder="设置登录密码">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">确认密码：</label>
+          <div class="controls">
+            <input name="affirm_pwd" type="password" class="input-xfat input-xlarge" placeholder="再次确认密码">
+          </div>
+        </div>
+        <div class="control-group">
+          <span class="control-label">&nbsp;</span>
+          <label class="controls">
+            <input name="m1" type="checkbox">
+            <span>同意协议并注册《熊贝儿用户协议》</span>
+          </label>
+        </div>
+        <div class="control-group">
+          <span class="control-label"></span>
+          <div class="controls btn-reg">
+            <button class="sui-btn btn-block btn-xlarge btn-danger">完成注册</button>
+          </div>
+        </div>
+      </form>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!--foot-->
+  <div class="py-container copyright">
+    <div class="address">地址：重庆市渝北区仙桃街道数据谷东路19号</div>
+    <div class="beian">渝ICP备18012417号-1</div>
+  </div>
+</div>
+{{/block}}

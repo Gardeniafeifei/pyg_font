@@ -1,0 +1,341 @@
+.UC-myInfo{
+	width: 946px;
+	height: 600px;
+	background-color: #fff;
+	color: #505050;
+}
+.UC-myInfo .header,.UC-addrList .header,.UC-addrDetail .header,.UC-newPhone .header{
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-myInfo .name{
+	float: left;
+	line-height: 30px;
+	font-size: 14px;	
+}
+.UC-myInfo .info{
+	margin-top: 20px;
+	margin-left: 28px;
+	overflow: hidden;
+}
+.UC-myInfo .info input{
+	width: 218px;
+	height: 30px;
+	border: solid 1px #cccccc;
+	margin-left: 10px;
+	padding-left:5px;
+}
+.UC-myInfo .pwdBtn{
+	width: 118px;
+	height: 32px;
+	background: #c21e29;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	margin-left: 10px;
+}
+.UC-myInfo .pwdBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.UC-myInfo input.addr{
+	width: 520px;
+}
+.UC-myInfo .saveBtn{
+	width: 130px;
+	height: 40px;
+	margin-left: 79px;
+	margin-top: 20px;
+}
+.UC-myCard{
+	width: 946px;
+	height: 600px;
+	background-color: #fff;
+	color: #505050;
+}
+
+/*鍦板潃绠＄悊鍒楄〃*/
+.UC-addrList .table{
+	width: 944px;
+	border: solid 1px #e0e0e0;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 20px;
+}
+.UC-addrList .tableHead{
+	overflow: hidden;
+	background: #FAFAFA;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-addrList .tr{
+	overflow: hidden;
+	height: 58px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-addrList .td{
+	width: 129px;
+	float: left;
+		line-height: 58px;
+}
+.UC-addrList .edit{
+	color: #C21E29;
+	cursor: pointer;
+}
+.UC-addrList .del{
+	color: #005aa0;
+	cursor: pointer;
+}
+.UC-addrList button{
+	float: right;
+	width: 128px;
+	height: 38px;
+	border: solid 1px #c21e29;
+	border-radius: 3px;
+	margin-top: 20px;
+}
+.UC-addrList .addBtn{
+	background: #c21e29;
+	color: #fff;
+}
+.UC-addrList .backBtn{
+	background: #fff;
+	color: #c21e29;
+	margin-right: 20px;
+	border-radius: 3px;
+}
+.UC-addrList .addBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+a{
+	text-decoration: none;	
+}
+/*鍦板潃璇︽儏*/
+.UC-addrDetail .name{
+	float: left;
+	line-height: 30px;
+	font-size: 14px;	
+}
+.UC-addrDetail .info{
+	margin-top: 20px;
+	margin-left: 28px;
+	overflow: hidden;
+}
+.UC-addrDetail .info input{
+	width: 340px;
+	height: 30px;
+	border: solid 1px #cccccc;
+	margin-left: 10px;
+}
+
+.UC-addrDetail input.addr{
+	width: 520px;
+}
+.UC-addrDetail .saveBtn{
+	float: left;
+	width: 130px;
+	height: 40px;
+	color: #fff;
+	background: #c21e29;
+	border-radius: 3px;
+	margin-left: 0px;
+	margin-top: 20px;
+}
+.UC-addrDetail .saveBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.UC-addrDetail .backBtn{
+	float: left;
+	width: 130px;
+	height: 40px;
+	margin-left: 79px;
+	margin-top: 20px;
+	background: #fff;
+	color: #C21E29;
+	border: solid 1px #c21e29;
+	border-radius: 3px;
+}
+.UC-addrDetail .newAddrInfo{
+	margin-left: 6px;
+}
+.UC-addrDetail .newAddrInfo select {
+	border: 1px #cccccc solid;
+	background: #FFFFFF;
+	height: 32px;
+	width:113px;
+}
+.UC-addrDetail .newAddrInfo #show {
+	color: #3399FF;
+}
+.UC-addrDetail textarea{
+	width: 346px;
+	height: 98px;
+	border: solid 1px #CCCCCC;
+	resize: none;
+	outline: none;
+	margin-left: 5px;
+	padding:5px;
+}
+/*鏇存崲鎵嬫満鍙�*/
+.UC-newPhone .name{
+	float: left;
+	line-height: 30px;
+	font-size: 14px;	
+}
+.UC-newPhone .info{
+	margin-top: 20px;
+	margin-left: 28px;
+	overflow: hidden;
+}
+.UC-newPhone .info input{
+	width: 287px;
+	height: 30px;
+	border: solid 1px #cccccc;
+	margin-left: 10px;
+}
+.UC-newPhone .pwdBtn{
+	width: 118px;
+	height: 32px;
+	background: #c21e29;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	margin-left: 10px;
+}
+.UC-newPhone .pwdBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.UC-newPhone input.addr{
+	width: 520px;
+}
+.UC-newPhone .code{
+	float: left;
+	margin-left: 10px;
+	width: 95px;
+	height: 32px;
+	background: url("../img/newPhone-code.jpg")/*tpa=https://www.savingpay.com.cn/media/img/newPhone-code.jpg*/ no-repeat center;
+	background-size: cover;
+}
+.UC-newPhone .saveBtn{
+	float: left;
+	width: 130px;
+	height: 40px;
+	color: #fff;
+	background: #c21e29;
+	border-radius: 3px;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.UC-newPhone .saveBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.UC-newPhone .backBtn{
+	float: left;
+	width: 130px;
+	height: 40px;
+	margin-left: 122px;
+	margin-top: 20px;
+	background: #fff;
+	color: #C21E29;
+	border: solid 1px #c21e29;
+	border-radius: 3px;
+}
+/*淇敼瀵嗙爜*/
+.UC-pwd .name{
+	float: left;
+	line-height: 30px;
+	font-size: 14px;	
+}
+.UC-pwd .info{
+	margin-top: 20px;
+	margin-left: 28px;
+	overflow: hidden;
+}
+.UC-pwd .info input{
+	width: 218px;
+	height: 30px;
+	border: solid 1px #cccccc;
+	margin-left: 10px;
+}
+.UC-pwd .pwdBtn{
+	width: 118px;
+	height: 32px;
+	background: #c21e29;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	margin-left: 10px;
+}
+.UC-pwd .pwdBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.UC-pwd .saveBtn{
+	float: left;
+	width: 130px;
+	height: 40px;
+	color: #fff;
+	background: #c21e29;
+	border-radius: 3px;
+	margin-left: 131px;
+	margin-top: 20px;
+}
+.UC-pwd .saveBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.UC-pwd .backBtn{
+	float: left;
+	width: 130px;
+	height: 40px;
+	margin-left: 94px;
+	margin-top: 20px;
+	background: #fff;
+	color: #C21E29;
+	border: solid 1px #c21e29;
+	border-radius: 3px;
+}
+/*閬僵灞�*/
+.maskContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.mask {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .5);
+	z-index: 999;
+}
+.dialog{
+	width: 380px;
+	height: 160px;
+	background: #fff;
+	margin: 400px auto;
+	text-align: center;
+	font-size: 24px;
+	border-radius: 3px;
+	background: #fff;
+}
+.dialog .dialogBtn{
+	width: 128px;
+	background-color: #C21E29;
+	color: #fff;
+	font-size: 16px;
+	line-height: 38px;
+	float: none;
+	margin-top: 35px;
+}
+.dialog .dialogBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}

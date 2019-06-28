@@ -1,0 +1,73 @@
+.UC-order{
+	width: 946px;
+	height: 600px;
+	background-color: #fff;
+	color: #505050;
+}
+.UC-order .header{
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-order .table{
+	width: 944px;
+	border: solid 1px #e0e0e0;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 20px;
+}
+.UC-order .tableHead{
+	overflow: hidden;
+	background: #FAFAFA;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-order .tr{
+	overflow: hidden;
+	height: 58px;
+	line-height: 58px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-order .td{
+	width:84px;
+	float: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.UC-order .unpay{
+/*	color:#C21E29;*/
+}
+.UC-order .detail,.appraise{cursor: pointer;}
+/*.UC-order .detail{
+	color:#C21E29;
+}
+.UC-order .appraise{
+	color:#C21E29;
+}*/
+a{
+	text-decoration: none;	
+}
+.sort-orderTime,.sort-orderNum,.sort-State{
+	float: left;
+}
+.sort-orderTime,.sort-orderNum{
+	margin-right: 40px;
+}
+.sort{
+	overflow: hidden;
+	margin-top: 20px;
+}
+.sort input{
+	width: 218px;
+	height: 30px;
+	border: solid 1px #cccccc;
+}
+.sort select{
+	width: 235px;
+	height: 32px;
+	border: solid 1px #cccccc;
+	outline: none;
+}

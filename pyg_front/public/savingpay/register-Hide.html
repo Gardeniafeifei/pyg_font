@@ -1,0 +1,348 @@
+<html><head>
+		<meta charset="UTF-8">
+		<title>熊贝儿</title><link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="media/css/common.css">
+		<link rel="stylesheet" href="media/css/login.css">
+		<link rel="stylesheet" href="media/css/index.css">
+		<link rel="stylesheet" href="media/js/layer/skin/layer.css">
+		<style type="text/css">
+			body{background: url("media/img/login-bg (2).jpg") no-repeat;background-position-x: center;}
+			.phone{margin-top:30px;}
+			.loginContainer{height:455px;}
+			.code{margin-bottom:15px;}
+			.findPwd{color: #333;text-decoration: none;}
+			.findPwd a{text-decoration: underline;color: #2d73ca;}
+			.findMail,.findPhone{color: #2d73ca;}
+			.tip{padding-right:7px ;position: absolute;display: none;top:101px;left: 210px;}
+			.wrong{color:rgb(194, 30, 41);}
+			#password-tip{top: 156px;}
+			#code-tip{top: 339px;}
+			#imgTip{top: 284px;}
+			#password1-tip{top: 211px;}
+			.loginContainer{top: 110px;}
+			.loginBtn{margin:0;}
+ 			.pwdBtn {width: 150px;height: 40px;background: #c21e29;color: #fff;text-align: center;border-radius: 3px;margin-left: 10px;float: left;font-size: 14px;}
+		</style>
+		<script src="media/js/jquery.min.js"></script>
+		<script src="media/js/layer/layer.js"></script><link rel="stylesheet" href="media/js/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+		<script src="media/js/DJS.js"></script>
+		<script src="media/js/F12.js" type="text/javascript" charset="utf-8"></script> <script src="media/js/IsIE.js" type="text/javascript" charset="utf-8"></script> 
+	</head>
+	<body>
+		<div class="container">
+			<div class="loginContainer">
+				<!--<form action="" id="signupForm">-->
+					<div class="title">会员注册</div>
+					<div class="findPwd">已注册可<a href="login.html">直接登录</a></div>
+					<label class="phone">
+						<div class="icon"></div>
+						<input type="tel" placeholder="手机号/邮箱" maxlength="18" name="username" id="idname">
+						<p id="name-tip" class="tip">&nbsp;*请输入6~18位用户名</p>
+					</label>
+					<label class="pwd">
+						<div class="icon"></div>
+						<input type="password" placeholder="密码" maxlength="18" name="password" id="idpassword">
+						<p id="password-tip" class="tip">&nbsp;*密码在6-18位</p>
+					</label>
+					<label class="pwd" style="margin-bottom:10px;">
+						<div class="icon"></div>
+						<input id="idpassword1" type="password" name="passw1" maxlength="18" placeholder="请再次输入密码">
+						<p id="password1-tip" class="tip">&nbsp;*两次密码输入不一致</p>
+					</label>
+					<div class="findPwd findMail" style="margin-bottom:5px;">邮箱验证</div>
+					<!-- <div class="mailHide" style="display: none;">
+						<label class="mail" style="margin-bottom: 10px;margin-top:15px;">
+							<div class="icon"></div>
+							<input id="idmail" name="mail" placeholder="建议使用常用邮箱">
+							<p id="mail-tip" class="tip">请输入正确的邮箱</p>								
+						</label>						
+					</div> -->
+					<div class="findPwd findPhone" style="margin-bottom:5px;display:none;">手机验证</div>
+					<div class="code">
+						<input type="text" placeholder="验证码" maxlength="5" name="code" id="imgCode">
+						<p id="imgTip" class="tip">&nbsp;*输入正确的验证码</p>
+						<img class="codeImg" src="./get/coderedis.png">
+					</div>
+					<div class="code">
+						<input type="text" placeholder="验证码" maxlength="6" name="code" id="idcode">
+						<button class="name pwdBtn" id="getCode" value="">获取短信验证码</button>
+						<p id="code-tip" class="tip">&nbsp;*输入正确的短信验证码</p>
+					</div>
+					<div style="margin-bottom:10px;">
+						<input type="checkbox" id="ss" checked="" style="vertical-align: middle;"><span>阅读并同意<a href="javascript:;" id="user">《熊贝儿用户注册协议》</a><a href="javascript:;" id="hide">《隐私政策》</a></span>
+					</div>
+					<button type="submit" class="loginBtn">立即注册</button>
+					<!--<div class="findPwd">找回密码</div>-->
+				<!--</form>-->
+				
+			</div>
+		</div>
+		<div class="companyContainer">
+			<div class="companyTitle">合作机构</div>
+			<img src="media/img/company.png" class="company">
+		</div>
+		<iframe src="footer.html" style="margin-bottom: -5px;height:240px;" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		<div class="layui-layer-shade" id="layui-layer-shade3" times="3" style="z-index:19891016; background-color:#000; opacity:0.3; filter:alpha(opacity=30);"></div>
+		<div class="layui-layer layer-anim layui-layer-iframe " id="layui-layer2" type="iframe" times="2" showtime="0" contype="string" style="z-index: 19891016; width: 60%; height: 70%; top: 106px; left: 202.5px;">
+			<div class="layui-layer-title" style="cursor: move;" move="ok">网站使用条款</div>
+			<div id="" class="layui-layer-content">
+				<iframe scrolling="auto" allowtransparency="true" id="layui-layer-iframe2" name="layui-layer-iframe2" onload="this.className='';" class="" frameborder="0" src="registerHide.html" style="height: 385px;"></iframe>
+			</div>
+			<span class="layui-layer-setwin">
+				<a class="layui-layer-ico layui-layer-close layui-layer-close1" href="./register.html" style="color: #000; font-size: 12px">X</a>
+			</span>
+			<div class="layui-layer-btn"><a class="layui-layer-btn0" href="./register.html">同意并继续</a></div>
+		</div>
+	
+
+	
+<script>
+	
+	//倒计时
+	var wait = 60;
+	function time(o) {
+		if(wait == 0) {
+			o.removeAttribute("disabled");
+			o.innerHTML = "发送验证码";
+			wait = 60;
+		} else {
+			o.setAttribute("disabled", true);
+			o.innerHTML = "重新发送(" + wait + ")";
+			o.style.backgroundColor = 'gray';
+			wait--;
+			setTimeout(function() {
+					time(o)
+				},
+				1000)
+		}
+	}
+	$(function() {		
+		
+		
+		
+		
+		
+		
+		var type = 0;
+		//图片验证交互
+		document.getElementById("code").src = "web/get/coderedis";
+		$("#code").click(function(){
+			yzm();
+		});		
+		function yzm(){
+			document.getElementById("code").src = "web/get/coderedis?t="+new Date().getTime();
+		}
+		//短信验证码
+		$("#getCode").click(function(){
+					var username = $('#idname').val();
+					var pwd = $("#idpassword").val();
+					var pwd1 = $("#idpassword1").val();
+					var imgCode = $("#imgCode").val();
+					var getCode = $("#getCode").val();
+					if(!username||!pwd||!pwd1||!imgCode){	
+						return false;	
+					};
+
+					time(this);
+
+					var url = "";
+					var pam = {};
+					
+					if(type==0){
+						url = "web/userReg/smssend";
+						pam = {userphone:username,imgCode:imgCode};
+					}else{
+						url = "web/userReg/emailsend";
+						pam = {email:username,imgCode:imgCode};
+					}
+					
+					$.post(
+						url,
+						pam,
+						function(data){
+//								console.log(JSON.stringify(data))
+							if(data.code == "000000"){
+								layer.msg(data.message, {offset: ['30%', '69%']});
+							}else{
+								yzm();
+								layer.msg(data.errorMessage, {offset: ['30%', '69%']});
+							}
+						}
+					);
+						
+			})
+			
+				$('.findMail').click(function(){
+					type = 1;
+					/* $('.mailHide').css("display","block"); */
+					
+					$(".findMail").hide();
+					$(".findPhone").show();
+					
+					$('#getCode').text("获取邮箱验证码"); 
+				})
+				$('.findPhone').click(function(){
+					type = 0;
+					/* $('.mailHide').css("display","none") */
+					$(".findPhone").hide();
+					$('.findMail').show();
+					$('#getCode').text("获取短信验证码");
+				})
+//				
+
+			//点击注册验证判断
+			$(".loginBtn").click(function(){
+			
+				var isTrue = document.getElementById("ss").checked;
+				if(!isTrue){
+					layer.msg("必须同意用户协议！", {offset: ['30%', '69%']});
+					return;
+				}
+				var regName = $('#idname').val();
+				var pwd = $("#idpassword").val();
+				var pwd1 = $("#idpassword1").val();
+				var phoneCode = $("#idcode").val();
+				var imgCode = $("#imgCode").val();
+				if(!regName||!pwd||!pwd1||!phoneCode||!imgCode){
+					layer.msg("请将数据填写完整", {offset: ['30%', '69%']});
+					return;
+				}
+				$.post(
+						"web/userReg/reg",
+						{regName:regName,password:pwd,phoneCode:phoneCode,type:type},
+						function(data){
+//							alert(JSON.stringify(data));
+							if(data.code == "000000"){
+								var userStorage = data.data;
+								sessionStorage.setItem("userStorage",JSON.stringify(userStorage));
+								window.location.href = "web/index.html";
+							}else{
+								yzm();
+								layer.msg(data.errorMessage, {offset: ['30%', '69%']});
+							}
+						}
+					);
+				
+				
+				})
+			//用户名失焦验证
+				$("#idname").blur(function(){
+					if(!($('#idname').val().length >= 6 && $('#idname').val().length <= 18)){
+						$("#name-tip").css("display","block");
+						$("#name-tip").addClass("wrong");
+						return false;
+					}else{
+						$("#name-tip").removeClass("wrong");
+						$("#name-tip").css("display","none");
+						
+						var regName = document.getElementById("idname").value;
+						$.post(
+						"web/userReg/findUser",
+						{regName:regName},
+						function(data){
+//							console.log('');
+							if(data.code!="000000"){
+								layer.msg(data.errorMessage, {offset: ['20%', '69%']});
+								document.getElementById("idname").value="";
+								$("#name-tip").css("display","block");
+								$("#name-tip").addClass("wrong");
+							}
+						}
+					);
+						
+						
+					}	
+			})
+				//密码验证
+				$("#idpassword").blur(function(){
+					var passwordReg=/^[a-zA-Z0-9]{6,18}$/;
+					if(!passwordReg.test($("#idpassword").val())){
+						$("#password-tip").css("display","block");
+						$("#password-tip").addClass("wrong");
+						return false;
+					}else{
+						$("#password-tip").removeClass("wrong");
+						$("#password-tip").css("display","none");
+					}
+			})
+			//重复密码验证
+				$("#idpassword1").blur(function(){
+					var passwordReg1=/^[a-zA-Z0-9]{6,18}$/;
+					var pwd = $("#idpassword").val();
+					var pwd1 = $("#idpassword1").val();
+					if(!passwordReg1.test(pwd1)){
+						$("#password1-tip").css("display","block");
+						$("#password1-tip").addClass("wrong");
+						return false;
+					}else{
+						$("#password1-tip").removeClass("wrong");
+						$("#password1-tip").css("display","none");
+					}
+					
+					if(pwd != pwd1){
+						$("#password1-tip").css("display","block");
+						$("#password1-tip").addClass("wrong");
+						return false;
+					}
+			})
+				//图片验证
+				$("#imgCode").blur(function(){
+					if($("#imgCode").val().length !=5||$("#imgCode").val() == ""){
+						$("#imgTip").css("display","block");
+						$("#imgTip").addClass("wrong");
+						return false;
+					}else{
+						$("#imgTip").removeClass("wrong");
+						$("#imgTip").css("display","none");
+					}
+				})
+				//短信验证
+				$("#idcode").blur(function(){
+					var codeReg=/^[0-9]{6}$/;
+					if(!codeReg.test($("#idcode").val())){
+						$("#code-tip").css("display","block");
+						$("#code-tip").addClass("wrong");
+						return false;
+					}else{
+						$("#code-tip").removeClass("wrong");
+						$("#code-tip").css("display","none");
+					}
+			})
+				//邮箱验证
+				$("#idmail").blur(function(){
+					var mailReg=/^\w+@\w+\.[a-z]{2,3}$/;
+					if(!mailReg.test($("#idmail").val())){
+						$("#mail-tip").css("display","block");
+						$("#mail-tip").addClass("wrong");
+						return false;
+					}else{
+						$("#mail-tip").removeClass("wrong");
+						$("#mail-tip").css("display","none");
+					}
+			})
+				//注册条款弹框
+				$("#user").click(function(){
+					layer.open({
+						  type: 2,
+						  title: '网站使用条款',
+						  shadeClose: true,
+						  shade: 0.3,
+						  area: ['60%', '70%'],
+						  btn:["同意并继续"],
+						  content: '/web/registerProtocol.html'
+						}); 
+				})
+				$("#hide").click(function(){
+					layer.open({
+						  type: 2,
+						  title: '隐私保密政策',
+						  shadeClose: true,
+						  shade: 0.3,
+						  area: ['60%', '70%'],
+						  btn:["同意并继续"],
+						  content: '/web/registerHide.html' //iframe的url
+						}); 
+				})
+							});
+</script>
+</body></html>

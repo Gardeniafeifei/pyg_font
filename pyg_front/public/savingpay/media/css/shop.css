@@ -1,0 +1,174 @@
+.content{
+	width: 1210px;
+	margin: auto;
+}
+.nav{
+	margin-top: 20px;
+}
+a{
+	cursor: pointer;
+}
+.shopHeader{
+	height: 160px;
+	width: 100%;
+	background: #fff url("../img/shop/shopHeader.jpg")/*tpa=https://www.savingpay.com.cn/media/img/shop/shopHeader.jpg*/ no-repeat center;
+	margin-top: 25px;
+	overflow: hidden;
+}
+.headerContainer{
+	width: 504px;
+	margin:20px auto;
+	overflow: hidden;
+	color: #595959;	
+}
+.headerPic{
+	float: left;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	/* background: url(../img/shop/shopPic01.jpg) no-repeat center; */
+	background-size: cover;	
+}
+.headerInfo{
+	width: 352px;
+	margin-left: 32px;	
+	float: left;
+	line-height: 30px;
+}
+.addr{
+	width: 400px;	
+}
+.shopContainer .title{
+	width: 352px;	
+	font-size: 18px;
+	color: #212121;	
+	margin-bottom: 5px;
+}
+.mapContainer{
+	margin-top: 20px;
+	overflow: hidden;
+	height: 227px;
+	padding: 20px;
+	background: #fff;
+	border: solid 1px #e0e0e0;	
+}
+.carousel{
+	float: left;	
+}
+.shopInfo{
+	margin-top: 7px;
+	width: 210px;
+	float: left;
+	text-align: center;
+	overflow: hidden;
+	margin-left: 20px;
+}
+.shopInfo .info{
+	padding-top: 24px;
+	width: 104px;
+	height: 80px;
+	float: left;
+	font-size: 16px;
+	color: #212121;
+	line-height: 30px;
+}
+.shopInfo .data{
+	color: #c21e29;
+	font-size: 18px;
+}
+.count,.sumSale{
+	border-bottom: solid 1px #e0e0e0;
+}
+.count,.positive{
+	border-right: solid 1px #e0e0e0;
+}
+.map{
+	width: 600px;
+	height: 228px;
+	float: right;
+}
+.introContainer{
+	/* overflow: hidden; */
+	margin-top: 20px;
+}
+.introContainer .brief{
+	width: 858px;
+	background: #fff;
+	float: left;
+}
+.briefTitle{
+	font-size: 18px;
+	color: #c21e29;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.introContainer .intro{
+	padding: 20px;
+}
+.commentContainer{
+	width: 338px;
+	float: right;
+	background: #fff;
+}
+.commentHeader{
+	font-size: 18px;
+	color: #c21e29;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.comment{
+	margin: 20px 20px 0px 20px;
+	padding-bottom: 10px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.userName{
+	color: #005aa0;
+	font-size: 14px;
+}
+.userComment{
+	margin-top: 10px;
+	color: #595959;
+	line-height: 21px;
+}
+.time{
+	margin-top: 20px;
+	color: #B5B2BB;
+	text-align: right;
+}
+.pages{
+	margin-right: 10px;
+}
+/*wrapper*/
+#wrapper{ width:300px;}
+.titleh3{ height:70px; line-height:70px; text-align:center; background:url("../img/ico/dot.gif")/*tpa=https://www.savingpay.com.cn/media/img/ico/dot.gif*/ repeat-x left bottom; width:910px; margin:0 auto; font-size:26px; color:#000;}
+.titleh4{text-align:center; font-size:12px; color:#000; font-weight:normal; padding:10px 0 20px 0px;}
+
+.imgnav{ width:240px; margin:10px auto;}
+#wrapper #content{margin:0px auto;  line-height:19px;}
+#wrapper #content p{ text-indent:2em; color:#333;}
+
+.imgnav{  position:relative; margin:0 auto; width:300px;}
+#img{ z-index:10; width:300px; position:relative; text-align:center;}
+#img img{ width:300px; display:none;}
+#front{ position:absolute; left:0px; top:0px; z-index:10; cursor:pointer;  width:50px; height:180px; background:url("../img/ico/blank.gif")/*tpa=https://www.savingpay.com.cn/media/img/ico/blank.gif*/; }
+#front a{  position:absolute; left:10px; top:70px;display:block; background:url("../img/ico/imgSlideLeft.png")/*tpa=https://www.savingpay.com.cn/media/img/ico/imgSlideLeft.png*/ no-repeat; width:104px; height:104px; display:none;}
+#next{  position:absolute; right:0px; top:0px; z-index:10;cursor:pointer; width:50px; height:180px;  background:url("../img/ico/blank.gif")/*tpa=https://www.savingpay.com.cn/media/img/ico/blank.gif*/;}
+#next a{  position:absolute; right:-50px; top:70px; display:block; background:url("../img/ico/imgSlideRight.png")/*tpa=https://www.savingpay.com.cn/media/img/ico/imgSlideRight.png*/ no-repeat; width:104px; height:104px; display:none;}
+
+#cbtn{position:relative; height:50px;margin-top:10px;}
+#cbtn ul{position:relative; width:10000px; height:50px;}
+#cbtn ul li{ float:left; width:44px; height:33px; cursor:pointer; text-align:center; margin-right:5px; position:relative;border:solid 1px rgba(255,255,255,0);}
+#cbtn ul li img{ width:44px; height:33px; display:block;}
+#cbtn ul li tt{ background:#000; color:#FFF; position:absolute; right:4px; bottom:4px; z-index:20; font-family:"閻庣懓顑勭紞锟�" ;font-size:12px; line-height:16px; padding:0 5px;}
+#cbtn li.hov{ border:solid 1px #fff; no-repeat;}
+.ctrl div{ clear:both;}
+#cSlideUl{width:240px; height:50px;overflow:hidden; position:relative; top:0px; margin:0 auto;}
+.picSildeLeft{cursor:pointer; position:absolute; top:0px; left:0px; z-index:9;}
+.picSildeRight{cursor:pointer; position:absolute; top:0px; right:0px; z-index:9;}
+/*闁猴拷閹佷海闂傦拷濠婂嫮澹夌�殿噯鎷�*/
+div.zoomDiv{z-index:999;position:absolute;top:0px;left:0px;width:200px;height:200px;background:#ffffff;border:1px solid #CCCCCC;display:none;text-align:center;overflow:hidden;}
+div.zoomMask{position:absolute;background:url("../img/ico/mask.png")/*tpa=https://www.savingpay.com.cn/media/img/ico/mask.png*/ repeat scroll 0 0 transparent;cursor:move;z-index:1;}

@@ -1,0 +1,17 @@
+html{height:100%}
+body.signin{height:auto;background:url(../image/7.png) no-repeat center fixed;
+-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;
+background-size:cover;color:rgba(255,255,255,.95)}
+.signinpanel{width:750px;margin:10% auto 0}
+.signinpanel .logopanel{float:none;width:auto;padding:0;background:0 0}
+.signinpanel .signin-info ul{list-style:none;padding:0;margin:20px 0}
+.signinpanel .form-control{display:block;margin-top:34px;width: 400px;height: 40px;border-radius: 5px;font-size: 18px;}
+.signinpanel .uname{background:#fff url(../img/user.png) no-repeat 95% center;color:#333}
+.signinpanel .pword{background:#fff url(../img/locked.png) no-repeat 95% center;color:#333}.signinpanel .btn{margin-top:34px}
+.signinpanel .form-signin{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);-moz-box-shadow:0 3px 0 rgba(12,12,12,.03);-webkit-box-shadow:0 3px 0 rgba(12,12,12,.03);box-shadow:0 3px 0 rgba(12,12,12,.03);-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;padding:30px}
+.signup-footer{margin:20px 0;padding-top:15px}@media screen and (max-width:768px){.signinpanel,.signuppanel{margin:0 auto;width:420px!important;padding:20px}.signinpanel form{margin-top:20px}.signup-footer,.signuppanel .form-control{margin-bottom:10px}.signup-footer .pull-left,.signup-footer .pull-right{float:none!important;text-align:center}.signinpanel .signin-info ul{display:none}}@media screen and (max-width:320px){.signinpanel,.signuppanel{margin:0 20px;width:auto}}
+#defaultForm{width: 600px;height: 460px;margin: 0 auto}
+.btn-block{width: 400px;height:40px;border-radius: 5px;font-size: 18px;}
+.btn-success{background: #0e4870;}
+.YZM{width:134px;height: 40px;text-align: right;display: inline-block;border-radius: 5px;vertical-align: bottom;border-radius: 5px;overflow: hidden;}
+.YM{width: 260px!important;display: inline-block!important;margin-top: 0px!important;}

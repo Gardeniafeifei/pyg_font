@@ -1,0 +1,297 @@
+<html><head>
+		<meta charset="UTF-8">
+		<title>熊贝儿</title>
+		<link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="media/css/common.css">
+		<link rel="stylesheet" href="media/css/VIPindex.css">
+		<link rel="stylesheet" href="media/css/header.css">
+		<link rel="stylesheet" href="media/js/layer/skin/layer.css">
+		<script src="media/js/jquery.min.js"></script>
+		<script src="media/js/layer/layer.js"></script><link rel="stylesheet" href="media/js/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+		<script src="media/js/VIPindex.js" type="text/javascript" charset="utf-8"></script>
+		<script src="media/js/F12.js" type="text/javascript" charset="utf-8"></script>
+		<script src="media/js/IsIE.js" type="text/javascript" charset="utf-8"></script> 
+		<style>
+			.vip{
+				height: 25px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			.hide{
+				display: none
+			}
+		</style>
+	</head>
+	<body>
+		<div class="shortcut">
+			<div class="shortcut-con">
+				<div class="st-l">
+					您好，<span id="userName" style="color:#C21E29;"></span>欢迎访问熊贝儿！
+					<a href="#" id="login" class="login" style="color: #C21E29;">登录</a>
+				</div>
+				<div class="st-r">
+					<ul>
+						<li>
+							地区：
+							<a id="city" style="color: #72696a;">西安</a>
+							<s></s>
+						</li>
+						<li>
+							<a class="cityTab" href="#">切换城市</a>
+							<s></s>
+						</li>
+						<li>
+							<a href="#" class="userCenter" style="display: none;">【个人中心】</a>
+							<s></s>
+						</li>
+						<li>
+							<a href="###" id="sup">【商户登录】</a>
+							<s></s>
+						</li>
+						<li>
+							<a href="###" id="opt">【合伙人登录】</a>
+						</li>
+						<li>
+							<a href="#" id="outLogin" style="text-decoration: underline; display: none;">退出登录</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="VIPwrap">
+			<div class="vipTit">
+				<div class="vipMenu">
+					<div class="vipLogo">
+						<img class="vipImg" src="media/img/favicon.ico">
+						<div class="userName">
+							<div class="vipUser" id="vipUser" style="background: url(&quot;media/img/logo88.jpg&quot;) 0% 0% / 100% 100% no-repeat;"></div>
+						</div>
+					</div>
+					<div class="vipCon">
+						<div class="vipName"></div>
+						<div class="vipTitle">现在开通，立享终身VIP会员</div>
+						<div class="vipCondition">（VIP会员可享受超低折扣特价商品等八大优惠）</div>
+						<div class="vipOpenBtn btnRun">立即享受VIP</div>
+						<div class="vipRecommend">
+							<div class="vipRecomLeft">
+								<div class="vipRecommendTit">推荐有奖</div>
+								<div class="vipRecommendCondition">邀请好友开通VIP您可享受推荐奖励，最高可获得￥139</div>
+							</div>
+							<div class="vipRecomRight">
+								<div class="vipRecomBtn btnRun">GO</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="vipContentMenu"></div> -->
+			<div class="vipChange">
+				<div class="vipContentCh">
+					<div class="vipMember">VIP会员专区</div>
+					<div class="vipBuyTit">购买以下商品，您将成为终身VIP会员</div>
+					<div class="vipChangeGoods">
+						<ul class="vipUl"><li class="vipLi"><div class="goodsImg" id="28A9D7943CC14405B404213B9E6317BF" style="background:url(https://f.savingpay.com/ftp2/goodsImg/2019/06/28A9D7943CC14405B404213B9E6317BF/sy9hzQC.jpg)no-repeat;background-size:100% 100%;"></div><div class="goodsName"><div class="goodsTitle">净水缘净水器</div><div class="goodsPrice"><span class="newPrice">￥299</span><span class="oldPrice">￥299</span></div><div class="goodsBtn">立即购买</div></div></li><li class="vipLi"><div class="goodsImg" id="61C11B8703574BA7A4278BF3DC39547B" style="background:url(https://f.savingpay.com/ftp2/goodsImg/2019/05/61C11B8703574BA7A4278BF3DC39547B/NmyXeDp.jpg)no-repeat;background-size:100% 100%;"></div><div class="goodsName"><div class="goodsTitle">美仆洁净专家第二代</div><div class="goodsPrice"><span class="newPrice">￥199</span><span class="oldPrice">￥199</span></div><div class="goodsBtn">立即购买</div></div></li><li class="vipLi"><div class="goodsImg" id="7B6494B842CE47CDAF20C4911DFBDB1B" style="background:url(https://f.savingpay.com/ftp2/goodsImg/2019/04/7B6494B842CE47CDAF20C4911DFBDB1B/aVrVVAj.jpg)no-repeat;background-size:100% 100%;"></div><div class="goodsName"><div class="goodsTitle">小皿马克杯泡茶杯</div><div class="goodsPrice"><span class="newPrice">￥299</span><span class="oldPrice">￥299</span></div><div class="goodsBtn">立即购买</div></div></li></ul>
+						<div class="checkMore">查看更多&gt;</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="vipGoodsWrap">
+				<div class="vipGoodsMore">
+					<div class="vipGoodsMoreTit">
+						<div class="vipSuper">超级会员专享价</div>
+						<div class="vipMore">开通100%商品VIP会员价/可享受更多优惠</div>
+					</div>
+					<div class="vipGoodsSuper">
+						<ul class="vipGoodsUl"><li class="vipGoodsLi"><div class="vipDiv"><div class="vipDivImg" id="2D0DAE2C6B104236AFA6722A82C1BA13" style="background:url(https://f.savingpay.com/ftp2/goodsImg/2019/01/2D0DAE2C6B104236AFA6722A82C1BA13/4RSzmhD.jpg)no-repeat;background-size:100% 100%;"></div><div class="vipDivName"><div class="vip"><div class="vipJian" id="vipJian0">VIP立减￥<span>110</span></div></div><div class="vipGoodsMenu">德国海牌破壁料理机</div><div class="goodsPrice"><span class="newPrice">￥510</span><span class="oldPrice">￥590</span></div></div></div></li><li class="vipGoodsLi"><div class="vipDiv"><div class="vipDivImg" id="3F0BE57546B840C3872932F9D4471D6C" style="background:url(https://f.savingpay.com/ftp2/goodsImg/2019/01/3F0BE57546B840C3872932F9D4471D6C/w3nZ7n1.jpg)no-repeat;background-size:100% 100%;"></div><div class="vipDivName"><div class="vip"><div class="vipJian" id="vipJian1">VIP立减￥<span>110</span></div></div><div class="vipGoodsMenu">德国海牌破壁机料理机</div><div class="goodsPrice"><span class="newPrice">￥498</span><span class="oldPrice">￥699</span></div></div></div></li><li class="vipGoodsLi"><div class="vipDiv"><div class="vipDivImg" id="5F3C871683FF4AA0BCCBF17DC38B1B82" style="background:url(https://f.savingpay.com/ftp2/goodsImg/2019/05/5F3C871683FF4AA0BCCBF17DC38B1B82/NBpr3Wt.jpg)no-repeat;background-size:100% 100%;"></div><div class="vipDivName"><div class="vip"><div class="vipJian" id="vipJian2">VIP立减￥<span>88</span></div></div><div class="vipGoodsMenu">微营销顶层设计</div><div class="goodsPrice"><span class="newPrice">￥2988</span><span class="oldPrice">￥2988</span></div></div></div></li><li class="vipGoodsLi"><div class="vipDiv"><div class="vipDivImg" id="2444F8EA77AF400C95DB9AC5AB3168A1" style="background:url(https://f.savingpay.com/ftp2/goodsImg/2019/01/2444F8EA77AF400C95DB9AC5AB3168A1/QxzDUhr.jpg)no-repeat;background-size:100% 100%;"></div><div class="vipDivName"><div class="vip"><div class="vipJian" id="vipJian3">VIP立减￥<span>68</span></div></div><div class="vipGoodsMenu">智伴儿童智能机器人</div><div class="goodsPrice"><span class="newPrice">￥858</span><span class="oldPrice">￥1200</span></div></div></div></li><li class="vipGoodsLi"><div class="vipDiv"><div class="vipDivImg" id="5D1928DB95044511AE1018DC52F286FA" style="background:url(https://f.savingpay.com/ftp2/goodsImg/2019/03/5D1928DB95044511AE1018DC52F286FA/Q18Q8mh.jpg)no-repeat;background-size:100% 100%;"></div><div class="vipDivName"><div class="vip"><div class="vipJian" id="vipJian4">VIP立减￥<span>64</span></div></div><div class="vipGoodsMenu">杯具熊榨汁机家用</div><div class="goodsPrice"><span class="newPrice">￥249</span><span class="oldPrice">￥298</span></div></div></div></li><li class="vipGoodsLi"><div class="vipDiv"><div class="vipDivImg" id="C50E44B294FC4530BE76C70363B44912" style="background:url(https://f.savingpay.com/ftp2/goodsImg/2019/02/C50E44B294FC4530BE76C70363B44912/mK2DqgX.jpg)no-repeat;background-size:100% 100%;"></div><div class="vipDivName"><div class="vip"><div class="vipJian" id="vipJian5">VIP立减￥<span>50</span></div></div><div class="vipGoodsMenu">北欧欧慕 电水壶</div><div class="goodsPrice"><span class="newPrice">￥249</span><span class="oldPrice">￥269</span></div></div></div></li><li class="vipGoodsLi"><div class="vipDiv"><div class="vipDivImg" id="86CD8DE620614737A4CFEF7EC559D924" style="background:url(https://f.savingpay.com/ftp2/goodsImg/2019/01/86CD8DE620614737A4CFEF7EC559D924/ScF8XTE.jpg)no-repeat;background-size:100% 100%;"></div><div class="vipDivName"><div class="vip"><div class="vipJian" id="vipJian6">VIP立减￥<span>44</span></div></div><div class="vipGoodsMenu">北欧欧慕折叠足浴盆</div><div class="goodsPrice"><span class="newPrice">￥299</span><span class="oldPrice">￥399</span></div></div></div></li><li class="vipGoodsLi"><div class="vipDiv"><div class="vipDivImg" id="A58599284CDF470BBBBE5287B3DD06EE" style="background:url(https://f.savingpay.com/ftp2/goodsImg/2018/12/A58599284CDF470BBBBE5287B3DD06EE/A2v4Xax.jpg)no-repeat;background-size:100% 100%;"></div><div class="vipDivName"><div class="vip"><div class="vipJian" id="vipJian7">VIP立减￥<span>44</span></div></div><div class="vipGoodsMenu">金正破壁料理机</div><div class="goodsPrice"><span class="newPrice">￥299</span><span class="oldPrice">￥399</span></div></div></div></li></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<iframe src="footer.html" style="margin-bottom: -5px;height:240px;" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+	
+	<script>
+	$('.vipImg').click(function() {
+		window.top.location.href = 'index.html';
+	});
+	$('.cityTab').click(function() {
+		window.top.location.href = 'cityTab.html';
+	});
+	$('.userCenter').click(function() {
+		window.top.location.href = 'userCenter.html';
+	});
+	
+
+	$('.login').click(function() {
+		window.top.location.href = 'login.html';
+	});
+	
+	$(".checkMore").click(function(){
+		window.location.href = 'VIPsale.html';
+	})
+	
+	var localStrGetVal = sessionStorage.getItem("cityName");
+	if(!localStrGetVal) {
+		$("#city").html("西安");
+	} else {
+		$("#city").html(localStrGetVal);
+	}
+
+	var supLink = 'deshangshidai-supplier';
+	var optLink = 'deshangshidai-operator';
+
+	$('#sup').click(function(){
+		window.open(supLink, null, null, null);
+	});
+
+	$('#opt').click(function(){
+		window.open(optLink, null, null, null);
+	});
+
+	var userStorage = sessionStorage.getItem("userStorage");
+	
+	$(".vipUser").css({  
+		"background":"url(media/img/logo88.jpg)no-repeat",
+		"background-size":"100% 100%"
+	});
+	$(".vipTitle").html("现在开通，立享终身VIP会员");
+	
+	$(".btnRun").click(function() {
+		window.location.href = 'VIPcode.html';//vip认证
+	});
+	
+	if(userStorage) {
+		var user = JSON.parse(sessionStorage.getItem("userStorage"));
+			
+		var userImg = user.memberHeadPortrait;
+		if(userImg){
+			$(".vipUser").css({
+				"background":"url("+userImg+")no-repeat",
+				"background-size":"100% 100%"
+			})
+		}	
+		if(user.vipGrade == "1") {
+			$(".vipTitle").html("您已经是终身VIP会员，更多优惠属于您");
+			$(".btnRun").unbind();
+			$(".btnRun").click(function() {
+				window.location.href = 'VIPsale.html';//vip商品列表
+			});
+			
+		}
+		/* } */
+		var userName = user.memberName;
+		
+		var memberName = user.memberName;
+		if(memberName){
+			$(".vipName").html(memberName)
+		}else{
+			$(".vipName").html("")
+		}
+		var memberId = user.memberId;
+		document.getElementById("userName").innerText = userName;
+		document.getElementById("login").style.display = "none";
+		document.getElementById("outLogin").addEventListener("click", function() {
+			layer.confirm('您确认要退出吗？', {
+				title: ["提示"],
+				btn: ['确认', '取消'] //按钮
+			}, function() {
+				sessionStorage.removeItem("userStorage");
+				window.top.location.href = 'index.html';
+			});
+
+		});
+		
+	} else {
+		$("#outLogin").hide();
+		$(".userCenter").hide();
+	}
+	/* 3条商品数据  */
+	$.ajax({
+			type:"post",
+			url:"web/vipinfocontroller/vipgoodsdistrict",
+			data:{},
+			success:function(data){
+				if(data.code == "000000"){
+					var goodsList = data.data;
+					var vipLi = "";
+					for(var i = 0;i < goodsList.length;i++){
+						vipLi += '<li class="vipLi">'+
+									'<div class="goodsImg" id="'+goodsList[i].id+'" style="background:url('+goodsList[i].mainPicture+')no-repeat;background-size:100% 100%;"></div>'+
+									'<div class="goodsName">'+
+										'<div class="goodsTitle">'+goodsList[i].goodsName+'</div>'+
+										'<div class="goodsPrice">'+
+											'<span class="newPrice">￥'+goodsList[i].newPrice+'</span>'+
+											'<span class="oldPrice">￥'+goodsList[i].oldPrice+'</span>'+
+										'</div>'+
+										'<div class="goodsBtn">立即购买</div>'+
+									'</div>'+
+								'</li>'
+					}
+					$(".vipUl").html(vipLi);
+					// 加载商品详情页方法
+					$('.goodsImg').on("click",function(){
+						var goodId = $(this).attr('id');
+						window.location.href = 'web/hotSale-Detail.html?goodId='+goodId;
+					});
+				}
+			}
+			
+		})
+	
+	
+/* 8条商品数据  */
+ var dataMsg = {PageSize:8,PageNo:1};
+	dataMsg = JSON.stringify(dataMsg);
+$.ajax({
+		type:"post",
+		url:"web/v3/md/vipGoodsList",
+		data:dataMsg,
+		contentType:'application/json;charset=UTF-8',
+		success:function(data){
+			if(data.code == "000000"){
+				var goodsList = data.data;
+				var vipGoodsLi = "";
+				var priceDifferences = "";
+				var moneySpecial="";
+				for(var i = 0;i < goodsList.length;i++){
+					priceDifferences = goodsList[i].priceDifferences;
+					if(goodsList[i].moneySpecial !=0 || goodsList[i].moneySpecial !=0.00){
+						moneySpecial = "<span style='font-size:14px;'>+"+goodsList[i].moneySpecial+"津贴</span>";
+					}else{
+						moneySpecial = ""
+					}
+					vipGoodsLi += '<li class="vipGoodsLi">'+
+										'<div class="vipDiv">'+
+											'<div class="vipDivImg" id="'+goodsList[i].id+'" style="background:url('+goodsList[i].mainPicture+')no-repeat;background-size:100% 100%;"></div>'+
+											'<div class="vipDivName">'+
+												'<div class="vip"><div class="vipJian" id="vipJian'+i+'">VIP立减￥<span>'+priceDifferences+'</span></div></div>'+
+												'<div class="vipGoodsMenu">'+goodsList[i].goodsName+'</div>'+
+												'<div class="goodsPrice">'+
+													'<span class="newPrice">￥'+goodsList[i].newPrice+moneySpecial+'</span>'+
+													'<span class="oldPrice">￥'+goodsList[i].oldPrice+'</span>'+
+												'</div>'+
+											'</div>'+
+										'</div>'+
+									'</li>';
+				}
+				$(".vipGoodsUl").html(vipGoodsLi);
+				for(var i = 0;i < goodsList.length;i++){
+					if(goodsList[i].priceDifferences == "0"){
+						$("#vipJian"+i).addClass("hide");
+					}
+				}
+				
+				// 加载商品详情页方法
+				$('.vipDivImg').on("click",function(){
+					var goodId = $(this).attr('id');
+					window.location.href = 'web/hotSale-Detail.html?goodId='+goodId+'&type=1';
+				});
+			}
+		}
+		
+	})
+ 
+
+
+	</script>
+</body></html>

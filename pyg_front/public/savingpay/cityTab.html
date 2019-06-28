@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>熊贝儿</title>
+		<link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" /><link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<link rel="stylesheet" href="media/css/common.css" />
+		<link rel="stylesheet" href="media/css/cityTab.css" />
+		<script src="media/js/jquery.min.js"></script>
+		<script src="media/js/F12.js" type="text/javascript" charset="utf-8"></script> <script src="media/js/IsIE.js" type="text/javascript" charset="utf-8"></script> 
+		<script>
+			$(function(){
+				var li = '';
+				var arrCity=['西安','咸阳','宝鸡','渭南','铜川','北京','广州','上海','深圳','杭州','南京','武汉','成都','郑州','太原','兰州','长沙','贵阳'];
+				var cityId =['610100','610400','610300','610500','610200','110100','440100','310100','440300','330100','320100','420100','510100','410100','140100','620100','430100','520100',];
+				for (var i=0;i<arrCity.length;i++) {
+					li+='<li class="city" data-flag="'+cityId[i]+'">'+
+						arrCity[i]+
+						'</li>';
+				}
+				$('.cityContainer ul').html(li);
+				$('.city').click(function(){
+					var cityName = this.innerHTML;
+					var cityId = this.dataset.flag;
+					//取值存值
+					sessionStorage.setItem("cityName",cityName);
+					sessionStorage.setItem("cityId",cityId);
+					window.location.href = "index.html";
+				});
+				
+			})
+			
+		</script>
+	</head>
+
+	<body>
+		<iframe src="header.html" style="margin-bottom: -6px;" width="100%" height="165" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		<div class="content">
+			<div class="searchHeader">
+				<div class="newAddrInfo">
+					按省份选择：
+					<select id="s_province" name="s_province"><option class='options'>请选择</option></select>
+					<select id="s_city" name="s_city"><option class='options'>请选择</option></select>
+					<!--<select id="s_county" name="s_county"></select>-->
+				</div>
+				<button type="submit" class="confirm">确定</button>
+
+			</div>
+			
+			<div class="cityContainer">
+				<div class="title">常用城市：</div>
+				<ul>
+				</ul>
+			</div>
+			
+		</div>
+		
+		<iframe src="footer.html" style="position: fixed;bottom: -5px;" width="100%" height="184" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		<!--省市区三级联动-->
+		<script  src="media/js/city.js"></script>
+		<script>
+			for(var i=0;i<cityData3.length;i++){
+				var options = $("<option class='options'></option>");
+				//省名
+				var provinceText = cityData3[i].text;
+				options.html(provinceText);
+				//省Id
+				var valIdPro = cityData3[i].value;
+				options.attr("value",valIdPro);
+				$("#s_province").append(options)
+			}	
+
+			function citys(proId){				
+				for(var i=0;i<cityData3.length;i++){	
+					var valIdPro = cityData3[i].value;
+					if(valIdPro == proId){
+						var province = cityData3[i].children;
+						$("#s_city").html("");
+						for(var j = 0;j<province.length;j++){	
+						var options = $("<option></option>");
+						var cityText = province[j].text;
+						options.html(cityText);
+						var valIdCity = province[j].value;
+						options.attr("value",valIdCity);
+						$("#s_city").append(options);
+
+					}
+					}
+				}
+			}
+			var selects=document.getElementById("s_province");
+		　　	selects.onchange=function(){
+				var val = selects.options[selects.selectedIndex].value;
+		　　　　	citys(val);
+		　　	}
+		
+		
+			$(".confirm").click(function(){
+				var cityName = $("#s_city").find("option:selected").text();
+				var cityId = $("#s_city").find("option:selected").val();
+
+				if(cityName=="请选择"||cityId=="请选择"){
+					return;
+				}
+				sessionStorage.setItem("cityName",cityName);
+				sessionStorage.setItem("cityId",cityId);
+				window.location.href = "index.html";
+			});
+			
+			　
+		</script>
+	</body>
+
+</html>

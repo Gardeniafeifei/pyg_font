@@ -1,0 +1,66 @@
+.categorys-bd {
+	width: 234px;
+	background: #fff;
+	height: 434px;
+	float: left;
+	padding: 10px 0 0;
+	position: relative;
+}
+
+.slider {
+	margin-top: 1px;
+	float: left;
+	width: 976px;
+	height: 444px;
+}
+
+.categorys-bd .items li {
+	position: relative;
+	height: 35px;
+	overflow: hidden;
+}
+
+.categorys-bd .items li a {
+	display: block;
+	height: 35px;
+	line-height: 35px;
+	width: 258px;
+	text-indent: 50px;
+	position: absolute;
+	text-overflow: ellipsis;
+	font-size: 12px;
+	word-wrap: normal;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.categorys-bd .items li .item-rarrow {
+	position: absolute;
+	color: #333;
+	right: 24px;
+	top: 8px;
+	font-size: 20px;
+}
+
+.categorys-content {
+	width: 1210px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.categorys-bd .item-sub {
+	position: absolute;
+	left: 234px;
+	height: 424px;
+	width: 690px;
+	top: 0px;
+	z-index: 99999;
+	border-left: solid 1px #ece8e9;
+	padding: 10px;
+	background: #fff;
+	overflow: hidden;
+}
+/*左侧导航*/
+.container .wp .macth_xv_categorys .macth_xv_cat_catlist {
+	display: block;
+}

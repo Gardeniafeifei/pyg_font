@@ -1,0 +1,93 @@
+.content{
+	width: 1210px;
+	background: #fff;
+	border: solid 1px #e0e0e0;
+	margin:20px auto 70px auto;
+	font-size: 14px;
+}
+.searchHeader{
+	background: #f7f7f7;
+	border-bottom: solid 1px #eeeeee;
+	height: 28px;
+	padding: 25px 20px 20px 20px;
+	overflow: hidden;
+}
+/*三级联动样式*/
+.newAddrInfo{
+	float: left;
+}
+.newAddrInfo select {
+	border: 1px #e0e0e0 solid;
+	background: #FFFFFF;
+}
+.newAddrInfo #show {
+	color: #3399FF;
+}
+.newDetailAddr{
+	margin: 12px auto;
+}
+.newDetailAddr input{
+	width: 300px;
+}
+.confirm{
+	width: 42px;
+	height: 20px;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+	background: #C21E29;
+	color: #fff;
+	float: left;
+	margin-left: 10px;
+}
+.confirm:hover {
+	background-color: #e84e40;
+	transition: .3s;
+}
+.searchContainer{
+	float: left;
+	margin-left: 50px;
+}
+.searchContainer input{
+	height: 24px;
+	border: solid 1px #e0e0e0;
+	padding: 0 5px;
+}
+.cityContainer{
+	margin: 20px;
+	overflow: hidden;
+}
+.cityContainer .title{
+	font-weight: bold;
+	width: 80px;
+	float: left;
+}
+.cityContainer ul{
+	overflow: hidden;
+	float: left;
+	width: 1080px;
+}
+.cityContainer ul li{
+	float: left;
+	width: 80px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	color: #C21E29;
+}
+.recent{
+	border-top: solid 1px #e0e0e0;
+	overflow: hidden;
+}
+.recent .title{
+	font-weight: bold;
+	width: 80px;
+	float: left;
+	padding: 20px;
+}
+.recent .city{
+	line-height: 60px;
+	float: left;
+	margin-left: -20px;
+	cursor: pointer;
+	color: #C21E29;
+}

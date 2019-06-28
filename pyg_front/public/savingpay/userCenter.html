@@ -1,0 +1,147 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>熊贝儿</title><link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<link rel="stylesheet" href="media/css/common.css" />
+		<link rel="stylesheet" href="media/css/userCenter.css" />
+		<link rel="stylesheet" href="media/css/UC-myCard.css" />
+		<link rel="stylesheet" href="media/css/UC-myPoints.css" />
+		<link rel="stylesheet" href="media/css/UC-myConsume.css" />
+		<link rel="stylesheet" href="media/css/UC-myInfo.css" />
+		<link rel="stylesheet" href="media/css/UC-encash.css" />
+		<link rel="stylesheet" href="media/css/UC-recharge.css" />
+		<link rel="stylesheet" href="media/css/UC-vocher.css" />
+		<link rel="stylesheet" href="media/css/UC-notice.css" />
+		<link rel="stylesheet" href="media/css/UC-leaveMsg.css" />
+		<link rel="stylesheet" href="media/css/UC-myDebao.css" />
+		<link rel="stylesheet" href="media/css/UC-order.css" />
+		<link rel="stylesheet" href="media/css/pagination.css" />
+		<link rel="stylesheet" href="media/js/layer/skin/layer.css" />
+		
+		<script src="media/js/jquery.min.js"></script>
+		<script src="media/js/layer/layer.js"></script>
+		<script src="media/js/number.js"></script>
+		<script src="media/js/regular.js"></script>
+		<script src="media/js/F12.js" type="text/javascript" charset="utf-8"></script> <script src="media/js/IsIE.js" type="text/javascript" charset="utf-8"></script> 
+	</head>
+
+	<body>
+		<iframe src="header.html" style="margin-bottom: -6px;" width="100%" height="165" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+
+		<div class="content">
+			<div class="userList">
+				<div class="listHeader">个人中心</div>
+				<div class="listContainer"></div>
+			</div>
+
+			<div class="userContainers" id="userContainers">
+				<div class="userContent"></div>
+			</div>
+		</div>
+
+		<iframe src="footer.html" style="margin-bottom: -5px;height: 240px" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+
+		<script>
+			$(function() {
+				
+				var userStorage = sessionStorage.getItem("userStorage");
+				// if(!userStorage){
+				// 	window.top.location.href='index.html';
+				// }
+				var user = JSON.parse(userStorage);
+				var memberId = user.memberId;
+//				$("#Pagination").pagination("15");
+				var list = '',
+				arrList = [ '我的熊贝儿', '福宝记录','我的积分',  '优惠券', '我的提现','邀请VIP', '我的信息', '网购订单','集采订单', '我要留言', '公告通知'];
+				for(var i = 0; i < arrList.length; i++) {
+					list += '<div class="list" data-flag="'+i+'">' +
+						arrList[i] +
+						'</div>'
+				}
+				$('.listContainer').html(list);
+				$('.list:eq(0)').addClass('active');
+				$('.list').click(function() {
+					$(this).addClass('active');
+					$(this).siblings().removeClass('active');
+				});
+				var item2 = document.getElementById('userContainers');
+				$(".userContent").load("UC-myDebao.html");
+				var olist = document.getElementsByClassName('list');
+
+				$.post(
+					"userInfo/selectpaypwd", {
+						memberId: memberId
+					},
+					function(data) {
+						if(data.code == "000000") {
+							var msg = data.message;
+							layer.alert(msg,function(){
+								window.top.location.href='PayPassword.html';
+							});
+						} 
+					}
+				);
+				
+				
+				$('.list').click(function(){
+					item2.querySelector('.userContent').innerHTML = '<img class="loading" src="media/img/loading.gif" />';
+					var flag = this.dataset.flag;											
+					if(flag == "0") {
+						setTimeout(function() {
+							$(".userContent").load("UC-myDebao.html");
+						}, 200);
+					} else if(flag == "1"){
+						setTimeout(function() {
+							$(".userContent").load("UC-myFuBao.html");
+						}, 200);
+					}else if(flag == "2") {
+						setTimeout(function() {
+							$(".userContent").load("UC-myPoints.html");
+						}, 200);
+					}else if(flag == "3") {
+						setTimeout(function() {
+							$(".userContent").load("UC-vocher.html");
+						}, 200);
+					}else if(flag == "4") {
+						setTimeout(function() {
+							$(".userContent").load("UC-encash.html");
+						}, 200);
+					}else if(flag == "5") {
+						setTimeout(function() {
+							$(".userContent").load("UC-PCyaoqing.html");
+						}, 200);
+					}else if(flag == "6") {
+						setTimeout(function() {
+							$(".userContent").load("UC-myInfo.html");
+						}, 200);
+						return;
+					}else if(flag == "7"){
+						setTimeout(function() {
+							$(".userContent").load("UC-order.html");
+						}, 200);
+					}else if(flag == "8"){
+						setTimeout(function() {
+							$(".userContent").load("fuBaoOrder.html");
+						}, 200);
+					}else if(flag == "9") {
+						setTimeout(function() {
+							$(".userContent").load("UC-leaveMsg.html");
+						}, 200);
+					}else if(flag == "10") {
+						setTimeout(function() {
+							$(".userContent").load("UC-notice.html");
+						}, 200);
+					}
+				})
+//				}
+				
+			})
+		</script>
+	</body>
+
+</html>

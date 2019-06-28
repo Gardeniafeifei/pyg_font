@@ -1,0 +1,61 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 12px/150% "微软雅黑","microsoft yahei";
+	color: #301d1d;
+	background-color: #f4f4f4;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+ol,
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+input {
+	outline: none;
+	border: none;
+}
+select{
+	outline: none;
+}
+h1 {
+	font: 20px "微软雅黑";
+}
+
+.ellipsis {
+	width: 188px;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.floor-3 .ellipsis{
+	width: 264px;
+}
+button{
+	border: 0;
+	outline: none;
+	cursor: pointer;
+}
+
+
+
+

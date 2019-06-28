@@ -1,0 +1,539 @@
+.VIPwrap{
+	background: #fff
+}
+.vipTit{
+	height: 480px;
+	background: url("../img/vip_bg.png")/*tpa=https://www.savingpay.com.cn/media/img/vip_bg.png*/ no-repeat center;
+	/* background-size:100% 100%;  */
+}
+.vipMenu{
+	width:1200px;
+	margin: 0 auto;
+	padding-top: 70px;
+}
+.vipLogo{
+	width:1200px;
+	display: inline-block;
+}
+.vipImg{
+	vertical-align: top;
+	/* margin-top: 60px;
+	vertical-align: top; */
+	/* margin-left:100px; */
+}
+.userName{
+	width: 890px; 
+	/* width: 700px; */
+    margin: 0 auto;
+    display: inline-block;
+    text-align: center;
+   /*  padding-top: 70px; */
+}
+.vipCon{
+	color:#fff;
+	text-align: center;
+}
+.vipUser{
+	width:88px;
+	height: 88px;
+	border-radius:50%;
+	display: inline-block;
+}
+.vipName{
+	padding:30px 0;
+	font-size: 26px;
+}
+.vipTitle{
+	padding-bottom: 25px;
+	font-size: 28px;
+	color: #E6D6B5;
+}
+.vipCondition{
+	padding-bottom: 34px;
+	font-size: 16px;
+	color: #949494;
+}
+.vipOpenBtn{
+	margin: 0 auto;
+	width: 222px;
+	height: 54px;
+	text-align: center;
+	line-height: 54px;
+	background: #C6AB6F;
+	color: #FFFFFF;
+	font-size: 26px;
+	border-radius:27px;
+	margin-bottom: 38px;
+}
+.vipRecommend{
+	width:1200px;
+	margin: 0 auto;
+	height: 206px;
+	background: url("../img/vip_go.png")/*tpa=https://www.savingpay.com.cn/media/img/vip_go.png*/no-repeat;
+	background-size:100% 100%;
+	position: relative;
+    top: -20px;
+}
+.vipRecomLeft,.vipRecomRight{
+	display: inline-block;
+}
+.vipRecomLeft{
+	width:65%;
+	padding-left:160px;
+}
+.vipRecomRight{
+	width: 15%;
+	vertical-align:bottom;
+}
+.vipRecommendTit{
+	font-size: 40px;
+	margin-bottom: 37px;
+	height: 60px;
+    line-height: 60px;
+    margin-top:30px;
+}
+.vipRecommendCondition{
+	color: #DFD6C7;
+	font-size: 22px;
+	
+}
+.vipRecomBtn{
+	width:90px;
+	height:90px;
+	line-height:90px;
+	background:linear-gradient(0deg,rgba(225,187,132,1),rgba(239,210,169,1));
+	box-shadow:1px 4px 13px 0px rgba(117,117,117,0.29);
+	border-radius:50%;
+	color:#251E19;
+	font-size:34px;
+	margin: 0 auto;
+}
+.vipContentMenu{
+	width: 1200px;
+	margin: 0px auto;
+	height: 702px;
+	box-shadow: 0px 0px 10px #e4e4e4;
+	background: url("../img/vip_eight.png")/*tpa=https://www.savingpay.com.cn/media/img/vip_eight.png*/no-repeat;
+	margin-top: 132px;
+}
+.vipChange{
+	display:none;
+	width: 1200px;
+	height: 800px;
+	margin: 50px auto;
+	background: url("../img/vip_bg11.png")/*tpa=https://www.savingpay.com.cn/media/img/vip_bg11.png*/no-repeat;
+}
+.vipGoodsMoreTit{
+	padding-top: 50px;
+}
+.vipContentCh{
+	width:1200px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top:70px;
+	color:#fff;
+}
+.vipMember{
+	font-size: 40px;
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+	padding-left:28px;
+	padding-bottom: 30px;
+}
+.vipBuyTit{
+	font-size: 28px;
+	color: #E0E0E0;
+}
+.vipChangeGoods{
+	width:1160px;
+	height: 520px;
+	margin: 0 auto;
+	background: #fff;
+	margin-top: 45px;
+}
+.vipUl .vipLi{
+	width:33%;
+	display: inline-block;
+	color:#000;
+	border-right: 1px solid #ECE8E9;
+	height: 400px;
+	margin-top: 30px
+}
+.goodsImg{
+	width:316px;
+	height: 248px;
+	margin: 0 auto;
+	background: url("../img/vip_eight.png")/*tpa=https://www.savingpay.com.cn/media/img/vip_eight.png*/no-repeat;
+	background-size:100% 100%;
+}
+.goodsName{
+	padding: 10px 34px 10px 40px;
+	
+}
+.goodsTitle{
+	font-size: 16px;
+	color: #33333f;
+	text-align: left;
+	overflow: hidden;
+	/* height:50px; */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.goodsPrice{
+	font-size: 20px;
+	height: 60px;
+	line-height: 60px;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+}
+.newPrice{
+	color: #C21E29;
+	display: inline-block;
+	text-align: left;
+}
+.oldPrice{
+	color: #909090;
+	font-size: 16px;
+	text-decoration: line-through;
+	display: inline-block;
+	display: inline-block;
+	text-align: right;
+}
+.goodsBtn{
+	width:100px;
+	height:32px;
+	line-height:32px;
+	background:rgba(194,30,41,1);
+	border-radius:3px;
+	text-align: center;
+	font-size: 17px;
+	color: #fff;
+}
+.checkMore{
+	width:100%;
+	margin: 30px auto;
+	color: #000;
+	font-size: 20px;
+}
+
+
+.vipGoodsWrap{
+	background: #F6F6F6;
+}
+.vipGoodsMore{
+	width: 1200px;
+	margin: 76px auto;
+	text-align: center;
+}
+.vipSuper{
+	height:39px;
+	font-size:40px;
+	font-weight:bold;
+	color:rgba(61,48,42,1);
+	line-height:18px;
+}
+.vipMore{
+	height:21px;
+	font-size:22px;
+	color:rgba(219,190,131,1);
+	line-height:36px;
+}
+.vipGoodsSuper{
+	margin-top: 66px;
+}
+.vipGoodsUl{
+	margin-right:4px;
+	background: #fff;
+	padding-top:20px;
+	padding-right: 20px;
+}
+.vipGoodsLi{
+	width:23%;
+	display: inline-block;
+	height:320px;
+	margin-bottom: 22px;
+	margin-left: 20px;
+}
+.vipDivImg{
+	height: 200px;
+	background: url("../img/vip_eight.png")/*tpa=https://www.savingpay.com.cn/media/img/vip_eight.png*/no-repeat;
+	background-size:100% 100%;
+}
+.vipDivName{
+	height: 166px;
+}
+.vipJian{
+	/* width:139px;
+	height:25px;
+	line-height:25px; */
+	background:rgba(227,104,68,1);
+	border-radius:2px;
+	color: #fff;
+	font-size: 16px;
+	margin-top: 8px;
+	text-align: center;
+	display: inline-block;
+	padding:3px;
+}
+.vipGoodsMenu{
+	text-align: left;
+	font-size: 16px;
+	color: #33333F;
+	padding-top:20px;
+}
+
+/* 成为会员购买的商品 */
+.vipTop{
+	height: 480px;
+	background: url("../img/vip-banner.png")/*tpa=https://www.savingpay.com.cn/media/img/vip-banner.png*/ no-repeat;
+    background-size: 100% 100%;
+}
+.productTitle{
+	padding: 44px 0;
+	text-align: center;
+	font-size: 24px;
+	color:#333;
+}
+
+
+.productContent {
+   width: 1212px;
+   margin:  auto;
+   overflow: hidden;
+}
+.product {
+   float: left;
+   width: 220px;
+   height: 290px;
+   padding: 10px;
+   margin-top: 20px;
+   border: solid 1px rgba(255,255,255,0);
+}
+.product .pic {
+   width: 186px;
+   height: 138px;
+   background: url("../img/index-example/hotSaleP-pic.jpg")/*tpa=https://www.savingpay.com.cn/media/img/index-example/hotSaleP-pic.jpg*/ no-repeat;
+   background-size: 100% 100%;
+   cursor: pointer;
+   margin: 0 auto;
+}
+.productAdd {
+    overflow: hidden;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.productAdd .sale {
+    float: left;
+    color: #b5b2bb;
+    margin-top: 5px;
+}
+.addBtn {
+    cursor: pointer;
+    float: right;
+    width: 90px;
+    height: 30px;
+    text-align: center;
+    color: #fff;
+    line-height: 30px;
+    background-color: #c21e29;
+}
+.product:hover{
+	border: solid 1px #e9e9e9;
+	box-shadow: 0px 0px 8px #e9e9e9;
+	transition: .5s;
+}
+.addBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.recItem:hover{
+	border: solid 1px #e9e9e9;
+	box-shadow: 0px 0px 8px #e9e9e9;
+	transition: .5s;
+}
+.num{
+	color: #005AA0;
+}
+.distinguishContent{
+	overflow: hidden;
+}
+.distinguishName{
+	height: 50px;
+	text-align: center;
+	font-size:30px;
+	line-height: 50px;
+}
+.xianLeft,.xianRight{
+	display: inline-block;
+	width:42px;
+	border: 1px solid #333;
+	vertical-align: super;
+	margin:0 20px;
+}
+.distinguish{
+	overflow: hidden;
+}
+.productList{
+	overflow: hidden;
+    display: inline-block;
+}
+.vipZX{
+	width:1200px;
+	margin: 0 auto;
+}
+.vipCenter{
+	width:506px;
+	height:312px;
+	background:rgba(255,255,255,1);
+	display: inline-block;
+    margin-top: 90px;
+}
+.vipBorder{
+	width:480px;
+	height:286px;
+	background:rgba(255,255,255,1);
+	border:1px solid rgba(199,181,141,1);
+	margin: 12px auto;
+	text-align: center;
+}
+.vipSaleTitle{
+	font-size:36px;
+	font-weight:normal;
+	color:rgba(51,51,51,1);
+	padding:54px 30px 26px 30px;
+}
+.vipSaleOpen{
+	font-size:20px;
+	font-weight:400;
+	color:rgba(198,171,111,1);
+	padding-bottom:40px;
+	padding:0 30px 40px 30px;
+}
+.VIPSaleMoney{
+	font-size:22px;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+	line-height:36px;
+	padding:0 50px;
+}
+
+
+
+/* vip登录验证 */
+.vipHeader{
+	height: 80px;
+	background: red
+}
+.ordinary{
+	float: right;
+	width:138px;
+	height:42px;
+	background:rgba(180,160,120,1);
+	border-radius:21px;
+	font-size:20px;
+	font-family:MicrosoftYaHei;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+	line-height:42px;
+	text-align: center;
+	margin-top:20px;
+}
+.vipcodeWrap{
+	margin-bottom: 52px;
+	height:700px;
+}
+.vipBg{
+	height: 148px;
+	background: url("../img/vip_bgs.png")/*tpa=https://www.savingpay.com.cn/media/img/vip_bgs.png*/no-repeat;
+	font-size:28px;
+	color:rgba(230,214,181,1);
+}
+.viPosition{
+	position: relative;
+	width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+.vipCode{
+	height: 598px;
+	width: 1200px;
+	margin: 0 auto;
+	height:598px;
+	background:rgba(255,255,255,1);
+	box-shadow:0px 4px 6px 0px rgba(37,37,37,0.15);
+	border-radius:10px;
+	position: absolute;
+	top: -30px;
+}
+.openTip{
+	padding-top: 48px;
+}
+.vipMemberTip{
+	margin:48px 0;
+	font-size:22px;
+	color:rgba(51,51,51,1);
+	line-height:31px;
+}
+.vipMemberSame{
+	padding-top: 20px;
+}
+.wrong{
+	color:rgb(194, 30, 41);
+}
+.alike{
+	font-size:16px;
+	color:rgba(51,51,51,1);
+	padding: 0 30px
+}
+
+.vipInput{
+	width:424px;
+	height:38px;
+	border:1px solid rgba(199,198,198,1);
+	padding-left: 10px;
+}
+.vipInputLike,.vipInputMsg{
+	width:276px;
+}
+.vipInputYao{
+	width:208px;
+}
+.vipImgCode,.vipMsg{
+	display: inline-block;
+    width: 144px;
+    border:1px solid rgba(199,198,198,1);
+    height: 38px;
+    vertical-align:top;
+}
+.vipMsg{
+	background:rgba(229,228,228,1);
+	color:rgba(51,51,51,1);
+	border: none;
+	height: 40px;
+	line-height: 40px;
+	
+}
+.VipBtn{
+	width:390px;
+	height:52px;
+	line-height:52px;
+	background:rgba(199,181,141,1);
+	border-radius:4px;
+	font-size:20px;
+	font-weight:bold;
+	color:rgba(255,255,255,1);
+	margin: 20px auto;
+}
+
+
+
+
+
+
+
+

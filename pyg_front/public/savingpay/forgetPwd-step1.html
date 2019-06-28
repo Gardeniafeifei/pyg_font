@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset=UTF-8"UTF-8">
+		<title>熊贝儿</title><link rel="shortcut icon" href="media/img/favicon.ico" tppabs="media/img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<link rel="stylesheet" href="media/css/common.css" tppabs="media/css/common.css" />
+		<link rel="stylesheet" href="media/css/forgetPwd-step1.css" tppabs="media/css/forgetPwd-step1.css" />
+		<link rel="stylesheet" href="media/js/layer/skin/layer.css" tppabs="media/js/layer/skin/layer.css" />
+		<script src="media/js/jquery.min.js" tppabs="media/js/jquery.min.js"></script>
+		<script src="media/js/layer/layer.js" tppabs="media/js/layer/layer.js"></script>
+		<script src="media/js/F12.js" tppabs="media/js/F12.js" type="text/javascript" charset="utf-8"></script> <script src="media/js/IsIE.js" tppabs="media/js/IsIE.js" type="text/javascript" charset="utf-8"></script> 
+	</head>
+	<style type="text/css">
+		.tip{padding-right:7px ;position: absolute;display: none;top:101px;left:60%;}
+		.wrong{color:rgb(194, 30, 41);}
+		#imgTip{top:39.3%;}
+		#code-tip{top: 44.5%;}
+		.codeImg {
+    width: 146px;
+    height: 40px;
+    float: right;
+    background: url("img/login-code.jpg")/*tpa=img/login-code.jpg*/ no-repeat center;
+}
+	</style>
+	<body>
+		<iframe src="header.html" tppabs="header.html" style="margin-bottom: -6px;" width="100%" height="165" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+
+		<div class="content1 content">
+			<div style="margin: 20px 0;font-size: 18px;color: #C21E29;">找回密码</div>
+			<img src="media/img/forgetPwd-step1.png" tppabs="media/img/forgetPwd-step1.png" />
+			<div class="phoneContainer">
+				<div class="UC-newPhone">
+					<div class="info" style="margin-left: 42px;">
+						<div class="name">手机号码：</div>
+						<input class="name" type="tel" maxlength="11" id="newPhone" />
+							<span class="phoneAlert">&nbsp;*请输入正确手机号</span>
+					</div>
+					<div class="info">
+						<div class="name">图形验证码：</div>
+						<input class="name" id="imgCode" type="text" style="width: 160px;" />
+						<p id="imgTip" class="tip">&nbsp;&nbsp;*输入正确的验证码</p>
+						<img class="codeImg code" id="code"/>
+						<!--<div class="code"></div>-->
+					</div>
+					<div class="info" style="margin-left: 56px;">
+						<div class="name">验证码：</div>
+						<input class="name" type="text" style="width: 160px;" id="idcode"/>
+						<button type="button" class="name pwdBtn" style="width: 116px;" id="getCode">发送验证码</button>
+						<p id="code-tip" class="tip">&nbsp;&nbsp;*输入正确的短信验证码</p>
+					</div>
+					<button type="submit" class="saveBtn saveBtn1">下一步</button>
+				</div>
+			</div>
+		</div>
+		<div class="content2 content" style="display: none;">
+			<div style="margin: 20px 0;font-size: 18px;color: #C21E29;">找回密码</div>
+			<img src="media/img/forgetPwd-step2.png" tppabs="media/img/forgetPwd-step2.png" />
+
+			<div class="phoneContainer">
+				<div class="UC-newPhone">
+					<div class="info" style="margin-left: 42px;">
+						<div class="name">设置新密码：</div>
+						<input class="name" type="password" id="password1" />
+					</div>
+					<div class="info" style="margin-left: 42px;">
+						<div class="name">重复新密码：</div>
+						<input class="name" type="password" id="password2" />
+						<span class="phoneAlert">输入密码不一致</span>
+					</div>
+					<button type="submit" class="saveBtn saveBtn2" style="margin-left: 135px;">下一步</button>
+				</div>
+			</div>
+		</div>
+		<div class="content3 content" style="display: none;">
+			<div style="margin: 20px 0;font-size: 18px;color: #C21E29;">找回密码</div>
+			<img src="media/img/forgetPwd-step3.png" tppabs="media/img/forgetPwd-step3.png" />
+
+			<div class="countDown" style="width: 270px;margin:50px auto;">
+				<div style="font-size: 24px;color: #C21E29;">将在 <span id="mes">4</span> 秒钟后返回首页！</div>
+			</div>
+		</div>
+
+		<script>
+			//			返回按钮跳转
+			$(function() {
+//				$('.UC-newPhone .backBtn').click(function() {
+//					$(".userContent").load("web/UC-myInfo.html");
+//				});
+				//倒计时
+				var wait = 60;
+				function time(o) {
+					if(wait == 0) {
+						o.removeAttribute("disabled");
+						o.innerHTML = "发送验证码";
+						o.style.backgroundColor = '#c21e29';
+						wait = 60;
+					} else {
+						o.setAttribute("disabled", true);
+						o.innerHTML = "重新发送(" + wait + ")";
+						o.style.backgroundColor = 'grey';
+						wait--;
+						setTimeout(function() {
+								time(o)
+							},
+							1000)
+					}
+				}
+				
+				
+				document.getElementById("code").src = "get/coderedis.png"/*tpa=web/get/coderedis*/;
+				$("#code").click(function(){
+					yzm();
+				});		
+				function yzm(){
+					document.getElementById("code").src = "https://www.savingpay.com.cn:443/web/get/coderedis?t="+new Date().getTime();
+				}
+				
+				
+				
+				//第一步
+				var myreg = /^0?(13[0-9]|15[012356789]|18[0123456789]|14[0-9]|17[012356789]|19[0-9]|16[0-9])[0-9]{8}$/;
+				var codeReg=/^[0-9]{6}$/;
+				
+				//获取短信验证码
+				document.getElementById("getCode").onclick = function() {
+					var username = $("#newPhone").val();
+					var imgCode = $("#imgCode").val();
+					if(!myreg.test(username)){//验证手机号
+						$('.phoneAlert').css('color','#c21e29');
+						return;
+					}else{
+						$('.phoneAlert').css('color','#fff');
+					}
+					if(imgCode.length !=5){
+						$("#imgTip").css("display","block");
+						$("#imgTip").addClass("wrong");
+						return;
+					}else{
+						$("#imgTip").removeClass("wrong");
+						$("#imgTip").css("display","none");
+					}
+					time(this); 
+					$.post(
+						"https://www.savingpay.com.cn:443/web/userReg/forgetpwdsms",
+						{userphone:username,imgCode:imgCode},
+						function(data){
+							if(data.code == "000000"){
+								layer.msg(data.message, {offset: ['30%', '45%']});
+							}else{
+								yzm();
+								layer.msg(data.errorMessage, {offset: ['30%', '45%']});
+							}
+						}
+					);
+					
+				}
+				var phoneCode = 0;
+				var userphone = 0;
+				$('.saveBtn1').click(function(){
+					if(!myreg.test($("#newPhone").val())){
+						$('.phoneAlert').css('color','#c21e29');
+						return false;
+					}else if($("#imgCode").val().length !=5||$("#imgCode").val() == ""){
+						$("#imgTip").css("display","block");
+						$("#imgTip").addClass("wrong");
+						return false;
+					}else if(!codeReg.test($("#idcode").val())){
+						$("#code-tip").css("display","block");
+						$("#code-tip").addClass("wrong");
+						return false;
+					}else{
+						phoneCode = $("#idcode").val();
+						userphone = $("#newPhone").val();
+						$('.phoneAlert').css('color','#fff');
+						$("#imgTip").removeClass("wrong");
+						$("#imgTip").css("display","none");
+						$("#code-tip").removeClass("wrong");
+						$("#code-tip").css("display","none");
+						$('.content1').css('display','none');
+						$('.content2').css('display','block');
+						
+					}
+				})				
+				//第二步
+				$('.saveBtn2').click(function(){
+					var mypas = /^[0-9a-zA-Z_]{6,15}$/;
+					var pwd1 = $("#password1").val();
+					var pwd2 = $("#password2").val();
+					if(!mypas.test(pwd1)){
+						$('.phoneAlert').css('color','#c21e29');
+						$('.phoneAlert').html('请输入至少6-15位密码');
+					}else if(pwd1==pwd2){
+						
+						
+						$.post(
+							"https://www.savingpay.com.cn:443/web/userReg/forgetpwd",
+							{userphone:userphone,password:pwd1,phoneCode:phoneCode},
+							function(data){
+								if(data.code == "000000"){
+									$('.phoneAlert').css('color','#fff');
+									$('.content1').css('display','none');
+									$('.content2').css('display','none');
+									$('.content3').css('display','block');
+									intervalid = setInterval("fun()", 1000);
+								}else{
+									layer.msg(data.errorMessage, {offset: ['30%', '45%']});
+									
+									setTimeout(function(){
+										location.reload();
+									},1000);
+									
+								}
+							}
+						);
+						
+
+//						intervalid = setInterval("fun()", 1000);
+					}else{
+						$('.phoneAlert').css('color','#c21e29');
+					}										
+				})
+				})
+				//第三步倒计时
+				var i = 3;
+				var intervalid;				
+				function fun() {
+					if(i == 0) {
+						window.location.href = "index.html"/*tpa=web/index.html*/;
+						clearInterval(intervalid);
+					}
+					document.getElementById("mes").innerHTML = i;
+					i--;
+				}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,187 @@
+{{extend './layout/common.art'}}
+{{block 'styles'}}
+<link rel="stylesheet" href="/public/assets/css/page-cart.css">
+{{/block}}
+{{block 'scripts'}}
+<script src="/public/assets/js/template-web.js"></script>
+<script type="text/template" id="list">
+  {% for(var i = 0 ; i < result.length ; i++){  %}
+  {% var item = result[i] %}
+  <ul class="goods-list yui3-g">
+    <li class="yui3-u-1-24"><input data-price="{%= item.price %}" data-count="{%= item.count %}" type="checkbox"></li>
+    <li class="yui3-u-12-24">
+      <div class="good-item">
+        <div class="item-img">
+          <a href=""><img src="{%= item.thumbnail %}"></a>
+        </div>
+        <div class="item-msg"><a href="/item/{%= item.id %}">{%= item.name %}</a></div>
+      </div>
+    </li>
+    <li class="yui3-u-3-24">
+      <span class="price">￥{%= item.price %}</span>
+    </li>
+    <li class="yui3-u-3-24">
+      <a href="javascript:;" class="increment mins">-</a>
+      <input type="text" readonly
+             data-id="{%= item.id %}"
+             data-price="{%= item.price %}"
+             class="itxt"
+             value="{%= item.count %}"
+             autocomplete="off">
+      <a href="javascript:;" class="increment plus">+</a>
+    </li>
+    <li class="yui3-u-4-24">
+      <span class="sum">￥{%= item.xj %}</span>
+    </li>
+    <li class="yui3-u-1-24">
+      <a href="javascript:;" data-id="{%= item.id %}" class="btn_remove">删除</a>
+    </li>
+  </ul>
+  {% } %}
+</script>
+<script>
+  /*实现前端的功能*/
+  /*模版引擎：art-template 但是后端使用的也是 art-template */
+  /*语法会一致：页面首先是有后端的模版引擎解析  你在页面上所有的模版语法会解析*/
+  /*解决方案：让前端的模版语法和后端不一致即可*/
+  template.defaults.rules[0].test = /{%(#?)((?:==|=#|[=-])?)[ \t]*([\w\W]*?)[ \t]*(-?)%}/
+  // 具体业务
+
+  // 1. 列表渲染
+  $.get('/cart/list', function (data) {
+    if (data.status !== 200) return alert(data.msg)
+    $('.cart-list').html(template('list', data))
+  })
+
+  // 2. 修改数量
+  $('.cart-list').on('click', '.increment', function () {
+    var $input = $(this).siblings('input')
+    var id = $input.data('id')  // attr('data-id')  自定义属性 data-*  *就是自定义属性名称
+    var count = +$input.val()
+    // 基于当前的数量去加和减
+    if ($(this).hasClass('mins')) {
+      // 不能小于 2
+      if (count < 2) return false
+      count--
+    } else {
+      // 不能大于等于库存 100
+      if (count >= 100) return false
+      count++
+    }
+    // 调用后台的接口 去修改数量
+    $.ajax({
+      url: '/cart/edit',
+      data: {id, count},
+      dataType: 'json',
+      success: function (data) {
+        if (data.status === 200) {
+          // 更新界面 (数量,小计)
+          $input.val(count)
+          var price = parseFloat($input.data('price'))
+          var xj = (price * count).toFixed(2)
+          $input.parent().next('li').find('span').html('￥' + xj)
+          // 修改 复选框中的 data-count 即可
+          $input.parent('li').siblings('li:first').find('[type="checkbox"]').data('count',count)
+          calcCountAndAmount()
+        } else {
+          // 提示
+          alert('修改失败')
+        }
+      }
+    })
+  })
+
+  // 3. 删除
+  $('.cart-list').on('click', '.btn_remove', function () {
+    // this 是dom元素  dataset 原生api
+    // dataset  自定义属性集合   对象：包含该元素上所有的自定义属性｛id:100,price:'1.00'｝
+    const id = this.dataset.id
+    if (confirm('亲，确认删除吗？')) {
+      $.get('/cart/remove?id=' + id, (data) => {
+        if (data.status !== 200) return alert('删除失败')
+        // 删除成功
+        $(this).parent().parent().remove()
+        calcCountAndAmount()
+      })
+    }
+  })
+
+  // 4. 全选和单选功能
+  $('.cart-th [type="checkbox"]').on('change', function () {
+    // 如果是勾选  列表中复选框全部勾选   反之...
+    // checked  是一个布尔类型的属性  $(this).prop('checked')
+    $('.cart-list [type="checkbox"]').prop('checked', $(this).prop('checked'))
+    calcCountAndAmount()
+  })
+  $('.cart-list').on('change', '[type="checkbox"]', function () {
+    // 根据选中的个数是否等于列表的长度   全选复选框是否选中
+    const checkedLen = $('.cart-list [type="checkbox"]:checked').length
+    const len = $('.cart-list [type="checkbox"]').length
+    $('.cart-th [type="checkbox"]').prop('checked', checkedLen === len)
+    calcCountAndAmount()
+  })
+
+  // 5. 计算商品总件数  计算总金额
+  var calcCountAndAmount = function () {
+    var countSum = 0, amountSum = 0
+    // 1. 获取所有的选中的商品   jquery对象数组
+    $('.cart-list [type="checkbox"]:checked').each(function (i, item) {
+      // 2. 获取每个商品的  单价和数量  计算小计
+      var price = parseFloat($(this).data('price'))
+      var count = parseInt($(this).data('count'))
+      var xj = price * count
+      countSum += count
+      amountSum += xj
+    })
+    // 3. 计算
+    // 4. 渲染
+    $('.sumprice').find('strong').html(countSum)
+    $('.sumprice').find('i').html('¥' + amountSum.toFixed(2))
+  }
+
+</script>
+{{/block}}
+{{block 'content'}}
+<div class="py-container">
+  <br>
+  {{if !user.username}}
+  <div class="sui-msg msg-large msg-tips msg-block">
+    <div class="msg-con">您还没有登录！登录后购物车的商品将保存到您账号中
+      <a href="/login" class="sui-btn btn-danger">立即登录</a>
+      <button type="button" data-dismiss="msgs" class="sui-close">×</button>
+    </div>
+    <s class="msg-icon"></s>
+  </div>
+  {{/if}}
+  <div class="allgoods">
+    <div class="cart-main">
+      <div class="yui3-g cart-th">
+        <div class="yui3-u-1-24"><input type="checkbox"></div>
+        <div class="yui3-u-12-24">商品</div>
+        <div class="yui3-u-3-24">单价（元）</div>
+        <div class="yui3-u-3-24">数量</div>
+        <div class="yui3-u-4-24">小计（元）</div>
+        <div class="yui3-u-1-24">操作</div>
+      </div>
+      <div class="cart-item-list">
+        <div class="cart-body">
+          <div class="cart-list">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-tool">
+      <div class="money-box">
+        <div class="sumprice">
+          <span><strong>0</strong> 件商品</span><br>
+          <span><em>总价（不含运费）：</em><i class="summoney">¥0.00</i></span>
+        </div>
+        <div class="sumbtn">
+          <a class="sum-btn" href="checkout.html">结算</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/block}}

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html><head>
+		<meta charset="UTF-8">
+		<title>熊贝儿</title><link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="media/css/common.css">
+		<link rel="stylesheet" href="media/css/hotSale.css">
+		<link rel="stylesheet" href="media/css/pagination.css">
+		<link rel="stylesheet" href="media/css/category.css">
+		<link rel="stylesheet" href="media/js/layer/skin/layer.css">
+		<script src="media/js/jquery.min.js"></script>
+		<script src="media/js/jquery.pagination.js"></script>
+		<script src="media/js/javascriptUtil.js"></script>
+		<script src="media/js/number.js"></script>
+		<script src="media/js/recommendedGoods.js"></script>
+		<script src="media/js/layer/layer.js"></script><link rel="stylesheet" href="https://www.savingpay.com/media/js/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+		<script>
+		var catagoryClicked = sessionStorage.getItem("catagoryClicked");//aid
+		var itemClicked = sessionStorage.getItem("itemClicked");//bid
+		sessionStorage.removeItem("catagoryClicked");
+		sessionStorage.removeItem("itemClicked");
+		if (itemClicked) {
+			getParentGoodsType();
+			getItems(catagoryClicked);
+		} else {
+			getParentGoodsType();
+		}
+		
+		tuijian();
+			var currentPage = 1;
+			var totalPage;
+			var statisticalClicks = 0; // statistical click number
+			var sortName = 'fg.sort';
+			var sortRule = 'desc';
+			var pageSize = "15";
+		
+			// 加载大类
+			function getParentGoodsType(){
+				// 页面从菜单跳转时加载大类
+				$.ajax({
+					type: 'post',
+					url: 'web/fubao/fubaoTypea',
+					success:function(msg){
+						if(msg.code == "000000"){
+							var data = msg.data;
+							if (data.length > 0) {
+								var categoryId = "";
+								for(var i = 0; i < data.length; i++) {
+									$('#category_id').append('<a id=\"' + data[i].id + '\" class="cate_detail_con_lk" >' + data[i].typeName + '</a>');
+									categoryId = data[i].id ;
+									 if(catagoryClicked == categoryId){
+										$('#category_id').find(".cate_detail_con_lk").eq(i).addClass('active').siblings().removeClass("active");
+										$(".cate_detail_tit").removeClass("active");
+									}
+								}
+								getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+							}
+		
+							// 点击某个大类，移除其他大类和全部的特效
+							$('#category_id').find(".cate_detail_con_lk").click(function(){
+								catagoryClicked = $(this).attr("id")
+								itemClicked = null;
+								$(this).addClass('active');
+								$(this).siblings().removeClass("active");
+								$(".cate_detail_tit").removeClass("active");
+								getItems(catagoryClicked);
+								getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+								page(totalPage);
+		
+							});
+							// 点击某个大类，移除其他大类和全部的特效
+		
+							// 点击全部，移除其他大类的特效
+							$(".cate_detail_tit").click(function(){
+								$(".cate_detail_titChild").removeClass("active");
+								$('#item_id').empty();
+								$(this).addClass('active');
+								$(".cate_detail_con_lk").removeClass("active");
+								catagoryClicked = null;
+								itemClicked = null;
+								getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+								page(totalPage);
+							});
+							// 点击全部，移除其他大类的特效
+						}
+					}
+				});
+				// 页面从菜单跳转时加载大类
+			}
+			// 加载大类
+		
+			// 加载小类
+			function getItems(catagoryClicked){
+				var getItemsParam = {
+					'id':catagoryClicked
+				}
+				$.ajax({
+					type: 'post',
+					url: 'web/fubao/fubaoTypeb',
+					data:getItemsParam,
+					success:function(msg){
+						if(msg.code == "000000"){
+							var data = msg.data;
+							if (data.length > 0) {
+								$('#item_id').empty();
+								var itemId = "";
+								for(var i = 0; i < data.length; i++) {
+									$('#item_id').append('<a class="cate_detail_con_2k" id=\"' + data[i].id + '\" >' + data[i].typeName + '</a>');
+									itemId = data[i].id;
+									if(itemClicked == itemId){
+										$('#item_id').find(".cate_detail_con_2k").eq(i).addClass('active').siblings().removeClass("active");
+										$(".cate_detail_titChild").removeClass("active");
+									}
+								}
+								getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+								page(totalPage);
+							}
+		
+							// 点击子类，移除其他子类的全部特效
+							$('#item_id').find(".cate_detail_con_2k").click(function(){
+								$(this).addClass('active');
+								$(this).siblings().removeClass("active");
+								itemClicked = $(this).attr("id");
+								$(".cate_detail_titChild").removeClass("active");
+								getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+								page(totalPage);
+							});
+							// 点击子类，移除其他子类的全部特效
+		
+							// 点击全部，移除其他小类的特效
+							$(".cate_detail_titChild").click(function(){
+								$(this).addClass('active');
+								$(".cate_detail_con_2k").removeClass("active");
+								catagoryClicked = $('.cate_detail_con_lk.active').attr("id");
+								itemClicked = null;
+								getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+								page(totalPage);
+							});
+						}
+						// 点击全部，移除其他小类的特效
+					}
+				});
+			}
+			// 加载小类
+		
+			// 加载商品
+			function getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule){
+		
+				var getGoodsParam = {
+					'aid':catagoryClicked,
+					'bid':itemClicked,
+					'sortName':sortName,
+					'sortRule':sortRule,
+					'pageNo':currentPage,
+					'pageSize':pageSize
+				}
+		
+				$.ajax({
+					url: "web/fubao/fubaoGoods",
+					type: "post",
+					data: getGoodsParam,
+					/* async: false, */
+					success:function(data){
+						$('.productList').empty();
+						var test="";
+						if(data.code == "000000"){
+							totalPage = data.data.count;
+							page(totalPage)
+							var goods = data.data.list;
+							// 产品列表循环
+							var product = '';
+							for(var i = 0; i < goods.length; i++) {
+								if(goods[i].salePrice==undefined){
+									goods[i].salePrice = 0;
+								 }
+								if(goods[i].normsContent==undefined){
+									goods[i].normsContent = "no data";
+								 }
+								if(goods[i].normsId==undefined){
+									goods[i].normsId = "1";
+								 }
+								if(goods[i].Integral==undefined){
+									goods[i].Integral = "0";
+								 }
+								product = '<div class="product" data-totalPage = "'+totalPage+'">' +
+												'<div class="pic" id="'+goods[i].goodsNo+'"></div>' +
+												'<div class="price"><span class="newPrice">￥' + goods[i].newPrice +'</span></div>' +
+												'<div class="productName ellipsis">' + goods[i].goodsName + '</div>' +
+												'<div class="productInfo ellipsis">' + goods[i].goodsTitle + '</div>' +
+												'<div class="productAdd">' + '<div class="sale">' + '已售：' +'<span class="num">' + goods[i].goodsSaledCount + '</span>' + '</div>' +
+												'<div class="addBtn" salesNumber= "'+goods[i].initialSalesNumber+'" goodsCount="'+goods[i].goodsCount+'" content="'+goods[i].normsContent+'" goodsNo="'+goods[i].goodsNo+'" supplierId="'+goods[i].supplierId+'">' + '加入购物车' + '</div>' +
+												'</div>' +
+											'</div>';
+								test=test+product;
+							}
+							$('.productList').html(test);
+							for(var i = 0; i < goods.length; i++) {
+								$(".product .pic:eq(" + i + ")").css("background-image",'url(' + goods[i].mainPicture + ')');
+							}
+							// 加载商品详情页方法
+							$('.pic').on("click",function(){
+								var goodId = $(this).attr('id');
+								window.location.href = 'web/fubaoDetail.html?goodId='+goodId;
+							});
+							// 加载加入购物车页方法
+							$('.addBtn').on('click',function() {
+								var userStorage = sessionStorage.getItem("userStorage");
+								if(!userStorage){
+									layer.msg("请先登录");
+									return;
+								}
+								// get user's id
+								var user = JSON.parse(userStorage);
+								var memberId = user.memberId;
+								var goodsPackage = $(this).attr('content');
+								var goodsNo = $(this).attr('goodsNo');
+								var goodsCount = $(this).attr('goodsCount');
+								var salesNumber = $(this).attr("salesNumber");
+								if(goodsCount<salesNumber){
+									layer.msg("库存不足");
+									return;
+								}
+								var shoppingCarParam = {
+										memberId:memberId,
+										goodsNo:goodsNo,
+										goodsCount:salesNumber
+								};
+								$.ajax({
+									type:'post',
+									url:'web/FuBaoGoodsCarController/FuBaoGoodsCarAdd',
+									data:shoppingCarParam,
+									dataType:'json',
+									success:function(data){
+										if(data.code=="000000"){
+											layer.msg("恭喜，成功加入购物车");
+										}
+									}
+								});
+								var memberId = JSON.parse(sessionStorage.getItem("userStorage")).memberId;
+								var num;
+								$.ajax({
+									type : 'post',
+									url : 'web/FuBaoGoodsCarController/FuBaoGoodsCarCount',
+									data : {
+										memberId : memberId
+									},
+									async : true,
+									success : function(data) {
+										var aa = $('#header').attr('src')
+										if (data.code == "000000") {
+											$('#header').attr('src', $('#header').attr('src'));
+										}
+									},
+								});
+		
+							})
+		
+						}
+					}
+				})
+			}
+		
+		
+			function tuijian(){
+				/* 推荐商品  */
+				var recommendedGoods;
+				var rec = '';
+				$.ajax({
+					type : 'post',
+					url : 'web/recommendedgoodscontroller/recommendedfubaogoods',
+					/* async: true, */
+					success : function(data) {
+						recommendedGoods = data.data;
+						// 推荐商品循环
+						for(var i = 0; i < recommendedGoods.length; i++) {
+							rec +=  '<div class="recItem">' +
+										   '<div class="recPic" id="'+recommendedGoods[i].goodId+'"></div>' +
+										   '<div class="recPrice"><span class="newPrice">￥' + recommendedGoods[i].newPrice +'</span></div>' +
+										   '<div class="recInfo ellipsis">' + recommendedGoods[i].goodsName + '</div>' +
+										   '<div class="recAdd">' +
+											   '<div class="recSale">' +
+										   '</div>' +
+										   '</div>' +
+								   '</div>'
+						}
+						$('.recContainer').html(rec);
+						// load recommended goods' picture
+						for (var i = 0; i < recommendedGoods.length; i++) {
+							$(".recPic:eq(" + i + ")").css("background-image",'url(' + recommendedGoods[i].mainPicture + ')');
+						}
+						$('.recPic').css({
+							"background-position": "center",
+							"background-size": "100% 100%",
+							"background-repeat": "no-repeat"
+						});
+		
+						// 点击后进入商品详情页面
+						$('.recPic').click(function(){
+							var goodId = $(this).attr('id');
+							window.location.href='web/fubaoDetail.html?goodId='+goodId;
+						});
+					}
+				})
+			}
+		
+		
+			// 加载商品
+		
+			function page(totalPage){
+				var Page = Math.ceil(totalPage/pageSize);
+				$('#totalPageNumber').text(Page);
+				// 加载jQuery分页插件
+				$('#Pagination').pagination(Page,{
+					prev_text:"上一页",
+					next_text:"下一页 ",
+					callback:pageselectCallback // 对应回调函数1
+				});
+		
+				// 对应回调函数1
+				function pageselectCallback(page_index){
+					var currentPage = page_index+1;
+					getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+				}
+			}
+			</script>
+		</head>
+		
+		<body>
+			<iframe id="header" src="header.html" style="margin-bottom: -6px; width: 100%;" width="100%" height="165" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		
+			<div class="category">
+				<div class="top-category">
+					<div class="categoryTitle">
+						<img src="media/img/category.png"> <span>分类</span>
+					</div>
+					<div class="item-sub">
+						<div class="cate_detail">
+							<dl class="cate_detail_item">
+								<dt class="cate_detail_tit active">
+									<a> 全部 </a>
+								</dt>
+								<dd id="category_id" class="cate_detail_con">
+									<!-- insert category names there -->
+								<a id="21" class="cate_detail_con_lk">箱包礼包</a><a id="20" class="cate_detail_con_lk">母婴用品礼包</a><a id="19" class="cate_detail_con_lk">家居家纺礼包</a><a id="18" class="cate_detail_con_lk">户外装备礼包</a><a id="17" class="cate_detail_con_lk">粮油礼包</a><a id="16" class="cate_detail_con_lk">服装饰品礼包</a><a id="15" class="cate_detail_con_lk">家居家纺</a><a id="14" class="cate_detail_con_lk">食品酒水</a><a id="13" class="cate_detail_con_lk">家用家电礼包</a><a id="12" class="cate_detail_con_lk">汽车用品礼包</a><a id="11" class="cate_detail_con_lk">数码装备</a><a id="7" class="cate_detail_con_lk">按摩仪器礼包</a><a id="6" class="cate_detail_con_lk">箱包</a><a id="5" class="cate_detail_con_lk">家用电器</a><a id="4" class="cate_detail_con_lk">户外用品</a><a id="3" class="cate_detail_con_lk">美妆洗护</a><a id="2" class="cate_detail_con_lk">厨房用品</a><a id="1" class="cate_detail_con_lk">日用百货</a></dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+				<div class="sec-category">
+					<div class="item-sub2">
+						<div class="cate_detail">
+							<dl class="cate_detail_item">
+								<dt class="cate_detail_titChild">
+									<a> 全部 </a>
+								</dt>
+								<dd id="item_id" class="cate_detail_con">
+									<!-- insert item names there -->
+		
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="productContent">
+				<div class="sortContainer">
+					<div class="sort">
+						<span id="fg.sort" class="span active">默认</span>
+						<span id="fg.goods_saled_count" class="span">热销</span>
+						<span id="fg.new_price" class="span">价格↑↓</span>
+						<span id="fg.shen_he_time" class="span">最新</span>
+					</div>
+		
+					<div class="productList"><div class="product" data-totalpage="63"><div class="pic" id="19062017154001" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/2V6MPwx.jpg&quot;);"></div><div class="price"><span class="newPrice">￥289</span></div><div class="productName ellipsis">康佳家用无烟电烤炉</div><div class="productInfo ellipsis">康佳家用无烟电烤炉</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19062017154001" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19051511290102" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/05/5wYwTSQ.jpg&quot;);"></div><div class="price"><span class="newPrice">￥1299</span></div><div class="productName ellipsis">儿童用具大礼包</div><div class="productInfo ellipsis">蓝牙智能平衡车 儿童电话手表 拉杆箱</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19051511290102" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19062017135600" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/tfuzqB8.jpg&quot;);"></div><div class="price"><span class="newPrice">￥520</span></div><div class="productName ellipsis">志高家用手持式吸尘器</div><div class="productInfo ellipsis">志高家用手持式大功率强力真空吸尘器</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19062017135600" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19061916465009" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/snM4NNx.jpg&quot;);"></div><div class="price"><span class="newPrice">￥229</span></div><div class="productName ellipsis">乔力豪华款踏步机</div><div class="productInfo ellipsis">乔力豪华款踏步机上下家用健步机器室内外</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19061916465009" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19051416105906" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/05/h4bQARc.jpg&quot;);"></div><div class="price"><span class="newPrice">￥779</span></div><div class="productName ellipsis">家用电器大礼包</div><div class="productInfo ellipsis">电饭煲 不粘炒锅汤锅 奶机酸 电烤炉</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19051416105906" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19061916494311" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/3umcNcU.jpg&quot;);"></div><div class="price"><span class="newPrice">￥3999</span></div><div class="productName ellipsis">海魂27英寸曲屏电脑</div><div class="productInfo ellipsis">海魂27英寸曲屏办公一体机电脑</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19061916494311" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19061916481910" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/yJTe4Ry.jpg&quot;);"></div><div class="price"><span class="newPrice">￥899</span></div><div class="productName ellipsis">惠而浦空气净化器</div><div class="productInfo ellipsis">惠而浦Whirlpool空气净化器WA-</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19061916481910" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19061916450308" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/FRDvMJK.jpg&quot;);"></div><div class="price"><span class="newPrice">￥521</span></div><div class="productName ellipsis">亘帝8L车载冰箱便携</div><div class="productInfo ellipsis">亘帝8L车载冰箱大容量小冰箱迷你车家两用</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19061916450308" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19061817093207" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/JXBgvY9.jpg&quot;);"></div><div class="price"><span class="newPrice">￥188</span></div><div class="productName ellipsis">归膳堂茶叶礼品盒</div><div class="productInfo ellipsis">归膳堂茶叶红茶黑茶陕西泾阳金花茯砖茶礼品</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19061817093207" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19051715200200" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/05/KZsn7bQ.jpg&quot;);"></div><div class="price"><span class="newPrice">￥909</span></div><div class="productName ellipsis">家居家纺大礼包</div><div class="productInfo ellipsis">乳胶枕枕头 负离子四件套 全棉贵族提花被</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19051715200200" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19061817071606" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/17tYwtJ.jpg&quot;);"></div><div class="price"><span class="newPrice">￥199</span></div><div class="productName ellipsis">牛皮商务男士腰带</div><div class="productInfo ellipsis">豪爵袋鼠双扣头礼盒自动扣皮带头层牛皮商务</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19061817071606" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19061817051905" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/jmjHUgy.jpg&quot;);"></div><div class="price"><span class="newPrice">￥399</span></div><div class="productName ellipsis">纯银项链蝴蝶结</div><div class="productInfo ellipsis">法国ELLE925纯银项链蝴蝶结系列</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19061817051905" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19051516234504" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/05/US1pKns.jpg&quot;);"></div><div class="price"><span class="newPrice">￥330</span></div><div class="productName ellipsis">美妆个户大礼包</div><div class="productInfo ellipsis">洁面仪 硅胶电动牙刷 喷雾补水仪</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19051516234504" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19051417311300" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/05/4DukZZp.jpg&quot;);"></div><div class="price"><span class="newPrice">￥389</span></div><div class="productName ellipsis">家用按摩仪器大礼包</div><div class="productInfo ellipsis">肩颈椎按摩器 按摩披肩 按摩加热足浴器</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19051417311300" supplierid="1">加入购物车</div></div></div><div class="product" data-totalpage="63"><div class="pic" id="19061717180004" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/w3xUg8n.jpg&quot;);"></div><div class="price"><span class="newPrice">￥339</span></div><div class="productName ellipsis">多功能智能两用电饭煲</div><div class="productInfo ellipsis">川仁牧远多功能智能两用电饭煲3L家用预约</div><div class="productAdd"><div class="sale">已售：<span class="num">0</span></div><div class="addBtn" salesnumber="1" goodscount="99999" content="no data" goodsno="19061717180004" supplierid="1">加入购物车</div></div></div></div>
+				</div>
+			</div>
+			<div class="productContent">
+				<div class="pages">
+					<div id="Pagination"><div class="pagination"><a class="current prev1">上一页</a><a class="current">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#" class="ep">5</a><a href="#" class="next1">下一页 </a></div></div>
+					<div class="searchPage">
+						<!-- <span class="page-sum">共&nbsp;<strong id="totalPageNumber" class="allPage"></strong>&nbsp;页</span> -->
+						<!-- <span class="page-go">跳转<input type="text">页</span>
+							<a href="javascript:;" class="page-btn">确定</a> -->
+					</div>
+				</div>
+			</div>
+		
+			<div class="recommended">
+				<div class="recTitle">熊贝儿推荐</div>
+				<div class="recContainer"><div class="recItem"><div class="recPic" id="19061117094601" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/06/6aCT8jM.jpg&quot;); background-position: center center; background-size: 100% 100%; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥559</span></div><div class="recInfo ellipsis">锅具A礼包</div><div class="recAdd"><div class="recSale"></div></div></div><div class="recItem"><div class="recPic" id="19052015430200" style="background-image: url(&quot;https://f.savingpay.com/ftp2/fubaoimg/2019/05/QvcRDe7.jpg&quot;); background-position: center center; background-size: 100% 100%; background-repeat: no-repeat;"></div><div class="recPrice"><span class="newPrice">￥699</span></div><div class="recInfo ellipsis">厨房锅具大礼包</div><div class="recAdd"><div class="recSale"></div></div></div></div>
+			</div>
+		
+			<iframe src="footer.html" style="margin-bottom: -5px;height: 240px" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		
+		<script>
+			$("#header").load(function() {
+				$(this).contents().find(".fuBao").css('color', '#C21E29');
+			});
+			$('.sort .span').click(function(){
+				$(this).addClass('active').siblings().removeClass('active');
+				sortName = $(this).attr('id').trim();
+				if (sortName == 'fg.new_price') {
+					if (sortRule == 'desc') {
+						sortRule = 'asc';
+					} else {
+						sortRule = 'desc';
+					}
+				}
+				getGoods(catagoryClicked,itemClicked,currentPage,sortName,sortRule);
+			});
+			function ScreenWidth(){
+				if (screen.width == 1024){
+				  $("#header").css("width","1210px")
+			  }else if (screen.width == 1152){
+				  $("#header").css("width","1210px")
+			  }else{
+				  $("#header").css("width","100%")
+			  }
+			}
+			ScreenWidth()
+		</script>
+		</body></html>

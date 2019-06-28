@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html><head>
+		<meta charset="UTF-8">
+		<title>熊贝儿</title><link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="media/css/common.css">
+		<link rel="stylesheet" href="media/css/slideNav.css">
+		<link rel="stylesheet" href="media/css/carousel.css">
+		<link rel="stylesheet" href="media/css/exchange.css">
+		<link rel="stylesheet" href="media/css/pagination.css">
+		<!-- 引入自定义CSS文件 -->
+		<link rel="stylesheet" href="media/js/layer/skin/layer.css">
+
+		<script src="media/js/jquery.min.js"></script>
+		<script src="media/js/carousel.js"></script>
+		<script src="media/js/jquery.pagination.js"></script>
+		<script src="media/js/layer/layer.js"></script><link rel="stylesheet" href="media/js/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+		<script src="media/js/IsIE.js" type="text/javascript" charset="utf-8"></script>
+		<script src="media/js/number.js" type="text/javascript"></script>
+		<script>
+
+			// start define params area
+			var currentPage = 1;
+			var totalPage = 1;
+			var requestParam; // package params variable
+			var requestPath1 = '/integral/convert/goods'; // define request path
+			var getCanIntegralConvertGoods; // recieve data variable
+			// end define params area
+
+
+
+			$(function() {
+
+				// package params function
+				getParam(currentPage);
+
+				getGoods(requestPath1, requestParam);
+
+				$('#Pagination').pagination(totalPage,{
+					prev_text:"上一页",
+					next_text:"下一页 ",
+					callback:pageselectCallback // callback function
+				});
+
+ 				// callback function
+				function pageselectCallback(page_index){
+					var currentPage = page_index+1;
+					getParam(currentPage);
+					getGoods(requestPath1,requestParam);
+				}
+			})
+
+			// ajax request function
+			function getGoods(requestPath, requestParam){
+				$.ajax({
+					type:'post',
+					url:'web'+requestPath,
+					async:false,
+					data:requestParam,
+					success:function(data){
+						console.log(data);
+						if(data){
+							totalPage = data.page;
+							getCanIntegralConvertGoods = data.rows;
+							if(getCanIntegralConvertGoods){
+								$('#allPage').html('&nbsp;'+totalPage+'&nbsp;');
+							}else{
+								$('#allPage').html('&nbsp;'+'0'+'&nbsp;');
+							}
+						}
+						
+					},
+					complete:function(){
+						var exList = '';
+						if(!getCanIntegralConvertGoods||getCanIntegralConvertGoods.length == 0){
+							$(".exList").height(300);
+						}else if(getCanIntegralConvertGoods.length > 0){
+							for(var i = 0; i < getCanIntegralConvertGoods.length; i++) {
+								var newPrice = getCanIntegralConvertGoods[i].newPrice;
+								var integral = getCanIntegralConvertGoods[i].Integral;
+								if(newPrice == 0 && integral != 0){
+									exList += '<div class="exPoints">' +
+									'<div id="'+getCanIntegralConvertGoods[i].goodId+'" class="exPic"></div>' +
+									'<div class="exInfo ellipsis">' + getCanIntegralConvertGoods[i].goodsName + '</div>' +
+									'<div class="exData">' + '<div class="DataLeft"><span class="integral">'+ integral +'积分</span></div>' +
+									'<div class="DataRight"></div>' + '</div>' +
+									'<div class="exBtn"  goodsId="'+getCanIntegralConvertGoods[i].goodId+'" supplierId="'+getCanIntegralConvertGoods[i].supplierId+'">'+'立即兑换'+'</div>'+
+									'</div>';
+								} else if(newPrice != 0 && integral == 0){
+									exList += '<div class="exPoints">' +
+									'<div id="'+getCanIntegralConvertGoods[i].goodId+'" class="exPic"></div>' +
+									'<div class="exInfo ellipsis">' + getCanIntegralConvertGoods[i].goodsName + '</div>' +
+									'<div class="exData">' + '<div class="DataLeft"><span class="integral">￥'+ newPrice +'</span></div>' +
+									'<div class="DataRight"></div>' + '</div>' +
+									'<div class="exBtn"  goodsId="'+getCanIntegralConvertGoods[i].goodId+'" supplierId="'+getCanIntegralConvertGoods[i].supplierId+'">'+'立即兑换'+'</div>'+
+									'</div>';
+								} else if(newPrice == 0 && integral == 0){
+									exList += '<div class="exPoints">' +
+									'<div id="'+getCanIntegralConvertGoods[i].goodId+'" class="exPic"></div>' +
+									'<div class="exInfo ellipsis">' + getCanIntegralConvertGoods[i].goodsName + '</div>' +
+									'<div class="exData">' + '<div class="DataLeft"><span class="integral"></span></div>' +
+									'<div class="DataRight"></div>' + '</div>' +
+									'<div class="exBtn"  goodsId="'+getCanIntegralConvertGoods[i].goodId+'" supplierId="'+getCanIntegralConvertGoods[i].supplierId+'">'+'立即兑换'+'</div>'+
+									'</div>';
+								} else {
+									exList += '<div class="exPoints">' +
+									'<div id="'+getCanIntegralConvertGoods[i].goodId+'" class="exPic"></div>' +
+									'<div class="exInfo ellipsis">' + getCanIntegralConvertGoods[i].goodsName + '</div>' +
+									'<div class="exData">' + '<div class="DataLeft"><span class="integral">￥'+ newPrice + ' + ' + integral +'积分</span></div>' +
+									'<div class="DataRight"></div>' + '</div>' +
+									'<div class="exBtn"  goodsId="'+getCanIntegralConvertGoods[i].goodId+'" supplierId="'+getCanIntegralConvertGoods[i].supplierId+'">'+'立即兑换'+'</div>'+
+									'</div>';
+								}
+							}
+							 $('.exList').html(exList);
+						}
+
+
+						// load integral convert goods' picture
+						for (var i = 0; i < getCanIntegralConvertGoods.length; i++) {
+						  	$(".exPic:eq(" + i + ")").css("background-image",'url(' +getCanIntegralConvertGoods[i].mainPicture + ')');
+						}
+						$('.exPic').css({
+							"background-position": "center",
+							"background-size": "cover",
+							"background-repeat": "no-repeat"
+						});
+
+						var types="0";
+						$.post(
+							"web/activity/findtype", {},
+								function(data) {
+									if(data.code == "000000") {
+										types="1";
+										$(".exBtn").html(data.message);
+									}else{
+										$(".exBtn").html(data.errorMessage);
+										$(".exBtn").css("background-color","#d1a978");
+									}
+								}
+							);
+
+						// 点击后进入商品详情页面
+						$('.exPic').click(function(){
+							var goodId = $(this).attr('id');
+							window.location.href='web/hotSale-Detail.html?goodId='+goodId+'&type='+2;
+						});
+
+						// 点击后进入商品详情页面
+						$('.exBtn').click(function(){
+							var goodsId = $(this).attr('goodsId');
+							window.location.href='web/hotSale-Detail.html?goodId='+goodsId+'&type='+2;
+						});
+
+						$("#header").load(function() {
+							$(this).contents().find(".exchange").css('color', '#C21E29');
+						});
+					}
+				})
+			};
+
+			// package params function
+			function getParam(currentPage){
+				requestParam = {
+					currentPage:currentPage
+				}
+			}
+
+		</script>
+	</head>
+
+	<body>
+		<iframe id="header" src="header.html" style="margin-bottom: -6px; width: 100%;" width="100%" height="165" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+
+		<div class="titleTag">
+			如何赚取积分
+		</div>
+		<div class="makePoints">
+			<div class="pointsPic pointsL"></div>
+			<div class="pointsPic pointsM" onclick="window.location.href=''"></div>
+			<div class="pointsPic pointsR"></div>
+		</div>
+
+		<div class="titleTag">
+			热门兑换商品
+		</div>
+		<div class="exContainer">
+			<div class="exList"><div class="exPoints"><div id="19061512084901" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/19061512084901/pfjybYe.png&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">柔莱雅漱口水</div><div class="exData"><div class="DataLeft"><span class="integral">￥18 + 20积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="19061512084901" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="19061511574300" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/06/19061511574300/468Af3G.png&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">e泡净</div><div class="exData"><div class="DataLeft"><span class="integral">￥19 + 20积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="19061511574300" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="5A20A733DA574BF3BA87186F8325BA4F" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/04/5A20A733DA574BF3BA87186F8325BA4F/1McuPHg.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">抖音魔力除尘去尘胶</div><div class="exData"><div class="DataLeft"><span class="integral">2400积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="5A20A733DA574BF3BA87186F8325BA4F" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="47C705932F26405E8BA4F130A8179BC9" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/04/47C705932F26405E8BA4F130A8179BC9/kK30KJN.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">懒人可撕式卷状抹布</div><div class="exData"><div class="DataLeft"><span class="integral">1100积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="47C705932F26405E8BA4F130A8179BC9" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="FACD7A6E2CD341EBB8BDACCECF1DC8D3" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/FACD7A6E2CD341EBB8BDACCECF1DC8D3/rhKyfTs.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">银韩式淡水珍珠耳钩</div><div class="exData"><div class="DataLeft"><span class="integral">1720积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="FACD7A6E2CD341EBB8BDACCECF1DC8D3" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="4EC422FD527641F9998A34792B36AC6E" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/4EC422FD527641F9998A34792B36AC6E/7Jey5nJ.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">925银银杏吊坠项链</div><div class="exData"><div class="DataLeft"><span class="integral">2400积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="4EC422FD527641F9998A34792B36AC6E" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="5BF2C729DC4A448EA1739DD1E40B5C3B" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/5BF2C729DC4A448EA1739DD1E40B5C3B/Cj8ExWw.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">S925银羽毛耳坠</div><div class="exData"><div class="DataLeft"><span class="integral">1860积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="5BF2C729DC4A448EA1739DD1E40B5C3B" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="CF9DDDB505644EB0A5043269859A0D40" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/CF9DDDB505644EB0A5043269859A0D40/3F8EMuz.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">银薰衣草紫色珍珠耳钩</div><div class="exData"><div class="DataLeft"><span class="integral">1560积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="CF9DDDB505644EB0A5043269859A0D40" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="92F95E7F263B4FBDAAC15D808929BD1C" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/92F95E7F263B4FBDAAC15D808929BD1C/GTe4hPv.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">925银月亮猫咪项链</div><div class="exData"><div class="DataLeft"><span class="integral">2400积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="92F95E7F263B4FBDAAC15D808929BD1C" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="20792415A4FC409EA7A7C98DAE561317" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/20792415A4FC409EA7A7C98DAE561317/AG0hpze.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">S925银草莓晶手链</div><div class="exData"><div class="DataLeft"><span class="integral">2640积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="20792415A4FC409EA7A7C98DAE561317" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="97D7C0DC60E347FDB165983BDCC1412F" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/97D7C0DC60E347FDB165983BDCC1412F/Gkt3VBa.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">S925银蓝色耳钉</div><div class="exData"><div class="DataLeft"><span class="integral">1560积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="97D7C0DC60E347FDB165983BDCC1412F" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="0201E2A13BF2421EB8133134F5ABEB76" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/0201E2A13BF2421EB8133134F5ABEB76/khWbnfc.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">黑与白天然光贝珠耳环</div><div class="exData"><div class="DataLeft"><span class="integral">1800积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="0201E2A13BF2421EB8133134F5ABEB76" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="3EA490B50274402486D4736ECA65A6CB" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/3EA490B50274402486D4736ECA65A6CB/b3W0ynU.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">高档纯棉浴巾毛巾礼盒</div><div class="exData"><div class="DataLeft"><span class="integral">4320积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="3EA490B50274402486D4736ECA65A6CB" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="A5B2DB8B0B024136A3B5788A00F7E9A6" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/A5B2DB8B0B024136A3B5788A00F7E9A6/Dbj5BXZ.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">超轻迷你黑胶口袋伞</div><div class="exData"><div class="DataLeft"><span class="integral">2700积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="A5B2DB8B0B024136A3B5788A00F7E9A6" supplierid="1">立即兑换</div></div><div class="exPoints"><div id="F2DAF7FF25D440B19D42849231806D3C" class="exPic" style="background-image: url(&quot;https://f.savingpay.com/ftp2/goodsImg/2019/03/F2DAF7FF25D440B19D42849231806D3C/2EqVQ4C.jpg&quot;); background-position: center center; background-size: cover; background-repeat: no-repeat;"></div><div class="exInfo ellipsis">ECX杯具熊榨汁机</div><div class="exData"><div class="DataLeft"><span class="integral">9900积分</span></div><div class="DataRight"></div></div><div class="exBtn" goodsid="F2DAF7FF25D440B19D42849231806D3C" supplierid="1">立即兑换</div></div></div>
+		</div>
+		<div class="exContainer">
+			<div class="pages">
+				<div id="Pagination"><div class="pagination"><a class="current prev1">上一页</a><a class="current">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><span class="pagination-break">...</span><a href="#" class="ep">12</a><a href="#" class="next1">下一页 </a></div></div>
+				<div class="searchPage">
+					<span class="page-sum">共<strong id="allPage" class="allPage">&nbsp;12&nbsp;</strong>页</span>
+					<!-- <span class="page-go">跳转<input type="text">页</span>
+					<a href="javascript:;" class="page-btn">确定</a> -->
+				</div>
+			</div>
+		</div>
+
+		<iframe src="footer.html" style="margin-bottom: -5px;height: 240px" width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+		<script>
+		function ScreenWidth(){
+		    if (screen.width == 1024){
+		      $("#header").css("width","1210px")
+		  }else if (screen.width == 1152){
+			  $("#header").css("width","1210px")
+		  }else{
+			  $("#header").css("width","100%")
+		  }
+		}
+		ScreenWidth()
+	</script>
+	
+</body></html>

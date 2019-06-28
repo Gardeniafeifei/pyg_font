@@ -1,0 +1,92 @@
+.UC-vocher{
+	width: 946px;
+	height: 600px;
+	background-color: #fff;
+	color: #505050;
+}
+.UC-vocher .header{
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-vocher .table{
+	width: 944px;
+	border: solid 1px #e0e0e0;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 20px;
+}
+.UC-vocher .tableHead{
+	overflow: hidden;
+	background: #FAFAFA;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-vocher .tr{
+	overflow: hidden;
+	height: 58px;
+	line-height: 58px;
+	border-bottom: solid 1px #e0e0e0;
+}
+.UC-vocher .td{
+	width: 188px;
+	float: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.UC-vocher .unpay{
+	color:#C21E29;
+}
+a{
+	text-decoration: none;	
+}
+.UC-vocher .sort-money,.sort-code{
+	float: left;
+	margin-right: 40px;
+	
+}
+
+.UC-vocher .sort{
+	overflow: hidden;
+	margin-top: 20px;
+}
+.UC-vocher .sort input{
+	float: left;
+	width: 218px;
+	height: 30px;
+	border: solid 1px #cccccc;
+}
+.UC-vocher .sort-code input{
+	width: 144px;
+}
+.UC-vocher .sortTitle{
+	float: left;
+	line-height: 32px;
+}
+.UC-vocher .code{
+	float: left;
+	margin-left: 10px;
+	width: 75px;
+	height: 32px;
+	background: url("../img/newPhone-code.jpg")/*tpa=https://www.savingpay.com.cn/media/img/newPhone-code.jpg*/ no-repeat center;
+	background-size: cover;
+}
+.UC-vocher select{
+	float: left;
+}
+.UC-vocher .rechargeBtn{
+	width: 86px;
+	height: 32px;
+	background: #c21e29;
+	color: #fff;
+	float: left;
+	margin-left: 217px;
+	border-radius: 3px;
+}
+.UC-vocher .rechargeBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}

@@ -1,0 +1,1049 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+<title>熊贝儿</title><link rel="shortcut icon" href="media/img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="media/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="media/css/member.css" />
+<link rel="stylesheet" href="media/js/layer/skin/layer.css" />
+<link rel="stylesheet" type="text/css" href="media/css/base.css" />
+<script src="media/js/jquery.min.js"></script>
+<script src="media/js/bootstrap.min.js"></script>
+<script src="media/js/layer-v3.1.0/layer/layer.js"></script>
+<script src="media/js/preview_img.js"></script>
+<script src="media/js/city.js"></script>
+<script src="media/js/regular.js" type="text/javascript" charset="utf-8"></script>
+<script src="media/js/F12.js" type="text/javascript" charset="utf-8"></script> <script src="media/js/IsIE.js" type="text/javascript" charset="utf-8"></script> 
+<style type="text/css">
+.wrap{width:1200px;margin:0 auto;}
+.content {width:100%;}
+.baseTab{width:96%;margin:0 auto;}
+.baseTabBackImage{background:url("media/img/specially.png") 0 7%;background-size:10%;background-repeat:no-repeat;}
+.btn-group {vertical-align: top;margin: 10px 0 0 20px;width: 47%;height: 25px;border: 1px solid #ccc;}
+.form-group {margin-bottom: 0;border-top: 0;display: inline-block;width: 49%;}
+.nav-tabs {width: 100%}
+.nav-tabs>li {width: 15% !important;}
+.ddl-clearinput {display: none;}
+.radio-inline input[type=radio] {margin-top: 5px;}
+.img {width: 60px;height: 40px;padding-top: 5px;}
+.btn {color: #444;height: 25px;line-height: 16px;background: #f0f4f7;text-align: center;margin-top: 15px;}
+.selectOP {width: 17%;vertical-align: top;margin-top: 10px;height: 30px;}
+.input {width: 52%;}
+.parentSelect {width: 25.5%}
+.baseBtn {width: 34.5%;height: 35px;line-height: 35px;border: 1px solid #ccc;text-align: center;margin: 30px 10px;background: #1ab394;color: #fff;border-radius: 5px;cursor: pointer;display: inline-block;margin-left: 40px;}
+.textareaWord {width: 38%;max-width: 38%;height: 150px;max-height: 150px;border: 1px solid #ccc;margin-top: 20px;padding: 5px;border-radius: 5px}
+.checkLab {height: 150px;line-height: 150px;padding: 0;margin: 0;}
+.tiaoJian {display: inline-block;line-height: 43px;height: 30px;vertical-align: bottom;margin-bottom: 10px}
+.uploadImg, .uploadImgPc, .uploadImg img {display: inline-block;width: 150px;height: 110px;overflow: hidden;}
+.uploadImgPc {width: 220px;height: 160px;}
+.uploadBtn {width: 80px;height: 25px;background: #1ab394;color: #fff;cursor: pointer;line-height: 25px;text-align: center;}
+input[type=file] {display: inline-block;cursor: pointer;width: 200px;}
+.uploadImgFM {width: 60px;height: 40px;vertical-align: bottom;margin-right: 20px}
+.box {display: block;width: 100%;}
+.checkWint {width: 37.5%;}
+.bankSelect, .bankinput {width: 27%;}
+.patientPhoto {height: 100px;width: 120px;margin-bottom: 10px;}
+.patientPhoto img {width: 120px;height: 100px;}
+.photoBtn1 {display: inline-block;}
+.yes {color: #ef4747;font-size: 20px;vertical-align: super;font-weight: 600;margin-top: 0;}
+.beijing{float: left;}
+.file-preview{width:85%;}
+.checkShop{display: inline-block;margin-right: 40px;}
+.checkShop input{vertical-align: text-top;margin-right: 10px;}
+.radio{display:inline-block;margin-right:10px;vertical-align:sub;}
+/*多图片上传*/
+.container.kv-main .form-group{width:100%;}
+.progress{width:85%!important;}
+#jieshaoren{width:65%;}
+#leftAdd div{float:left;}
+.picAdd{width:150px;}
+#addShopSupplier{background:#c21e29;color:#fff;line-height:14px;width:120px;height:40px;margin-top:36px;font-size:18px;}
+</style>
+</head>
+<body>
+<iframe id="header" src="header.html"
+		style="margin-bottom: -6px;" width="100%" height="165"
+		frameborder="no" border="0" marginwidth="0" marginheight="0"
+		scrolling="no" allowtransparency="yes"></iframe>
+	<div class="wrap">
+		<div class="content">
+			<div id="backGroundControl" class="tab baseTab">	
+			<h2 style="float:left;">基本信息</h2>
+			<div style="clear:both;"></div>
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">商户编号：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control" placeholder="商户编号，无需填写，系统生成" disabled>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab" style="padding-left: 10px;">营业执照编号：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control" id="businessNum" placeholder="请填写营业执照编号"  maxlength="64"  onkeyup="regularNumEng(this)">
+						<input type="hidden" maxlength="18" class="form-control" id="addsupplierType" value="0">
+					</div>
+					<span class="tip">*</span>
+				</div>
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">营业执照名称：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control" id="businessName"  maxlength="20"  onkeyup="">
+					</div>
+					<span class="tip">*</span>
+				</div>
+				<div class="form-group">
+					<div class="firstLabel" style="margin-top:10px;">
+						<label class="lab">商铺分类：</label>
+					</div>
+					<div class="input-group input" style="vertical-align:top;margin-top:14px;">
+						<input class="radio" name="Fr" type="radio" value="0" data-flag="0" checked/>&nbsp;网购商品&nbsp;&nbsp;&nbsp;&nbsp;
+						<input class="radio" name="Fr" type="radio" value="1" data-flag="1"/>&nbsp;生活服务
+					</div>
+				</div>
+				<div class="form-group bankshow classifitionshow" >
+					<div class="firstLabel" style="padding-top:10px;">
+						<label class="lab">所属行业：</label>
+					</div>
+						<select class="selectOP parentSelect" id="parentSelect" name="parentSelect">
+						<option class='options' value="">请选择</option>
+					</select> 
+					<select class="selectOP parentSelect" id="options" name="options">
+						<option class='options' value="">请选择</option>
+					</select> 
+					<span class="tip">*</span>
+				</div>
+			
+			<!-- 	<div class="form-group bankhide classifitionhide" style="display:none;">
+					<div class="firstLabel">
+						<label class="lab">所属行业 ：</label>
+					</div>
+					<div class="input-group" style="width:25.5%;">
+						<input type="text"  class="form-control form_control_show" id="hideParentVal"  />
+					</div>
+					<div class="input-group" style="width: 25.5%;">
+						<input type="text"  class="form-control form_control_show" id="hideChildVal"  />
+					</div>
+				</div> -->
+					<div class="form-group" style="">
+					<div class="firstLabel">
+						<label class="lab">店铺名称：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control" id="supplierName" placeholder="请填写店铺名称">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="firstLabel" style="padding-top:10px;">
+						<label class="lab">所在地区：</label>
+					</div>
+					<select class="selectOP" id="s_province" name="s_province">
+					</select> 
+					<select class="selectOP" id="s_city" name="s_city">
+					</select> 
+					<select class="selectOP" id="s_county" name="s_county">
+					</select> 
+					<span class="tip">*</span>
+				</div>
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">详细地址：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control" id="address" placeholder="请填写店铺详细地址" maxlength="30"  onkeyup="">
+					</div>
+					<span class="tip">*</span>
+				</div>
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">经&nbsp;纬&nbsp;度 ：</label>
+					</div>
+					<div class="input-group" style="width:25.5%;">
+						<input type="text" value="0.000000" class="form-control" id="longitude" disabled />
+					</div>
+					<div class="input-group" style="width: 25.5%;">
+						<input type="text" value="0.000000" class="form-control" id="latitude" disabled />
+					</div>
+					<span class="tip map" id="map" style="cursor: pointer;">点击修改【地图】</span>
+
+				</div>
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">注册手机号：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control form_control_show form_classifition_show" id="regPhone" placeholder="注册手机号" maxlength="11"  onkeyup="regularNum(this)"/>
+					</div>
+					<span class="tip">*</span>
+				</div>
+
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">店铺责任人：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control form_control_show form_phone_show form_classifition_show" id="lord" placeholder="请填写店铺责任人" maxlength="10"  onkeyup="regularChina(this)" />
+					</div>
+					<span class="tip">*</span>
+				</div>
+			 	<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">店铺联系方式：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control form_control_show form_phone_show form_classifition_show" id="phone"  placeholder="请填写店铺责任人手机号" maxlength="11" onkeyup="regularNum(this)"/>
+					</div>
+					<span class="tip">*</span>
+				</div> 
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">法人身份证号码：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control form_control_show form_phone_show" id="identificationNum" placeholder="法人身份证号码" maxlength="18"  onkeyup="regularNumEng(this)" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">结算折扣：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" maxlength="3" class="form-control form_control_show" id="discount" onkeyup="clearNoNum(this)" placeholder="店铺的结算折扣。例如，输入0.95，表示95折">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">消费折扣：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" maxlength="3" class="form-control form_control_show" id="consumption_discount" onkeyup="clearNoNum(this)" placeholder="店铺的消费折扣。例如，输入0.95，表示95折">
+					</div>
+				</div>
+				<div class="form-group bankshow phonehide">
+					<div class="firstLabel" style="padding-top:10px;">
+						<label class="lab">银行类型：</label>
+					</div>
+					<select class="selectOP input" id="bankName">
+						<option value="">请选择银行类型</option>
+					</select> 
+					<span class="tip">*</span>
+				</div>
+			<!-- 	<div class="form-group bankhide phoneshow" style="display:none;">
+					<div class="firstLabel" style="padding-top:10px;">
+						<label class="lab">银行类型：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" maxlength="18" class="form-control form_control_show " id="hideBankName" maxlength="30"  onkeyup="regularChina(this)">
+					</div>
+				</div> -->
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">开户行：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" maxlength="50" class="form-control form_control_show " id="subbranchBankName" placeholder="请填写店铺责任人的开户支行"  onkeyup="regularNumChinaEng(this)" >
+					</div>
+					<span class="tip">*</span>
+				</div>
+				<div class="form-group bankshow phonehide">
+					<div class="firstLabel" style="padding-top:10px;">
+						<label class="lab">银行卡属性：</label>
+					</div>
+					<select class="selectOP input" id="bankNatur">
+						<option value="0">对私</option>
+						<option value="1">对公</option>
+					</select> 
+					<span class="tip">*</span>
+				</div>
+				<!-- <div class="form-group bankhide phoneshow" style="display:none;">
+					<div class="firstLabel" style="padding-top:10px;">
+						<label class="lab">银行卡属性：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control form_control_show " id="hideBankNatur" maxlength="18"  onkeyup="regularNum(this)">
+					</div> 
+				</div> -->
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">开户名：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control form_control_show " id="accountName" placeholder="请填写店铺责任人的开户名" maxlength="10"  onkeyup="regularNumChinaEng(this)">
+					</div>
+					<span class="tip">*</span>
+				</div>
+				<div class="form-group">
+					<div class="firstLabel">
+						<label class="lab">开户账号：</label>
+					</div>
+					<div class="input-group input">
+						<input type="text" class="form-control form_control_show" id="accountNo" placeholder="请填写店铺责任人的开户账号" maxlength="50"  onkeyup="regularNum(this)">
+					</div>
+					<span class="tip">*</span>
+				</div>
+				<div class="form-group box" style="margin-top:20px;">
+					<div class="firstLabel" style="vertical-align: top;">
+						<label class="lab">详细内容：</label>
+					</div>
+					<div class="input-group input" style="width:75%;">
+						<textarea class="textarea" id="details" style="width:100%;" maxlength="500"   placeholder="请输入详细内容"></textarea>
+					</div>
+				</div>
+				<div class="form-group" style="vertical-align: top;">
+					<div class="firstLabel" style="width: 128px; vertical-align: top;">
+						<label class="lab" style="padding-left: 10px;">门店logo:</label>
+					</div>
+					<div class="input-group">
+						<div class="patientPhoto" style="margin-bottom: 0px;">
+							<div id="preview1">
+								<img src="media/img/zw.jpg" tppabs="https://www.savingpay.com.cn/media/img/zw.jpg" class="imghead" id="imghead1" />
+							</div>
+						</div>
+						<div class="photoBtn1" style="margin-top:10px;">
+							<input type="file" accept="image/jpg,image/jpeg,image/png"
+								onchange="previewImage(this,'preview1','imghead1')"
+								id="menDianLogo" class="delPic" /> 
+							<span class="tip" style="vertical-align: baseline; display:block;">*（建议尺寸：350 × 260）</span>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="form-group">
+					<div class="firstLabel"
+						style="width: 128px; vertical-align: top;">
+						<label class="lab">封面图片：</label>
+					</div>
+					<div class="input-group" style="width:50%;">
+						<div class="patientPhoto">
+							<div id="preview3">
+								<img src="media/img/zw.jpg" class="imghead"
+									id="imghead3" />
+							</div>
+						</div>
+						<div class="photoBtn1">
+							<input type="file" accept="image/jpg,image/jpeg,image/png"
+								onchange="previewImage(this,'preview3','imghead3')"
+								id="fengMianTuPian" class="delPic" />
+								<span class="tip"
+								style="vertical-align: baseline;">*（建议尺寸：260px × 180px）</span>
+						</div>
+
+					</div>
+				</div>
+				<div class="form-group box">
+					<div class="firstLabel" style="width: 128px; vertical-align: top;">
+						<label class="lab">审核条件：</label>
+					</div>
+					<div class="input-group">
+						<span class="tiaoJian">商户营业执照</span>
+						<div class="patientPhoto">
+							<div id="preview">
+								<img src="media/img/zw.jpg" class="imghead"
+									id="imghead" />
+							</div>
+						</div>
+						<div class="photoBtn1 bankshow">
+							<!--<span class="uploadBtn" id="phtotFile">上传营业执照</span>-->
+							<input type="file" accept="image/jpg,image/jpeg,image/png"
+								onchange="previewImage(this,'preview','imghead')"
+								id="YingYeZhiZhao" class="delPic form_control_show"/>
+						</div>
+					</div>
+					<div class="input-group">
+						<span class="tiaoJian">法人身份证(正面)</span>
+						<div class="patientPhoto">
+							<div id="previewOnly">
+								<img src="media/img/zw.jpg" class="imghead"
+									id="imgheadOnly" />
+							</div>
+						</div>
+						<div class="photoBtnOnly bankshow">
+							<!--<span class="uploadBtn" id="phtotFile">上传营业执照</span>-->
+							<input type="file" accept="image/jpg,image/jpeg,image/png"
+								onchange="previewImage(this,'previewOnly','imgheadOnly')"
+								id="faRenShenFenZhengZhengMian" class="delPic form_control_show form_phone_show form_classifition_show"/>
+						</div>
+
+					</div>
+					<div class="input-group">
+						<span class="tiaoJian">法人身份证(反面)</span>
+						<div class="patientPhoto">
+							<div id="previewOnly1">
+								<img src="media/img/zw.jpg" class="imghead"
+									id="imgheadOnly1" />
+							</div>
+						</div>
+						<div class="photoBtnOnly1 bankshow">
+							<!--<span class="uploadBtn" id="phtotFile">上传营业执照</span>-->
+							<input type="file" accept="image/jpg,image/jpeg,image/png"
+								onchange="previewImage(this,'previewOnly1','imgheadOnly1')"
+								id="faRenShenFenZhengFanMian" class="delPic form_control_show form_phone_show form_classifition_show" />
+						</div>
+
+					</div>
+					<div class="input-group">
+						<span class="tiaoJian">法人手持身份证</span>
+						<div class="patientPhoto">
+							<div id="previewOnly2">
+								<img src="media/img/zw.jpg" class="imghead"
+									id="imgheadOnly2" />
+							</div>
+						</div>
+						<div class="photoBtnOnly1 bankshow">
+							<!--<span class="uploadBtn" id="phtotFile">上传营业执照</span>-->
+							<input type="file" accept="image/jpg,image/jpeg,image/png"
+								onchange="previewImage(this,'previewOnly2','imgheadOnly2')"
+								id="faRenShouChiShenFenZheng" class="delPic form_control_show form_phone_show form_classifition_show"/>
+						</div>
+
+					</div>
+				</div>
+				<div class="form-group box">
+					<div class="firstLabel" style="width: 128px; vertical-align: top;">
+						<label class="lab">商户轮播图：</label>
+					</div>
+					<div style="display:inline-block;width:86%;">
+					
+					<div class="input-group">
+						<span class="tiaoJian">轮播图1</span>
+						<div class="patientPhoto">
+							<div id="preview11">
+								<img src="media/img/zw.jpg" class="imghead"
+									id="imghead11" />
+							</div>
+						</div>
+						<div class="photoBtn1">
+							<!--<span class="uploadBtn" id="phtotFile">上传营业执照</span>-->
+							<input type="file" accept="image/jpg,image/jpeg,image/png"
+								onchange="previewImage(this,'preview11','imghead11')"
+								 class="delPic" id="pic1"
+								/>
+						</div>
+					</div>
+					<div class="input-group">
+						<span class="tiaoJian">轮播图2</span>
+						<div class="patientPhoto">
+							<div id="previewOnly22">
+								<img src="media/img/zw.jpg" class="imghead"
+									id="imgheadOnly22" />
+							</div>
+						</div>
+						<div class="photoBtnOnly">
+							<!--<span class="uploadBtn" id="phtotFile">上传营业执照</span>-->
+							<input type="file" accept="image/jpg,image/jpeg,image/png"
+								onchange="previewImage(this,'previewOnly22','imgheadOnly22')"
+								 class="delPic" id="pic2"
+								/>
+						</div>
+
+					</div>
+					<div class="input-group">
+						<span class="tiaoJian">轮播图3</span>
+						<div class="patientPhoto">
+							<div id="previewOnly33">
+								<img src="media/img/zw.jpg" class="imghead"
+									id="imgheadOnly33" />
+							</div>
+						</div>
+						<div class="photoBtnOnly1">
+							<!--<span class="uploadBtn" id="phtotFile">上传营业执照</span>-->
+							<input type="file" accept="image/jpg,image/jpeg,image/png"
+								onchange="previewImage(this,'previewOnly33','imgheadOnly33')" class="delPic" id="pic3"/>
+						</div>
+					</div>
+					<div class="input-group">
+						<span class="tiaoJian">轮播图4</span>
+						<div class="patientPhoto">
+							<div id="previewOnly44">
+								<img src="media/img/zw.jpg" class="imghead"
+									id="imgheadOnly44" />
+							</div>
+						</div>
+						<div class="photoBtnOnly1">
+							<input type="file" accept="image/jpg,image/jpeg,image/png"
+								onchange="previewImage(this,'previewOnly44','imgheadOnly44')" class="delPic" id="pic4"/>
+						</div>
+					</div>
+					<div class="input-group">
+						<span class="tiaoJian">轮播图5</span>
+						<div class="patientPhoto">
+							<div id="previewOnly55">
+								<img src="media/img/zw.jpg" class="imghead"
+									id="imgheadOnly55" />
+							</div>
+						</div>
+						<div class="photoBtnOnly1">
+							<!--<span class="uploadBtn" id="phtotFile">上传营业执照</span>-->
+							<input type="file" accept="image/jpg,image/jpeg,image/png"
+								onchange="previewImage(this,'previewOnly55','imgheadOnly55')" class="delPic" id="pic5"/>
+						</div>
+					</div>
+					<div class="tip" style="display: inline-block;width:65%;vertical-align:unset;">您需要上传1至5张商户轮播图，为避免影响美观，建议上传分辨率为400px*260px，小于1兆的图片</div>
+					</div>
+					
+				</div>
+			<div style="margin-bottom:20px;text-align:center;"><button type="button" class="btn btn-primary" id="addShopSupplier" onclick="noApproveId()">提交</button></div>	
+		</div>
+	</div>	
+</div>
+<iframe src="footer.html" style="margin-bottom: -5px;height: 240px"
+		width="100%" frameborder="no" border="0" marginwidth="0"
+		marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+</body>
+<script>
+     selectBrank();
+     var selfSupport=2;
+     var specialSupplierss="";
+     var businessNum1="";
+     var identificationNum1="";
+     var phone1="";
+     var yinye=1;
+	function clearNoNum(obj){ 
+		
+	    var reg = /^([1-9]\d{0,1}|100)$/;
+	    var testNum = obj.value;
+	    //alert(testNum)
+	    if(!reg.test(testNum)) {
+	    	obj.value="";
+	           alert("请输入1-100的整数！");
+	    }
+	}
+
+	type=0;
+	selectHtml(type);
+	$(".radio").click(function(){
+		var flag = this.dataset.flag;
+		type=flag;
+		selectHtml(type);
+	});
+	
+	
+	function selectHtml(type){
+		$("#options").html("<option class='options' value=''>请选择</option>");
+		$("#parentSelect").html("<option class='options' value=''>请选择</option>");
+		//start
+		var loada = layer.load(1);
+		$.ajax({
+			type:'post',
+			url:'supplierCategorySelectType',
+			async: false,
+			data:{type:type},
+			success:function(data){
+				layer.close(loada);
+				/* $("#parentSelect").html(""); */
+				var optionStr="<option class='options' value=''>请选择</option>";
+				for(var i=0;i<data.length;i++){
+					optionStr += "<option value='" + data[i].classaId + "' class='options'>"+data[i].typeNameA+"</option>";
+					//父级名  typeNameA
+					/* var parentText = data[i].typeNameA;
+					options.html(parentText);
+					//父集ID
+					var valIdParent = data[i].classaId;
+					options.attr("value",valIdParent); */
+				}
+				$("#parentSelect").html(optionStr);
+				
+				function selectOp(proId){	
+					if(!proId){
+						$("#options").html("<option class='options' value=''>请选择</option>");
+						return;
+					}
+					for(var i=0;i<data.length;i++){	
+						var valIdPro = data[i].classaId;
+						if(valIdPro == proId){
+							var selectPar= data[i].classB;
+							$("#options").html("");
+							for(var j = 0;j<selectPar.length;j++){	
+								var options = $("<option value='" + selectPar[j].classbId + "'>请选择</option>");
+								var cityText = selectPar[j].typeNameB;
+								options.html(cityText);
+								var valIdCity = selectPar[j].classbId;
+								options.attr("value",valIdCity);
+								$("#options").append(options);
+							}
+						}
+					}
+				}
+				
+				var selects=document.getElementById("parentSelect");
+				
+				selects.onchange=function(){
+					var val = selects.options[selects.selectedIndex].value;
+					selectOp(val);
+				}
+			}
+		});
+		//end
+	}
+
+	
+	//省市区三级联动
+	for(var i=0;i<cityData3.length;i++){
+		var options = $("<option value='" + cityData3[i].classaId + "' class='options'>请选择</option>");
+		//省名
+		var provinceText = cityData3[i].text;
+		options.html(provinceText);
+		//省Id
+		var valIdPro = cityData3[i].value;
+		options.attr("value",valIdPro);
+		$("#s_province").append(options)
+	}	
+	
+	function citys(proId){
+		/* if(proId == ""){
+			var options = $("<option value='请选择'>请选择</option>");
+			$("#s_city").append(options);
+		} */
+		for(var i=0;i<cityData3.length;i++){	
+			var valIdPro = cityData3[i].value;
+			if(valIdPro == proId){
+				var province = cityData3[i].children;
+				$("#s_city").html("");
+				for(var j = 0;j<province.length;j++){	
+					var options = $("<option value='" + province[j].classaId + "'>请选择</option>");
+					var cityText = province[j].text;
+					options.html(cityText);
+					var valIdCity = province[j].value;
+					options.attr("value",valIdCity);
+					$("#s_city").append(options);
+				}
+			}
+		}
+	}
+				
+	function countys(proId){
+		for(var i=0;i<cityData3.length;i++){
+			var childrens = cityData3[i].children;
+			for(var k=0;k<childrens.length;k++){
+				var countyvalue = childrens[k].value;
+				if(proId==countyvalue){
+					var countys = childrens[k].children;
+					$("#s_county").html("");
+					for(var j=0;j<countys.length;j++){
+						var options = $("<option value='" + countys[j].classaId + "'>请选择</option>");
+						var cityText = countys[j].text;
+						options.html(cityText);
+						var valIdCity = countys[j].value;
+						options.attr("value",valIdCity);
+						$("#s_county").append(options);
+					}
+				}
+			}
+		}
+	}
+	
+	var selects1=document.getElementById("s_province");
+	var selects2=document.getElementById("s_city");
+	selects1.onchange=function(){
+		var val = selects1.options[selects1.selectedIndex].value;
+		citys(val);
+		selects2.onchange();
+	}			
+		
+	selects2.onchange=function(){
+		var val = selects2.options[selects2.selectedIndex].value;
+		countys(val);
+	}
+	citys("010000");
+	countys("010100");
+	//获取银行列表
+	function selectBrank(){
+		var bankList=document.getElementById("bankName");
+		$.ajax({
+    		type:'post',
+    		url:'https://www.savingpay.com.cn:443/web/getbank',
+    		data:{},
+    		success:function(data){
+    		   if(data.code=="000000"){
+    			   var msg=data.data
+    			   for(var i=0;i<msg.length;i++){
+    				   bankList.innerHTML +=' <option value="'+msg[i].id+'">'+msg[i].bankName+'</option>';
+    			   }
+	    		 
+    		   }else{
+    			   layer.alert(data.errorMessage);	
+    		   }   		   
+    		}
+    	});
+	}
+		
+	//地图
+	var lat=null;
+	var lng=null;
+ 	$(".map").click(function(){
+		layer.open({
+		  type: 2,
+		  title: '地图',
+		  move:false,
+		  shadeClose: true,
+		  btn:["确认","取消"],
+		  shade: 0.5,
+		  area: ['90%','90%'],
+		  content: 'https://www.savingpay.com.cn:443/web/maps.html'
+		})
+	});
+	
+//鼠标离开营业执照发生事件
+ 	$("#businessNum").blur(function(){
+ 		var businessNum = $('#businessNum').val();
+ 		if(businessNum==businessNum1){
+ 			return;
+ 		}
+ 		 var type=1;
+ 		 var url="https://www.savingpay.com.cn:443/web/findMemberIsExistSupplier";
+			$.ajax({
+				url :url,
+				type:"post",
+				data : {
+					'businessNum':businessNum,
+					'type':type
+				},
+				dataType : "json",
+				success : function(data) {
+					var data1="";
+					if(data.data){
+						data1=data.data;
+					}
+					if(data.code=="000000"){
+							
+						layer.msg('该店铺已经存在，请重新填写营业编号')
+						$('#businessNum').val("");
+						return;
+							
+		                  }
+				}
+			});
+}); 
+
+
+//注册商户
+		$("#addShopSupplier").click(function(){
+				/* 	var hideChildVal=document.getElementById("hideChildVal").value;//类型1
+					var hideBankName=document.getElementById("hideBankName").value;//银行卡类型1
+					var hideBankNatur=document.getElementById("hideBankNatur").value; *///银行卡属性
+					var businessNum =document.getElementById("businessNum").value;//营业执照号
+					var businessName =document.getElementById("businessName").value;
+					var supplierName =document.getElementById("supplierName").value;//店铺名称
+					var childVal =document.getElementById("options").value;//类型
+					var provinceId =document.getElementById("s_province").value;
+					var cityId =document.getElementById("s_city").value;
+					var countyId =document.getElementById("s_county").value; 
+					var address =document.getElementById("address").value;//地址
+					var longitude =document.getElementById("longitude").value; 
+					var latitude =document.getElementById("latitude").value;
+					var regPhone =document.getElementById("regPhone").value;//注册手机号
+					var lord =document.getElementById("lord").value;//负责人
+					var phone =document.getElementById("phone").value;//店铺联系方式
+					var identificationNum =document.getElementById("identificationNum").value;//身份证号
+					var discount =document.getElementById("discount").value; //结算折扣
+					discount = mul(discount, 0.01);
+					var consumptionDiscount=document.getElementById("consumption_discount").value;//消费折扣
+					consumptionDiscount = mul(consumptionDiscount, 0.01);
+					var details =document.getElementById("details").value; //详情
+					var bankName =document.getElementById("bankName").value;//银行卡类型
+					var subbranchBankName =document.getElementById("subbranchBankName").value;//开户行
+					var accountName =document.getElementById("accountName").value;//开户名
+					var accountNo =document.getElementById("accountNo").value;//开户账号
+					var bankNatur =document.getElementById("bankNatur").value;//银行卡属性
+					var addsupplierType =document.getElementById("addsupplierType").value;
+					
+					if(!businessNum){
+						layer.msg("营业执照号不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!businessName){
+						layer.msg("营业执照名称不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!supplierName){
+						layer.msg("店铺名称不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!childVal){
+						layer.msg("所属行业不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(provinceId=="010000"||cityId=="010100"||countyId=="010101"){
+						layer.msg("所在地区不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!address){
+						layer.msg("详细地址不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(longitude=="0.000000"||latitude=="0.000000"){
+						layer.msg("请打开地图选择经纬度", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!regPhone){
+						layer.msg("注册手机号不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!phone){
+						layer.msg("店铺联系方式不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!lord){
+						layer.msg("店铺责任人不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!identificationNum){
+						layer.msg("法人身份证号码不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!discount){
+						layer.msg("结算折扣不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(discount>1){
+						layer.msg("结算折扣不能大于1", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!consumptionDiscount){
+						layer.msg("消费折扣不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(consumptionDiscount>1){
+						layer.msg("消费折扣不能大于1", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!details){
+						layer.msg("详细内容不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!bankName){
+						layer.msg("银行类型不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!subbranchBankName){
+						layer.msg("开户行不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!accountName){
+						layer.msg("开户名不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!accountNo){
+						layer.msg("开户账号不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!bankNatur){
+						layer.msg("银行卡属性不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					if(!childVal){
+						layer.msg("商户类型不能为空", {offset: ['50%', '50%']});
+						return;
+					}
+					var formData = new FormData();
+					
+					/* if(hideChildVal){
+						formData.append('childVal',hideChildVal);
+					}else{ */
+						formData.append('childVal',childVal);
+				/* 	}
+					if(hideBankName){
+						formData.append('bankName',hideBankName);
+					}else{ */
+						formData.append('bankName',bankName);	
+					/* }
+					if(hideBankNatur){
+						formData.append('bankNatur',hideBankNatur);
+					}else{ */
+						formData.append('bankNatur',bankNatur);
+				/* 	} */
+					formData.append('businessNum',businessNum);
+					formData.append('businessName',businessName);
+					formData.append('supplierName',supplierName);
+					formData.append('provinceId',provinceId);
+					formData.append('cityId',cityId);
+					formData.append('countyId',countyId);
+					formData.append('address',address);
+					formData.append('longitude',longitude);
+					formData.append('latitude',latitude);
+					formData.append('regPhone',regPhone);
+					formData.append('lord',lord);
+					formData.append('phone',phone);
+					formData.append('details',details);
+					formData.append('identificationNum',identificationNum);
+					formData.append('discount',discount);
+					formData.append('consumptionDiscount',consumptionDiscount);
+					formData.append('subbranchBankName',subbranchBankName);
+					formData.append('accountName',accountName);
+					formData.append('accountNo',accountNo);
+					//门店log
+					var mainPicM =document.getElementById("menDianLogo");
+					var mainPic=mainPicM.files[0];
+					if(!mainPic){
+						layer.msg("商铺logo图不能为空");
+						return;
+					}
+					var mainPicName = mainPicM.value;
+					var mainPicFormat = mainPicName.replace(/.+\./,".");
+					formData.append("mainPic",mainPic);
+					formData.append("mainPicFormat",mainPicFormat);
+					//背景图
+					var backgroundPicM =document.getElementById("fengMianTuPian");
+					var backgroundPic=backgroundPicM.files[0];
+					if(!backgroundPic){
+						layer.msg("商铺背景图不能为空");
+						return;
+					}
+					var backgroundPicName = backgroundPicM.value;
+					var backgroundPicFormat = backgroundPicName.replace(/.+\./,".");
+					formData.append("backgroundPic",backgroundPic);
+					formData.append("backgroundPicFormat",backgroundPicFormat);
+					//商户营业照
+					/* if(addsupplierType==0||addsupplierType==2||addsupplierType==3){ */
+					var businessPicM =document.getElementById("YingYeZhiZhao");
+					var businessPic=businessPicM.files[0];
+					if(!businessPic){
+						layer.msg("商户营业照不能为空");
+						return;
+					}
+					var businessPicName = businessPicM.value;
+					var businessPicFormat = businessPicName.replace(/.+\./,".");
+					formData.append("businessPic",businessPic);
+					formData.append("businessPicFormat",businessPicFormat);
+					/* } */
+					//背景图
+					var backgroundPicM =document.getElementById("fengMianTuPian");
+					var backgroundPic=backgroundPicM.files[0];
+					if(!backgroundPic){
+						layer.msg("商户背景图不能为空");
+						return;
+					}
+					var backgroundPicName = backgroundPicM.value;
+					var backgroundPicFormat = backgroundPicName.replace(/.+\./,".");
+					formData.append("backgroundPic",backgroundPic);
+					formData.append("backgroundPicFormat",backgroundPicFormat);
+					//身份证正面照
+					/* if(addsupplierType==0){ */
+					var frontIdentificationPicM =document.getElementById("faRenShenFenZhengZhengMian");
+					var frontIdentificationPic=frontIdentificationPicM.files[0];
+					if(!frontIdentificationPic){
+						layer.msg("身份证正面照不能为空");
+						return;
+					}
+					var frontIdentificationPicName = frontIdentificationPicM.value;
+					var frontIdentificationPicFormat = frontIdentificationPicName.replace(/.+\./,".");
+					formData.append("frontIdentificationPic",frontIdentificationPic);
+					formData.append("frontIdentificationPicFormat",frontIdentificationPicFormat);
+					
+					//身份证反面照
+					var versoIdentificationPicM =document.getElementById("faRenShenFenZhengFanMian");
+					var versoIdentificationPic=versoIdentificationPicM.files[0];
+					if(!versoIdentificationPic){
+						layer.msg("身份证反面照不能为空");
+						return;
+					}
+					var versoIdentificationPicName = versoIdentificationPicM.value;
+					var versoIdentificationPicFormat = versoIdentificationPicName.replace(/.+\./,".");
+					formData.append("versoIdentificationPic",versoIdentificationPic);
+					formData.append("versoIdentificationPicFormat",versoIdentificationPicFormat);
+					//手持身份证照
+					var legalPersonPicM =document.getElementById("faRenShouChiShenFenZheng");
+					var legalPersonPic=legalPersonPicM.files[0];
+					if(!legalPersonPic){
+						layer.msg("手持身份证不能为空");
+						return;
+					}
+					var legalPersonPicName = legalPersonPicM.value;
+					var legalPersonPicFormat = legalPersonPicName.replace(/.+\./,".");
+					formData.append("legalPersonPic",legalPersonPic);
+					formData.append("legalPersonPicFormat",legalPersonPicFormat);
+					/* } */
+					//轮播图
+				    var pic1M =document.getElementById("pic1");
+				    var pic2M =document.getElementById("pic2");
+				    var pic3M =document.getElementById("pic3");
+				    var pic4M =document.getElementById("pic4");
+				    var pic5M =document.getElementById("pic5");
+				    var pic1 = pic1M.files[0];
+				    var pic2 = pic2M.files[0];
+				    var pic3 = pic3M.files[0];
+			     	var pic4 = pic4M.files[0];
+				    var pic5 = pic5M.files[0];
+					if(!pic1&&!pic2&&!pic3&&!pic4&&!pic5){
+						layer.msg("至少要有一张轮播图");
+						return;
+					}
+					
+					if(pic1){
+						formData.append("pic1",pic1);
+						var pic1Name = pic1M.value;
+						var pic1Format = pic1Name.replace(/.+\./,".");
+						formData.append("pic1Format",pic1Format);
+					}
+					if(pic2){
+						formData.append("pic2",pic2);
+						var pic2Name = pic2M.value;
+						var pic2Format = pic2Name.replace(/.+\./,".");
+						formData.append("pic2Format",pic2Format);
+					}
+					if(pic3){
+						formData.append("pic3",pic3);
+						var pic3Name = pic3M.value;
+						var pic3Format = pic3Name.replace(/.+\./,".");
+						formData.append("pic3Format",pic3Format);
+					}
+					if(pic4){
+						formData.append("pic4",pic4);
+						var pic4Name = pic4M.value;
+						var pic4Format = pic4Name.replace(/.+\./,".");
+						formData.append("pic4Format",pic4Format);
+					}
+					if(pic5){
+						formData.append("pic5",pic5);
+						var pic5Name = pic5M.value;
+						var pic5Format = pic5Name.replace(/.+\./,".");
+						formData.append("pic5Format",pic5Format);
+					}
+					var index = parent.layer.getFrameIndex(window.name);
+					var loadx = layer.load(1);
+					$.ajax({
+						type:'post',
+						contentType:false,
+					    processData: false,
+						url:'https://www.savingpay.com.cn:443/web/createNewSupplier',
+						data:formData,
+						success:function(data){
+							var add=layer.close(loadx);
+							if(data.code=='000000'){
+								layer.msg(data.message);
+								setTimeout( function(){
+									window.location.href = 'index.html'/*tpa=https://www.savingpay.com.cn/web/index.html*/
+								}, 1500 );
+							}else{
+								 layer.msg(data.errorMessage);
+							}
+						}
+					})
+		});
+	/* 鼠标 失焦事件*/
+/* $("#discount").blur(function(){
+	var val = $("#discount").val();
+	if(val > 1){
+		$("#discount").val("");
+		layer.msg("消费折扣请输入大于0小于1的小数");
+	}
+}) */
+
+</script>
+</html>

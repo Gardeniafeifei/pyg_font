@@ -1,0 +1,95 @@
+{{extend './layout/common.art'}}
+{{block 'styles'}}
+<link rel="stylesheet" href="/public/assets/css/page-list.css">
+{{/block}}
+{{block 'scripts'}}{{/block}}
+{{block 'content'}}
+<div class="main">
+  <div class="py-container">
+    <!--bread-->
+    <div class="bread">
+      <ul class="fl sui-breadcrumb">
+        {{if bread}}
+          {{if bread.parent && bread.parent.parent}}
+          <li><a href="/list/{{bread.parent.parent.id}}">{{bread.parent.parent.name}}</a></li>
+          {{/if}}
+          {{if bread.parent}}
+          <li><a href="/list/{{bread.parent.id}}">{{bread.parent.name}}</a></li>
+          {{/if}}
+          <li class="active">{{bread.name}}</li>
+        {{else}}
+        <li class="active">根据'{{q}}'的搜索结果：</li>
+        {{/if}}
+      </ul>
+    </div>
+    <!--selector-->
+    <div class="clearfix selector">
+      <div class="type-wrap">
+        <div class="fl key">摄像头像素</div>
+        <div class="fl value">
+          <ul class="type-list">
+            <li><a>1200万以上</a></li>
+            <li><a>800-1199万</a></li>
+            <li><a>1200-1599万</a></li>
+            <li><a>1600万以上</a></li>
+            <li><a>无摄像头</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="type-wrap">
+        <div class="fl key">价格</div>
+        <div class="fl value">
+          <ul class="type-list">
+            <li><a>0-500元</a></li>
+            <li><a>500-1000元</a></li>
+            <li><a>1000-1500元</a></li>
+            <li><a>1500-2000元</a></li>
+            <li><a>2000-3000元 </a></li>
+            <li><a>3000元以上</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--details-->
+    <div class="details">
+      <div class="sui-navbar">
+        <div class="navbar-inner filter">
+          <ul class="sui-nav">
+            <li class="{{sort==='commend'?'active':''}}"><a href="{{currUrl}}?sort=commend">综合</a></li>
+            <li class="{{sort==='quantity'?'active':''}}"><a href="{{currUrl}}?sort=quantity">销量</a></li>
+            <li class="{{sort==='market_time'?'active':''}}"><a href="{{currUrl}}?sort=market_time">新品</a></li>
+            <li class="{{sort.includes('price')?'active':''}}">
+              {{if sort==='-price'}}
+              <a href="{{currUrl}}?sort=price">价格 <span class="sui-icon icon-tb-fold"></span></a>
+              {{else if sort==='price'}}
+              <a href="{{currUrl}}?sort=-price">价格 <span class="sui-icon icon-tb-unfold"></span></a>
+              {{else}}
+              <a href="{{currUrl}}?sort=-price">价格</a>
+              {{/if}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="goods-list">
+        <ul class="yui3-g">
+          {{each list item i}}
+          <li class="yui3-u-1-5">
+            <div class="p-img"><a href="/item/{{item.id}}"><img src="{{item.thumbnail}}"></a></div>
+            <div class="price"><strong><em>¥</em><i>{{item.price}}</i></strong></div>
+            <div class="attr"><em>{{item.name}}</em></div>
+            <div class="commit"><i class="command">已有2000人评价</i></div>
+            <div class="operate">
+              <a href="/cart/add/{{item.id}}?count=1" class="sui-btn btn-bordered btn-danger">加入购物车</a>
+              <a href="#" class="sui-btn btn-bordered">对比</a>
+              <a href="#" class="sui-btn btn-bordered">关注</a>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+      <!-- 放pagination工具生成的HTML代码 -->
+      {{@pagination}}
+    </div>
+  </div>
+</div>
+{{/block}}

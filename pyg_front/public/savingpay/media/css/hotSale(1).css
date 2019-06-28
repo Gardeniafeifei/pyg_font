@@ -1,0 +1,155 @@
+body{
+	background: #fff;
+}
+
+.productContent{
+	width: 1212px;
+	margin: auto;
+	overflow: hidden;
+}
+.sortContainer{
+	height: 30px;
+	border: solid 1px #e0e0e0;
+	background-color: #f1f1f1;
+}
+.sort{
+	margin: 5px 10px;
+	border: solid 1px #cccccc;
+	width: 230px;
+	text-align: center;
+}
+.sort span{
+	padding: 4px 10px;
+	cursor: pointer;
+}
+.product{
+	float: left;
+	width: 220px;
+	height: 350px;
+	padding: 10px;
+	margin-top: 20px;
+	border: solid 1px rgba(255,255,255,0);
+}
+.product:hover{
+	border: solid 1px #e9e9e9;
+	box-shadow: 0px 0px 8px #e9e9e9;
+	transition: .5s;
+}
+.product .pic{
+	width: 212px;
+	height: 210px;
+	background: url(../img/index-example/hotSaleP-pic.jpg) no-repeat center;
+	background-size: cover;
+	cursor: pointer;
+}
+.product .price{
+	color: #c21e29;
+	font-size: 18px;
+	margin-top: 10px;
+}
+.productName{
+	color: #595959;
+	font-size: 14px;
+	margin-top: 16px;
+}
+.productInfo{
+	border-bottom: solid 1px #eaeaea;
+	line-height: 21px;
+	padding-bottom: 5px;
+}
+.productAdd{
+	overflow: hidden;
+	font-size: 14px;
+	margin-top: 10px;
+}
+.productAdd .sale{
+	float: left;
+	color: #b5b2bb;
+	margin-top: 5px;
+}
+.productAdd .sale .num{
+	color: #005aa0;
+}
+.addBtn{
+	cursor: pointer;
+	float: right;
+	width: 90px;
+	height: 30px;
+	text-align: center;
+	color: #fff;
+	line-height: 30px;	
+	background-color: #c21e29;
+}
+.addBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.recommended{
+	width: 1210px;
+	margin:48px auto;
+	border-top: solid 2px #e0e0e0;
+	height: 250px;
+	border-bottom: solid 2px #e0e0e0;
+}
+.recTitle{
+	font-size: 16px;
+	color: #C21E29;
+	margin: 12px auto;	
+}
+.recItem{
+	float: left;
+	height: 177px;
+	width: 179px;
+	border: solid 1px #fff;
+	padding: 10px;	
+	text-align: center;
+}
+.recItem:hover{
+	border: solid 1px #e9e9e9;
+	box-shadow: 0px 0px 8px #e9e9e9;
+	transition: .5s;
+}
+.recPic{
+	width: 168px;
+	height: 120px;
+	background: url(../img/index-example/recPic.jpg) no-repeat center;
+	background-size: cover;
+	cursor: pointer;
+}
+.recPrice{
+	color: #C21E29;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.recInfo{
+	width: 126px;
+	margin: auto;
+}
+.recAdd{
+	overflow: hidden;
+	font-size: 12px;
+	margin-top: 10px;
+}
+.recAdd .recSale{
+	float: left;
+	color: #b5b2bb;
+	margin-top: 5px;
+}
+.recAdd .recSale .recNum{
+	color: #005aa0;
+}
+.recAddBtn{
+	cursor: pointer;
+	float: right;
+	width: 70px;
+	height: 24px;
+	text-align: center;
+	color: #fff;
+	line-height: 24px;	
+	background-color: #c21e29;
+}
+.recAddBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}

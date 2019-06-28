@@ -1,0 +1,89 @@
+body{
+	background: #fff;
+}
+.content{
+	width: 1210px;
+	margin: auto;
+}
+img{
+	display: block;
+	width: 778px;
+	height: 73px;
+	margin: auto;
+}
+.phoneContainer{
+	width: 560px;
+	margin:10px auto;
+	overflow: hidden;
+}
+/*更换手机号*/
+.UC-newPhone .name{
+	float: left;
+	line-height: 30px;
+	font-size: 14px;	
+}
+.UC-newPhone .info{
+	margin-top: 20px;
+	margin-left: 28px;
+	overflow: hidden;
+}
+.UC-newPhone .info input{
+	width: 287px;
+	height: 30px;
+	border: solid 1px #cccccc;
+	margin-left: 10px;
+}
+.UC-newPhone .pwdBtn{
+	width: 118px;
+	height: 32px;
+	background: #c21e29;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	margin-left: 10px;
+}
+.UC-newPhone .pwdBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.UC-newPhone input.addr{
+	width: 520px;
+}
+.UC-newPhone .code{
+	float: left;
+	margin-left: 10px;
+	width: 115px;
+	height: 32px;
+	background: url("../img/newPhone-code.jpg")/*tpa=https://www.savingpay.com.cn/media/img/newPhone-code.jpg*/ no-repeat center;
+	background-size: cover;
+}
+.UC-newPhone .saveBtn{
+	float: left;
+	width: 130px;
+	height: 40px;
+	color: #fff;
+	background: #c21e29;
+	border-radius: 3px;
+	margin-left: 120px;
+	margin-top: 20px;
+}
+.UC-newPhone .saveBtn:hover{
+	background-color: #e84e40;
+	transition: .3s;
+}
+.UC-newPhone .backBtn{
+	float: left;
+	width: 130px;
+	height: 40px;
+	margin-left: 122px;
+	margin-top: 20px;
+	background: #fff;
+	color: #C21E29;
+	border: solid 1px #c21e29;
+	border-radius: 3px;
+}
+.phoneAlert{
+	color: #fff;
+	line-height: 30px;
+	margin-left: 10px;
+}
