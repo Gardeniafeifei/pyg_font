@@ -35,9 +35,9 @@ router.get('/member',checkLogin, userController.member)
 // 个人中心 订单列表
 router.get('/order',checkLogin, userController.order)
 // 注册页
-router.get('/register',userController.register)
+router.post('/register',userController.register)
 // 注册逻辑
-router.post('/register',userController.registerLogic)
-
+router.get('/exists',userController.exists)
+// 验证用户名
 
 module.exports = router

@@ -17,25 +17,25 @@
         <div class="control-group">
           <label class="control-label">用户名：</label>
           <div class="controls">
-            <input name="username" type="text" class="input-xfat input-xlarge" placeholder="用户名">
+            <input name="username" id="username" type="text" class="input-xfat input-xlarge" placeholder="用户名">
           </div>
         </div>
         <div class="control-group">
           <label class="control-label">邮箱：</label>
           <div class="controls">
-            <input name="email" type="text" class="input-xfat input-xlarge" placeholder="邮箱">
+            <input name="email" id="email" type="text" class="input-xfat input-xlarge" placeholder="邮箱">
           </div>
         </div>
         <div class="control-group">
           <label class="control-label">登录密码：</label>
           <div class="controls">
-            <input name="password" type="password" class="input-xfat input-xlarge" placeholder="设置登录密码">
+            <input name="password" id="pwd" type="password" class="input-xfat input-xlarge" placeholder="设置登录密码">
           </div>
         </div>
         <div class="control-group">
           <label class="control-label">确认密码：</label>
           <div class="controls">
-            <input name="affirm_pwd" type="password" class="input-xfat input-xlarge" placeholder="再次确认密码">
+            <input name="affirm_pwd" id="newpwd" type="password" class="input-xfat input-xlarge" placeholder="再次确认密码">
           </div>
         </div>
         <div class="control-group">
@@ -48,7 +48,7 @@
         <div class="control-group">
           <span class="control-label"></span>
           <div class="controls btn-reg">
-            <button class="sui-btn btn-block btn-xlarge btn-danger">完成注册</button>
+            <button id="btn" type="button" class="sui-btn btn-block btn-xlarge btn-danger">完成注册</button>
           </div>
         </div>
       </form>

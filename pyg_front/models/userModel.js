@@ -21,8 +21,8 @@ exports.register = (username, email, password) => {
 }
 
 // 获取用户名或邮箱的存在情况操作
-exports.exists = (username, email, password) => {
-  return axios.post('users/exists', {username, email})
+exports.exists = (username, email) => {
+  return axios.get(`users/exists?username=${username}&email=${email}`)
     .then(res => res.data)
     .catch(err => Promise.reject(err))
 }

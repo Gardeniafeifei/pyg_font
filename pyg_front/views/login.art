@@ -46,7 +46,7 @@
                 <button class="sui-btn btn-block btn-xlarge btn-danger">登&nbsp;&nbsp;录</button>
               </div>
             </form>
-            <a href="../public/register.html">立即注册</a>
+            <a href="/register">立即注册</a>
           </div>
         </div>
       </div>

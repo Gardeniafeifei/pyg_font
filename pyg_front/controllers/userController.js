@@ -75,8 +75,8 @@ exports.loginLogic = (req, res, next) => {
     res.locals.svg = captcha.data
     req.session.captchaText = captcha.text
     // 给页面表单  当表单提交的时候
-    res.locals.returnUrl = req.body.returnUrl || '/member'
-    res.render('login.art')
+    res.locals.returnUrl = req.body.returnUrl || '/login'
+    res.render('register.art')
   })
 }
 
@@ -101,14 +101,16 @@ exports.order = (req, res, next) => {
     .catch(err => next(err))
 }
 
-// 注册页面
+// 
 exports.register = (req, res, next) => {
-  res.render('register.art')
+  res.locals.returnUrl = req.query.returnUrl || '/member'
+  res.render('register.art');
 }
 
 // 注册逻辑
 exports.registerLogic = (req, res, next) => {
-  const {username, email, password, affirm_pwd} = req.body
+  const {username, email, password, affirm_pwd} = req.body;
+  // res.send({d:123})
   Promise.resolve().then(() => {
     // 1. 注册-数据校验
     if (!(username && email && password && affirm_pwd)) throw createError(456, '表单信息不完整')
@@ -116,8 +118,22 @@ exports.registerLogic = (req, res, next) => {
   }).then(() => {
     // 2. 注册-密码确认
     if (affirm_pwd !== password) throw createError(456, '两次密码输入不匹配')
-    return userModel.register(username, email, password)
-  }).then((user) => {
-
+    return Promise.resolve()
+  }).catch(err => {
+    if (err.status === 456) {
+      res.locals.errMsg = err.message
+    } else {
+      res.locals.errMsg = err.response.data.message || '服务器繁忙'
+    }
+    res.locals.returnUrl = req.body.returnUrl || '/member'
+    res.render('register.art')
   })
+}
+
+// 验证重复用户名
+exports.exists =async (req, res, next) => {
+  const {username, email} = req.body;
+  const result = await userModel.exists(username, email);
+  res.send(result);
+  console.log(username, email);
 }

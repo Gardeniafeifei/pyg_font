@@ -1,7 +1,7 @@
-<div id="nav-bottom">
+<div id="nav-bottom" style="background-color: #fff;">
   <!--顶部-->
   <div class="nav-top">
-    <div class="top">
+    <div class="top" style="background-color: #F5F5F5;">
       <div class="py-container">
         <div class="shortcut">
           <ul class="fl">
@@ -9,8 +9,7 @@
             <li class="f-item">
               {{if !user.username}}
               请
-              <a href="/login">登录</a>
-              <a href="../../public/register.html">免费注册</a>
+              <a href="/login" style="color: red;">登录</a>
               {{else}}
               <a href="/member">{{user.username}}</a>
               <a href="/logout">退出</a>
@@ -18,6 +17,10 @@
             </li>
           </ul>
           <ul class="fr">
+            <li class="f-item">
+              地点: 重庆
+            </li>
+            <li class="f-item space"></li>
             <li class="f-item">
               <a href="/order">我的订单</a>
             </li>
